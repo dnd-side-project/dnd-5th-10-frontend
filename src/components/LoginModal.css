@@ -1,0 +1,63 @@
+.modal {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal button {
+  cursor: pointer;
+  border: 0px;
+}
+.modal > section {
+  margin: 0 auto;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.modal > section > header {
+  position: relative;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 16px 16px 16px 16px;
+  background-color: #e7e7e7;
+  font-size: 20pt;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.65);
+}
+.modal > section > header button {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  width: 30px;
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+  color: #999;
+  background-color: transparent;
+}
+.modal > section > main {
+  padding: 15px;
+  border-top: 1px solid #e6dede;
+  background-color: #f1f1f1;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.modal > section > main button {
+  font-size: 20px;
+  color: rgb(70, 70, 70);
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 2px;
+  margin: 10px;
+  padding: 10px;
+  width: 400px;
+  text-align: center;
+}
+
+.modal.openModal {
+  display: flex;
+  align-items: center;
+}
+
+.modal img {
+  height: 32px;
+  float: left;
+}
