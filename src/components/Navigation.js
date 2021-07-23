@@ -17,12 +17,14 @@ import {
   Button,
 } from 'reactstrap'
 import './Navigation.css'
+import LoginModal from './LoginModal'
 
 const Navigation = (props) => {
+  const [modalOpen, setModalOpen] = useState(false)
   const [firstDropdownOpen, setFirstDropdownOpen] = useState(false)
   const [secondDropdownOpen, setSecondDropdownOpen] = useState(false)
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false)
-  const [logIn, setLogin] = useState(true)
+  const [logIn, setLogin] = useState(false)
 
   const firstToggle = () => {
     setFirstDropdownOpen(!firstDropdownOpen)
@@ -33,6 +35,13 @@ const Navigation = (props) => {
 
   const profileToggle = () => {
     setProfileDropdownOpen(!profileDropdownOpen)
+  }
+
+  const openModal = () => {
+    setModalOpen(true)
+  }
+  const closeModal = () => {
+    setModalOpen(false)
   }
 
   return (
@@ -95,7 +104,10 @@ const Navigation = (props) => {
         ) : (
           <Nav navbar className="right-tab">
             <NavItem>
-              <NavLink href="/">Sign in</NavLink>
+              <Button className="sign-in" onClick={openModal}>
+                Sign in
+              </Button>
+              <LoginModal open={modalOpen} close={closeModal} header="Login to ITerview"></LoginModal>
             </NavItem>
             <NavItem className="sign-up">
               <Button outline color="light" size="sm">
