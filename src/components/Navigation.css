@@ -19,6 +19,13 @@ nav .navbar-text {
   height: 30px;
 }
 
+#profile-img {
+  height: 35px;
+  object-fit: cover;
+  border-radius: 70%;
+  margin-right: 10%;
+}
+
 .nav-item {
   margin-right: 5%;
   vertical-align: middle;
@@ -36,8 +43,10 @@ a.nav-link {
   width: 80%;
 }
 
+.profile-tab {
+  width: 20%;
+}
 .right-tab {
-  /* font-style: italic; */
   white-space: nowrap;
   width: 20%;
 }
