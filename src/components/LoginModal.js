@@ -1,8 +1,9 @@
 import React from 'react'
 import './LoginModal.css'
-import googleLogo from '../img/google-logo.png'
-import facebookLogo from '../img/fb-logo.png'
-import githubLogo from '../img/github-logo.png'
+
+const googleLogo = '/img/google-logo.png'
+const facebookLogo = '/img/fb-logo.png'
+const githubLogo = '/img/github-logo.png'
 
 function LoginModal(props) {
   const { open, close, header } = props
