@@ -1,0 +1,90 @@
+#carousel-slide {
+  position: relative;
+
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  text-align: center;
+  min-width: 1000px;
+}
+.carousel-text {
+  height: 400px;
+  width: 100%;
+  padding-top: 220px;
+  position: absolute;
+  z-index: 1;
+  color: ivory;
+}
+
+.carousel-item > img {
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+.carousel-text {
+  text-align: left;
+}
+.carousel-text > h1 {
+  max-width: 60%;
+  position: absolute;
+  top: 30%;
+  left: 15%;
+}
+
+.carousel-text > h3 {
+  max-width: 30%;
+  font-size: 11pt;
+  position: absolute;
+  left: 15%;
+  top: 50%;
+}
+.slick-dots {
+  top: 90%;
+  z-index: 5;
+  height: 10px;
+  position: absolute;
+  opacity: 80%;
+}
+.carousel-control {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  opacity: 30%;
+  z-index: 0;
+  top: 45%;
+}
+
+.carousel-item-link {
+  position: absolute;
+  top: 72%;
+  left: 15%;
+  width: 250px;
+  height: 48px;
+  border: 0;
+  background-color: #4d4d4d;
+  color: ivory;
+  padding-left: 30px;
+}
+.carousel-link-text {
+  position: absolute;
+  top: 25%;
+  left: 20px;
+  color: ivory;
+}
+.carousel-link-arrow {
+  position: absolute;
+  top: 22%;
+  right: 20px;
+  color: ivory;
+}
+
+img.button-next {
+  margin-left: 42%;
+}
+img.button-prev {
+  margin-right: 42%;
+}
+img.button-next:hover,
+img.button-prev:hover {
+  opacity: 50%;
+}
