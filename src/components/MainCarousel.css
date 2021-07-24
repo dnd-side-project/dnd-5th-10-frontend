@@ -59,16 +59,15 @@
   top: 72%;
   left: 15%;
   width: 250px;
-  height: 40px;
+  height: 48px;
   border: 0;
   background-color: #4d4d4d;
   color: ivory;
-  /* text-align: center; */
   padding-left: 30px;
 }
 .carousel-link-text {
   position: absolute;
-  top: 22%;
+  top: 25%;
   left: 20px;
   color: ivory;
 }
@@ -77,8 +76,6 @@
   top: 22%;
   right: 20px;
   color: ivory;
-
-  /* background-color: red; */
 }
 
 img.button-next {
@@ -89,17 +86,5 @@ img.button-prev {
 }
 img.button-next:hover,
 img.button-prev:hover {
-  opacity: 70%;
+  opacity: 50%;
 }
-
-/* button.slick-arrow.slick-prev {
-  opacity: 1;
-  z-index: 2;
-  margin-left: 10%;
-}
-
-button.slick-arrow.slick-next {
-  opacity: 1;
-  z-index: 2;
-  margin-right: 10%;
-} */
