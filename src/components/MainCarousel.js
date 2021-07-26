@@ -18,6 +18,7 @@ const MainCarousel = () => {
 
   const items = [
     {
+      id: 1,
       src: '/img/carousel-1.png',
       textHeader: 'First Slide saklgdjklgjnal',
       caption: '서비스 소개 및 퀴즈 문구서비스 소개 및 퀴즈 문구서비스 소개 및 퀴즈 문구서비스 소개 및 퀴즈 문구',
@@ -25,6 +26,7 @@ const MainCarousel = () => {
       title: '첫번째',
     },
     {
+      id: 2,
       src: '/img/carousel-2.png',
       textHeader: 'Second Slide saklgdjklgjnal',
       caption: '서비스 소개 및 퀴즈 문구서비스 소개 및 퀴즈 문구서비스 소개 및 퀴즈 문구서비스 소개 및 퀴즈 문구',
@@ -32,6 +34,7 @@ const MainCarousel = () => {
       title: '두번째 바로가기',
     },
     {
+      id: 3,
       src: '/img/carousel-3.png',
       textHeader: 'Third Slide saklgdjklgjnal',
       caption: '서비스 소개 및 퀴즈 문구서비스 소개 및 퀴즈 문구서비스 소개 및 퀴즈 문구서비스 소개 및 퀴즈 문구',
@@ -53,13 +56,13 @@ const MainCarousel = () => {
 
   const slides = items.map((item) => {
     return (
-      <div className="carousel-item">
+      <div key={item.id} className="carousel-item">
         <div className="carousel-text">
           <h1>{item.textHeader}</h1>
           <h3>{item.caption}</h3>
         </div>
         <img height="400px" src={item.src} alt={item.textHeader}></img>
-        <button class="carousel-item-link" link={item.link}>
+        <button className="carousel-item-link" link={item.link}>
           <span className="carousel-link-text">
             <b>{item.title}</b>
           </span>
