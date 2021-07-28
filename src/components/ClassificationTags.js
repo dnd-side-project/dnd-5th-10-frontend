@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Button } from 'reactstrap'
 
 const Tags = [
@@ -58,16 +59,28 @@ const Tags = [
     name: '안드로이드',
   },
 ]
+
 const ClassificationTags = () => {
+  const [selectedTag, setSelectedTag] = useState([])
+
+  const selectThisTag = (e) => {
+    setSelectedTag(selectedTag.concat(e.target.id))
+  }
+
   const TagButtons = Tags.map((tagItem) => {
     return (
-      <div>
-        <Button color="secondary">{tagItem.name}</Button>
-      </div>
+      <Button color="secondary" key={tagItem.id} id={tagItem.id} onClick={selectThisTag}>
+        {tagItem.name}
+      </Button>
     )
   })
 
-  return <div>{TagButtons}</div>
+  return (
+    <div>
+      {TagButtons}
+      {console.log(selectedTag)}
+    </div>
+  )
 }
 
 export default ClassificationTags
