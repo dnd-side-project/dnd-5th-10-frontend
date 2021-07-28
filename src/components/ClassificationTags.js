@@ -64,21 +64,32 @@ const ClassificationTags = () => {
   const [selectedTag, setSelectedTag] = useState([])
 
   const selectThisTag = (e) => {
-    setSelectedTag(selectedTag.concat(e.target.id))
+    setSelectedTag(selectedTag.concat(Number(e.target.id)))
+  }
+  const deselectThisTag = (e) => {
+    setSelectedTag(selectedTag.filter((element) => element !== Number(e.target.id)))
   }
 
   const TagButtons = Tags.map((tagItem) => {
-    return (
-      <Button color="secondary" key={tagItem.id} id={tagItem.id} onClick={selectThisTag}>
-        {tagItem.name}
-      </Button>
-    )
+    if (selectedTag.includes(tagItem.id)) {
+      return (
+        <Button color="primary" selected={true} key={tagItem.id} id={tagItem.id} onClick={deselectThisTag}>
+          {tagItem.name}
+        </Button>
+      )
+    } else {
+      return (
+        <Button color="secondary" key={tagItem.id} id={tagItem.id} onClick={selectThisTag}>
+          {tagItem.name}
+        </Button>
+      )
+    }
   })
 
   return (
     <div>
       {TagButtons}
-      {console.log(selectedTag)}
+      {/* {console.log(selectedTag)} */}
     </div>
   )
 }
