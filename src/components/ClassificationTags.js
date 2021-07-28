@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from 'reactstrap'
+import './ClassificationTags.css'
 
 const Tags = [
   {
@@ -73,13 +74,18 @@ const ClassificationTags = () => {
   const TagButtons = Tags.map((tagItem) => {
     if (selectedTag.includes(tagItem.id)) {
       return (
-        <Button color="primary" selected={true} key={tagItem.id} id={tagItem.id} onClick={deselectThisTag}>
+        <Button
+          className="classification-tag-selected"
+          selected={true}
+          key={tagItem.id}
+          id={tagItem.id}
+          onClick={deselectThisTag}>
           {tagItem.name}
         </Button>
       )
     } else {
       return (
-        <Button color="secondary" key={tagItem.id} id={tagItem.id} onClick={selectThisTag}>
+        <Button className="classification-tag-unselected" key={tagItem.id} id={tagItem.id} onClick={selectThisTag}>
           {tagItem.name}
         </Button>
       )
@@ -87,9 +93,14 @@ const ClassificationTags = () => {
   })
 
   return (
-    <div>
-      {TagButtons}
-      {/* {console.log(selectedTag)} */}
+    <div className="classification-tag">
+      <div className="classification-title-submit">
+        <h1>Tag</h1>
+        <button>완료</button>
+      </div>
+      <div className="classification-tag-btn">
+        {TagButtons} {console.log(selectedTag)}
+      </div>
     </div>
   )
 }
