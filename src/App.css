@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+@import url('//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-full.css');
+* {
+  font-family: 'D2Coding', monospace !important;
+  /* font-size: 95%; */
+}
