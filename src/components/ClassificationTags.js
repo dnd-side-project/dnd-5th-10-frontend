@@ -74,12 +74,7 @@ const ClassificationTags = () => {
   const TagButtons = Tags.map((tagItem) => {
     if (selectedTag.includes(tagItem.id)) {
       return (
-        <Button
-          className="classification-tag-selected"
-          selected={true}
-          key={tagItem.id}
-          id={tagItem.id}
-          onClick={deselectThisTag}>
+        <Button className="classification-tag-selected" key={tagItem.id} id={tagItem.id} onClick={deselectThisTag}>
           {tagItem.name}
         </Button>
       )
