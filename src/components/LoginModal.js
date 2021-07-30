@@ -1,5 +1,6 @@
 import React from 'react'
 import './LoginModal.css'
+import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL } from '../constants/Oauth.js'
 
 const googleLogo = '/img/google-logo.png'
 const facebookLogo = '/img/fb-logo.png'
@@ -20,20 +21,26 @@ function LoginModal(props) {
             </button>
           </header>
           <main>
-            <button>
-              <img id="googleLogo" src={googleLogo} alt="googleLogo" />
-              Login with Google
-            </button>{' '}
+            <a href={GOOGLE_AUTH_URL}>
+              <button>
+                <img id="googleLogo" src={googleLogo} alt="googleLogo" />
+                Login with Google
+              </button>{' '}
+            </a>
             <br />
-            <button>
-              <img src={facebookLogo} alt="fbLogo" />
-              Login with Facebook
-            </button>{' '}
+            <a href={FACEBOOK_AUTH_URL}>
+              <button>
+                <img src={facebookLogo} alt="fbLogo" />
+                Login with Facebook
+              </button>{' '}
+            </a>
             <br />
-            <button>
-              <img src={githubLogo} alt="githubLogo" />
-              Login with Github
-            </button>
+            <a href={GITHUB_AUTH_URL}>
+              <button>
+                <img src={githubLogo} alt="githubLogo" />
+                Login with Github
+              </button>
+            </a>
           </main>
         </section>
       ) : null}
