@@ -1,15 +1,14 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import Main from 'pages/Main'
-import QuestionRegister from 'pages/QuestionRegister'
-
+import MainPage from 'pages/MainPage'
+import QuestionRegisterPage from 'pages/QuestionRegisterPage'
 import Navigation from 'components/Navigation'
 
 const Routers = () => (
   <BrowserRouter>
     <Navigation />
-    <Route exact path="/" component={Main} />
-    <Route exact path="/QuestionRegister" component={QuestionRegister} />
+    <Route exact path="/" component={MainPage} />
+    <Route exact path="/QuestionRegister" component={QuestionRegisterPage} />
   </BrowserRouter>
 )
 

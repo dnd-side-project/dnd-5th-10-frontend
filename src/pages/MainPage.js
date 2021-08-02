@@ -2,7 +2,7 @@ import MainCarousel from 'components/MainCarousel'
 import ClassificationTags from 'components/ClassificationTags'
 import { Link } from 'react-router-dom'
 
-function Main() {
+function MainPage() {
   return (
     <div className="Main">
       <MainCarousel />
@@ -12,4 +12,4 @@ function Main() {
   )
 }
 
-export default Main
+export default MainPage
