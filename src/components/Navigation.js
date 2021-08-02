@@ -16,8 +16,8 @@ import {
   Dropdown,
   Button,
 } from 'reactstrap'
-import './Navigation.css'
-import LoginModal from './LoginModal'
+import 'components/Navigation.css'
+import LoginModal from 'components/LoginModal'
 
 const Navigation = (props) => {
   const [modalOpen, setModalOpen] = useState(false)

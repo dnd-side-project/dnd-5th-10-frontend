@@ -1,5 +1,5 @@
 import React from 'react'
-import './LoginModal.css'
+import 'components/LoginModal.css'
 
 const googleLogo = '/img/google-logo.png'
 const facebookLogo = '/img/fb-logo.png'

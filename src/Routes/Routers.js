@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import Main from '../pages/Main'
-import QuestionRegister from '../pages/QuestionRegister'
+import Main from 'pages/Main'
+import QuestionRegister from 'pages/QuestionRegister'
 
-import Navigation from '../components/Navigation'
+import Navigation from 'components/Navigation'
 
 const Routers = () => (
   <BrowserRouter>

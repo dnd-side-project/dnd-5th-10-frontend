@@ -1,7 +1,6 @@
-import MainCarousel from '../components/MainCarousel'
-import Navigation from '../components/Navigation'
-import ClassificationTags from '../components/ClassificationTags'
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
+import MainCarousel from 'components/MainCarousel'
+import ClassificationTags from 'components/ClassificationTags'
+import { Link } from 'react-router-dom'
 
 function Main() {
   return (

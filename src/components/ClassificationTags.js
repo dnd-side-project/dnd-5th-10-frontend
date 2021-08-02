@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Button } from 'reactstrap'
-import './ClassificationTags.css'
+import 'components/ClassificationTags.css'
 
 const Tags = [
   {
