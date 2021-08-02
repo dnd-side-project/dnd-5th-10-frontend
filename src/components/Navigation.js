@@ -84,6 +84,7 @@ const Navigation = () => {
         </Nav>
         {logIn ? (
           <Nav navbar className="profile-tab">
+            {console.log(logIn)}
             <Dropdown isOpen={profileDropdownOpen} toggle={profileToggle}>
               <DropdownToggle nav caret>
                 <img
@@ -106,11 +107,12 @@ const Navigation = () => {
               </Button>
               <LoginModal open={modalOpen} close={closeModal} header="Login to ITerview"></LoginModal>
             </NavItem>
-            <NavItem className="sign-up">
+            {console.log(logIn)}
+            {/* <NavItem className="sign-up">
               <Button outline color="light" size="sm">
                 Sign Up
               </Button>
-            </NavItem>
+            </NavItem> */}
           </Nav>
         )}
       </Navbar>
