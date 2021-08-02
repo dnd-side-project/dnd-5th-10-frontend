@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
-import { Router } from 'react-router-dom'
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
@@ -18,13 +13,13 @@ import {
 } from 'reactstrap'
 import './Navigation.css'
 import LoginModal from './LoginModal'
+import { getCookie } from './Cookies'
 
-const Navigation = (props) => {
+const Navigation = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [firstDropdownOpen, setFirstDropdownOpen] = useState(false)
   const [secondDropdownOpen, setSecondDropdownOpen] = useState(false)
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false)
-  const [logIn, setLogin] = useState(false)
 
   const firstToggle = () => {
     setFirstDropdownOpen(!firstDropdownOpen)
@@ -43,6 +38,8 @@ const Navigation = (props) => {
   const closeModal = () => {
     setModalOpen(false)
   }
+
+  const logIn = getCookie('Authorization')
 
   return (
     <div id="Navigation">
