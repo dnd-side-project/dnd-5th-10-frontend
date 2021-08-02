@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
-import { Router } from 'react-router-dom'
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
@@ -18,13 +13,13 @@ import {
 } from 'reactstrap'
 import 'components/Navigation.css'
 import LoginModal from 'components/LoginModal'
+import { getCookie } from 'components/Cookies'
 
-const Navigation = (props) => {
+const Navigation = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [firstDropdownOpen, setFirstDropdownOpen] = useState(false)
   const [secondDropdownOpen, setSecondDropdownOpen] = useState(false)
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false)
-  const [logIn, setLogin] = useState(false)
 
   const firstToggle = () => {
     setFirstDropdownOpen(!firstDropdownOpen)
@@ -43,6 +38,8 @@ const Navigation = (props) => {
   const closeModal = () => {
     setModalOpen(false)
   }
+
+  const logIn = getCookie('Authorization')
 
   return (
     <div id="Navigation">
@@ -87,6 +84,7 @@ const Navigation = (props) => {
         </Nav>
         {logIn ? (
           <Nav navbar className="profile-tab">
+            {console.log(logIn)}
             <Dropdown isOpen={profileDropdownOpen} toggle={profileToggle}>
               <DropdownToggle nav caret>
                 <img
@@ -109,11 +107,12 @@ const Navigation = (props) => {
               </Button>
               <LoginModal open={modalOpen} close={closeModal} header="Login to ITerview"></LoginModal>
             </NavItem>
-            <NavItem className="sign-up">
+            {console.log(logIn)}
+            {/* <NavItem className="sign-up">
               <Button outline color="light" size="sm">
                 Sign Up
               </Button>
-            </NavItem>
+            </NavItem> */}
           </Nav>
         )}
       </Navbar>
