@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Navbar,
   Nav,
@@ -14,12 +14,14 @@ import {
 import './Navigation.css'
 import LoginModal from './LoginModal'
 import { getCookie } from './Cookies'
+import axios from 'axios'
 
 const Navigation = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [firstDropdownOpen, setFirstDropdownOpen] = useState(false)
   const [secondDropdownOpen, setSecondDropdownOpen] = useState(false)
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false)
+  const [authorization, setAuthorization] = useState(null)
 
   const firstToggle = () => {
     setFirstDropdownOpen(!firstDropdownOpen)
@@ -40,6 +42,22 @@ const Navigation = () => {
   }
 
   const logIn = getCookie('Authorization')
+
+  useEffect(() => {
+    setAuthorization(logIn)
+  }, [])
+
+  const config = {
+    headers: { Authorization: `Bearer ${authorization}` },
+  }
+
+  axios('/api/v1/user/profile/1')
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((err) => {
+      console.log(err)
+    }, config)
 
   return (
     <div id="Navigation">
@@ -84,7 +102,6 @@ const Navigation = () => {
         </Nav>
         {logIn ? (
           <Nav navbar className="profile-tab">
-            {console.log(logIn)}
             <Dropdown isOpen={profileDropdownOpen} toggle={profileToggle}>
               <DropdownToggle nav caret>
                 <img
