@@ -2,6 +2,8 @@ import 'components/QuestionRegister.css'
 import Tags from 'components/Tags'
 import { useEffect, useState } from 'react'
 import { Form, Input, Button } from 'reactstrap'
+import { JWT_TOKEN } from 'constants/Oauth'
+import axios from 'axios'
 
 const questionRegisterImg = '/img/questionRegister.jpg'
 const QuestionRegister = () => {
@@ -20,6 +22,21 @@ const QuestionRegister = () => {
       textArea.style.setProperty('color', 'black')
     }
   })
+
+  // const registerQuestionAndTags = () => {
+  //   axios
+  //     .post(`/api/v1/question`, {
+  //       bookmark_count: 0,
+  //       content: 'string',
+  //       tags: taksdaglkas,
+  //     })
+  //     .then((response) => {
+  //       console.log(response)
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
 
   return (
     <div className="question-register">
@@ -50,7 +67,7 @@ const QuestionRegister = () => {
         <div className="quesiton-register-tags">
           <h2>zz</h2>
           <Tags id="register-tags" />
-          <Button>완료오</Button>
+          <Button onClick={registerQuestionAndTags}>완료오</Button>
         </div>
       </div>
     </div>
