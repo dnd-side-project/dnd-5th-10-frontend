@@ -46,7 +46,7 @@ const Navigation = () => {
   useEffect(() => {
     if (JWT_TOKEN) {
       axios
-        .get(`/api/v1/user/profile/1`)
+        .get(`/api/v1/user/profile/`)
         .then((res) => {
           console.log(res.data)
           setUserProfile(res.data)
