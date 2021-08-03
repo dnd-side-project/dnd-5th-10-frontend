@@ -67,7 +67,7 @@ const QuestionRegister = () => {
         <div className="quesiton-register-tags">
           <h2>zz</h2>
           <Tags id="register-tags" />
-          <Button onClick={registerQuestionAndTags}>완료오</Button>
+          <Button>완료오</Button>
         </div>
       </div>
     </div>
