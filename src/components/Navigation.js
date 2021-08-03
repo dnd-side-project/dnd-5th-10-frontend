@@ -15,6 +15,8 @@ import 'components/Navigation.css'
 import LoginModal from 'components/LoginModal'
 import axios from 'axios'
 import { JWT_TOKEN } from 'constants/Oauth'
+import { removeCookie } from 'components/Cookies'
+import { Route } from 'react-router-dom'
 
 const Navigation = () => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -44,7 +46,7 @@ const Navigation = () => {
   useEffect(() => {
     if (JWT_TOKEN) {
       axios
-        .get(`/api/v1/user/profile/1`)
+        .get(`/api/v1/user/profile/`)
         .then((res) => {
           console.log(res.data)
           setUserProfile(res.data)
@@ -98,38 +100,48 @@ const Navigation = () => {
         </Nav>
         {/* jwt_token이 존재하면 login 처리 */}
         {JWT_TOKEN ? (
-          <Nav navbar className="profile-tab">
-            <Dropdown isOpen={profileDropdownOpen} toggle={profileToggle}>
-              <DropdownToggle nav caret>
-                {console.log(userProfile?.username)}
-                {userProfile?.username}님 &nbsp;
-                <img
-                  id="profile-img"
-                  src="https://mblogthumb-phinf.pstatic.net/MjAxODA0MTBfODYg/MDAxNTIzMjk5NjMyNzcw.CqPIwxjy-Og7GnIho2vbO9CKvDcbE87kq6795zqgXDQg.XSGZAMbi04FtIotEg2gAAPMykMu7C-RsiMI3gr1pGc8g.PNG.dlqlwm14/%EC%82%AC5.png?type=w800"
-                />
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>profile-1</DropdownItem>
-                <DropdownItem>profile-2</DropdownItem>
-                <DropdownItem>profile-3</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-          </Nav>
+          <Route exact path="/login">
+            <Nav navbar className="profile-tab">
+              <Dropdown isOpen={profileDropdownOpen} toggle={profileToggle}>
+                <DropdownToggle nav caret>
+                  {console.log(userProfile?.username)}
+                  {userProfile?.username}님 &nbsp;
+                  {console.log(JWT_TOKEN)}
+                  <img
+                    id="profile-img"
+                    src="https://mblogthumb-phinf.pstatic.net/MjAxODA0MTBfODYg/MDAxNTIzMjk5NjMyNzcw.CqPIwxjy-Og7GnIho2vbO9CKvDcbE87kq6795zqgXDQg.XSGZAMbi04FtIotEg2gAAPMykMu7C-RsiMI3gr1pGc8g.PNG.dlqlwm14/%EC%82%AC5.png?type=w800"
+                  />
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem>profile-1</DropdownItem>
+                  <DropdownItem>profile-2</DropdownItem>
+                  <DropdownItem>profile-3</DropdownItem>
+                  <DropdownItem
+                    onClick={() => {
+                      removeCookie('Authorization', { path: '/' })
+                    }}>
+                    Logout
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </Nav>
+          </Route>
         ) : (
-          <Nav navbar className="right-tab">
-            <NavItem>
-              <Button className="sign-in" onClick={openModal}>
-                Sign in
-              </Button>
-              <LoginModal open={modalOpen} close={closeModal} header="Login to ITerview"></LoginModal>
-            </NavItem>
-            {console.log(JWT_TOKEN)}
-            {/* <NavItem className="sign-up">
+          <Route exact path="/">
+            <Nav navbar className="right-tab">
+              <NavItem>
+                <Button className="sign-in" onClick={openModal}>
+                  Sign in
+                </Button>
+                <LoginModal open={modalOpen} close={closeModal} header="Login to ITerview"></LoginModal>
+              </NavItem>
+              {/* <NavItem className="sign-up">
               <Button outline color="light" size="sm">
                 Sign Up
               </Button>
             </NavItem> */}
-          </Nav>
+            </Nav>
+          </Route>
         )}
       </Navbar>
     </div>
