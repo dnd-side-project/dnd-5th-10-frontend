@@ -9,6 +9,7 @@ const questionRegisterImg = '/img/questionRegister.jpg'
 const QuestionRegister = () => {
   const [textContents, setTextContents] = useState('')
   const [textContentsLength, setTextContentsLength] = useState(0)
+  const [questionTags, setQuestionTags] = useState('')
   // const [checkTextLength, setCheckTextLength] = useState(textContentsLength + '/1000')
 
   useEffect(() => {
@@ -66,7 +67,8 @@ const QuestionRegister = () => {
         <hr />
         <div className="quesiton-register-tags">
           <h2>zz</h2>
-          <Tags id="register-tags" />
+          <Tags questionTag={setQuestionTags} id="register-tags" />
+          {console.log(questionTags)}
           <Button>완료오</Button>
         </div>
       </div>

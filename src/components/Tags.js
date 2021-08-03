@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from 'reactstrap'
 import 'components/Tags.css'
 
-const Tags = () => {
+const Tags = (props) => {
   const items = [
     {
       id: 1,
@@ -70,6 +70,14 @@ const Tags = () => {
   const deselectThisTag = (e) => {
     setSelectedTag(selectedTag.filter((element) => element !== Number(e.target.id)))
   }
+
+  useEffect(() => {
+    let questionTags = ''
+    selectedTag.map((item) => {
+      questionTags += items[item].name + ' '
+    })
+    props.questionTag(questionTags)
+  })
 
   const TagButtons = items.map((tagItem) => {
     if (selectedTag.includes(tagItem.id)) {
