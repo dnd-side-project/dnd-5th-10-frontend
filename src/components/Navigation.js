@@ -13,15 +13,15 @@ import {
 } from 'reactstrap'
 import './Navigation.css'
 import LoginModal from './LoginModal'
-import { getCookie } from './Cookies'
 import axios from 'axios'
+import { JWT_TOKEN } from '../constants/Oauth'
 
 const Navigation = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [firstDropdownOpen, setFirstDropdownOpen] = useState(false)
   const [secondDropdownOpen, setSecondDropdownOpen] = useState(false)
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false)
-  const [authorization, setAuthorization] = useState(null)
+  const [userProfile, setUserProfile] = useState(null)
 
   const firstToggle = () => {
     setFirstDropdownOpen(!firstDropdownOpen)
@@ -41,23 +41,19 @@ const Navigation = () => {
     setModalOpen(false)
   }
 
-  const logIn = getCookie('Authorization')
-
   useEffect(() => {
-    setAuthorization(logIn)
-  }, [])
-
-  const config = {
-    headers: { Authorization: `Bearer ${authorization}` },
-  }
-
-  axios('/api/v1/user/profile/1')
-    .then((response) => {
-      console.log(response)
-    })
-    .catch((err) => {
-      console.log(err)
-    }, config)
+    if (JWT_TOKEN) {
+      axios
+        .get(`/api/v1/user/profile/1`)
+        .then((res) => {
+          console.log(res.data)
+          setUserProfile(res.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+  }, [JWT_TOKEN])
 
   return (
     <div id="Navigation">
@@ -100,10 +96,13 @@ const Navigation = () => {
             <NavLink href="/">new5</NavLink>
           </NavItem>
         </Nav>
-        {logIn ? (
+        {/* jwt_token이 존재하면 login 처리 */}
+        {JWT_TOKEN ? (
           <Nav navbar className="profile-tab">
             <Dropdown isOpen={profileDropdownOpen} toggle={profileToggle}>
               <DropdownToggle nav caret>
+                {console.log(userProfile?.username)}
+                {userProfile?.username}님 &nbsp;
                 <img
                   id="profile-img"
                   src="https://mblogthumb-phinf.pstatic.net/MjAxODA0MTBfODYg/MDAxNTIzMjk5NjMyNzcw.CqPIwxjy-Og7GnIho2vbO9CKvDcbE87kq6795zqgXDQg.XSGZAMbi04FtIotEg2gAAPMykMu7C-RsiMI3gr1pGc8g.PNG.dlqlwm14/%EC%82%AC5.png?type=w800"
@@ -124,7 +123,7 @@ const Navigation = () => {
               </Button>
               <LoginModal open={modalOpen} close={closeModal} header="Login to ITerview"></LoginModal>
             </NavItem>
-            {console.log(logIn)}
+            {console.log(JWT_TOKEN)}
             {/* <NavItem className="sign-up">
               <Button outline color="light" size="sm">
                 Sign Up
