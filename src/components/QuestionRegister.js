@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react'
 import { Form, Input, Button } from 'reactstrap'
 import { JWT_TOKEN, API_BASE_URL } from 'constants/Oauth'
 import axios from 'axios'
+import { withRouter } from 'react-router-dom'
 
 const questionRegisterImg = '/img/questionRegister.jpg'
-const QuestionRegister = () => {
+const QuestionRegister = ({ history }) => {
   const [textContents, setTextContents] = useState('')
   const [textContentsLength, setTextContentsLength] = useState(0)
 
@@ -49,6 +50,8 @@ const QuestionRegister = () => {
         .catch((err) => {
           console.log(err)
         })
+      window.alert('문제가 등록되었습니다.')
+      history.push('/')
     }
   }
 
@@ -86,4 +89,4 @@ const QuestionRegister = () => {
   )
 }
 
-export default QuestionRegister
+export default withRouter(QuestionRegister)
