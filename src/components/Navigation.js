@@ -16,6 +16,7 @@ import LoginModal from 'components/LoginModal'
 import axios from 'axios'
 import { JWT_TOKEN } from 'constants/Oauth'
 import { removeCookie } from 'components/Cookies'
+import { Link } from 'react-router-dom'
 
 const Navigation = () => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -62,7 +63,9 @@ const Navigation = () => {
     <div id="Navigation">
       <Navbar expand={true}>
         <NavbarText>
-          <img id="logo" src="https://www.next-t.co.kr/public/uploads/7b7f7e2138e29e598cd0cdf2c85ea08d.jpg"></img>
+          <Link to="/">
+            <img id="logo" src="https://www.next-t.co.kr/public/uploads/7b7f7e2138e29e598cd0cdf2c85ea08d.jpg"></img>
+          </Link>
         </NavbarText>
         <Nav navbar className="left-tab">
           <NavItem>
