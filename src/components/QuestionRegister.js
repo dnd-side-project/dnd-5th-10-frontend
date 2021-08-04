@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { Form, Input, Button } from 'reactstrap'
 import { JWT_TOKEN, API_BASE_URL } from 'constants/Oauth'
 import axios from 'axios'
-import { end } from '@popperjs/core'
 
 const questionRegisterImg = '/img/questionRegister.jpg'
 const QuestionRegister = () => {
@@ -30,12 +29,7 @@ const QuestionRegister = () => {
       window.alert('최소 20자 이상 입력해주세요')
     } else {
       const questionRegiTag = localStorage.getItem('questionRegiTag')
-
-      console.log(questionRegiTag)
-      console.log(textContents)
-
-      console.log(typeof questionRegiTag)
-      console.log(typeof textContents)
+      const questionRegiTagArr = JSON.parse(questionRegiTag)
 
       axios({
         method: 'post',
@@ -43,7 +37,7 @@ const QuestionRegister = () => {
         data: {
           content: textContents,
           bookmarkCount: 0,
-          tags: questionRegiTag,
+          tags: questionRegiTagArr,
         },
         params: {
           name: localStorage.getItem('userName'),

@@ -65,34 +65,28 @@ const Tags = (props) => {
   const [selectedTag, setSelectedTag] = useState([])
 
   const selectThisTag = (e) => {
-    setSelectedTag(selectedTag.concat(Number(e.target.id)))
+    setSelectedTag(selectedTag.concat(e.target.id))
   }
   const deselectThisTag = (e) => {
-    setSelectedTag(selectedTag.filter((element) => element !== Number(e.target.id)))
+    setSelectedTag(selectedTag.filter((element) => element !== e.target.id))
   }
 
   useEffect(() => {
-    if (props.page == 'question-register') {
-      let questionTags = ''
-      selectedTag.map((item) => {
-        questionTags += items[item - 1].name + ','
-      })
-      questionTags = questionTags.slice(0, -1)
-
-      localStorage.setItem('questionRegiTag', questionTags)
+    if (props.page === 'question-register') {
+      localStorage.setItem('questionRegiTag', JSON.stringify(selectedTag))
     }
   })
 
   const TagButtons = items.map((tagItem) => {
-    if (selectedTag.includes(tagItem.id)) {
+    if (selectedTag.includes(tagItem.name)) {
       return (
-        <Button className="classification-tag-selected" key={tagItem.id} id={tagItem.id} onClick={deselectThisTag}>
+        <Button className="classification-tag-selected" key={tagItem.id} id={tagItem.name} onClick={deselectThisTag}>
           {tagItem.name}
         </Button>
       )
     } else {
       return (
-        <Button className="classification-tag-unselected" key={tagItem.id} id={tagItem.id} onClick={selectThisTag}>
+        <Button className="classification-tag-unselected" key={tagItem.id} id={tagItem.name} onClick={selectThisTag}>
           {tagItem.name}
         </Button>
       )
