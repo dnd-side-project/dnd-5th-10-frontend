@@ -52,12 +52,9 @@ const QuestionRegister = () => {
         method: 'post',
         url: '/api/v1/question',
         data: {
-          // prettier-ignore
-          "content": "hello im next page. hello world",
-          // prettier-ignore
-          "bookmarkCount": 0,
-          // prettier-ignore
-          "tags": "kakao",
+          content: textContents,
+          bookmarkCount: 0,
+          tags: questionRegiTag,
         },
         params: {
           name: userName,
