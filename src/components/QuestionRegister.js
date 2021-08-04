@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { Form, Input, Button } from 'reactstrap'
 import { JWT_TOKEN, API_BASE_URL } from 'constants/Oauth'
 import axios from 'axios'
+import { end } from '@popperjs/core'
 
 const questionRegisterImg = '/img/questionRegister.jpg'
 const QuestionRegister = () => {
@@ -13,7 +14,9 @@ const QuestionRegister = () => {
   useEffect(() => {
     setTextContentsLength(textContents.length)
     const textArea = document.getElementById('text-counts')
-    if (textContentsLength >= 1000) {
+    if (textContentsLength < 20) {
+      textArea.style.setProperty('color', 'red')
+    } else if (textContentsLength >= 1000) {
       // setCheckTextLength('최대 글자수는 1000자 입니다')
       textArea.style.setProperty('color', 'red')
     } else {
@@ -25,41 +28,48 @@ const QuestionRegister = () => {
   const registerQuestionAndTags = () => {
     if (textContents.length < 20) {
       window.alert('최소 20자 이상 입력해주세요')
-    }
-    if (JWT_TOKEN) {
-      axios
-        .get(`/api/v1/user/profile/`)
+    } else {
+      if (JWT_TOKEN) {
+        axios
+          .get(`/api/v1/user/profile/`)
+          .then((res) => {
+            setUserName(res.data?.username)
+            console.log(userName)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+
+      const questionRegiTag = localStorage.getItem('questionRegiTag')
+      console.log(questionRegiTag)
+      console.log(textContents)
+
+      console.log(typeof questionRegiTag)
+      console.log(typeof textContents)
+
+      axios({
+        method: 'post',
+        url: '/api/v1/question',
+        data: {
+          // prettier-ignore
+          "content": "hello im next page. hello world",
+          // prettier-ignore
+          "bookmarkCount": 0,
+          // prettier-ignore
+          "tags": "kakao",
+        },
+        params: {
+          name: userName,
+        },
+      })
         .then((res) => {
-          setUserName(res.data?.username)
-          console.log(userName)
+          console.log(res)
         })
         .catch((err) => {
           console.log(err)
         })
     }
-
-    const questionRegiTag = localStorage.getItem('questionRegiTag')
-    console.log(questionRegiTag)
-    console.log(typeof questionRegiTag)
-
-    axios({
-      method: 'POST',
-      url: `/api/v1/question`,
-      data: {
-        bookmark_count: 0,
-        content: textContents,
-        tags: questionRegiTag,
-      },
-      params: {
-        name: userName,
-      },
-    })
-      .then((res) => {
-        console.log(res)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
   }
 
   return (
