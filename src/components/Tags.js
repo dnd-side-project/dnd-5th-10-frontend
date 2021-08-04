@@ -75,8 +75,10 @@ const Tags = (props) => {
     if (props.page == 'question-register') {
       let questionTags = ''
       selectedTag.map((item) => {
-        questionTags += items[item - 1].name + ' '
+        questionTags += items[item - 1].name + '/'
       })
+      questionTags = questionTags.slice(0, -1)
+
       localStorage.setItem('questionRegiTag', questionTags)
     }
   })

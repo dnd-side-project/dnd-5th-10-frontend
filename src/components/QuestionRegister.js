@@ -23,6 +23,9 @@ const QuestionRegister = () => {
   })
 
   const registerQuestionAndTags = () => {
+    if (textContents.length < 20) {
+      window.alert('최소 20자 이상 입력해주세요')
+    }
     if (JWT_TOKEN) {
       axios
         .get(`/api/v1/user/profile/`)
@@ -36,16 +39,26 @@ const QuestionRegister = () => {
     }
 
     const questionRegiTag = localStorage.getItem('questionRegiTag')
-    axios
-      .post(`/api/v1/question/`, {
+    console.log(questionRegiTag)
+    console.log(typeof questionRegiTag)
+
+    axios({
+      method: 'POST',
+      url: `/api/v1/question`,
+      data: {
+        bookmark_count: 0,
         content: textContents,
         tags: questionRegiTag,
+      },
+      params: {
+        name: userName,
+      },
+    })
+      .then((res) => {
+        console.log(res)
       })
-      .then((response) => {
-        console.log(response)
-      })
-      .catch((error) => {
-        console.log(error)
+      .catch((err) => {
+        console.log(err)
       })
   }
 
