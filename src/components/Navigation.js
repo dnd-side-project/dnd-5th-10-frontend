@@ -49,6 +49,8 @@ const Navigation = () => {
         .then((res) => {
           console.log(res.data)
           setUserProfile(res.data)
+          localStorage.setItem('userName', res.data.username)
+          localStorage.setItem('userEmail', res.data.email)
         })
         .catch((err) => {
           console.log(err)
@@ -118,6 +120,9 @@ const Navigation = () => {
                   href="/"
                   onClick={() => {
                     removeCookie('Authorization', { path: '/' })
+                    localStorage.removeItem('userName')
+                    localStorage.removeItem('userEmail')
+                    localStorage.removeItem('questionRegiTag')
                   }}>
                   Logout
                 </a>

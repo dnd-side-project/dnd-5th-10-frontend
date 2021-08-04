@@ -10,7 +10,7 @@ const questionRegisterImg = '/img/questionRegister.jpg'
 const QuestionRegister = () => {
   const [textContents, setTextContents] = useState('')
   const [textContentsLength, setTextContentsLength] = useState(0)
-  const [userName, setUserName] = useState('')
+
   useEffect(() => {
     setTextContentsLength(textContents.length)
     const textArea = document.getElementById('text-counts')
@@ -29,19 +29,8 @@ const QuestionRegister = () => {
     if (textContents.length < 20) {
       window.alert('최소 20자 이상 입력해주세요')
     } else {
-      if (JWT_TOKEN) {
-        axios
-          .get(`/api/v1/user/profile/`)
-          .then((res) => {
-            setUserName(res.data?.username)
-            console.log(userName)
-          })
-          .catch((err) => {
-            console.log(err)
-          })
-      }
-
       const questionRegiTag = localStorage.getItem('questionRegiTag')
+
       console.log(questionRegiTag)
       console.log(textContents)
 
@@ -57,7 +46,7 @@ const QuestionRegister = () => {
           tags: questionRegiTag,
         },
         params: {
-          name: userName,
+          name: localStorage.getItem('userName'),
         },
       })
         .then((res) => {
