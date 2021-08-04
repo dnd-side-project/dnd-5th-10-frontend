@@ -8,6 +8,7 @@ const Routers = () => (
   <BrowserRouter>
     <Navigation />
     <Route exact path="/" component={MainPage} />
+    <Route exact path="/login" component={MainPage} />
     <Route exact path="/QuestionRegister" component={QuestionRegisterPage} />
   </BrowserRouter>
 )

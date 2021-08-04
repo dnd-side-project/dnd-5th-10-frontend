@@ -2,16 +2,14 @@ import 'components/QuestionRegister.css'
 import Tags from 'components/Tags'
 import { useEffect, useState } from 'react'
 import { Form, Input, Button } from 'reactstrap'
-import { JWT_TOKEN } from 'constants/Oauth'
+import { JWT_TOKEN, API_BASE_URL } from 'constants/Oauth'
 import axios from 'axios'
 
 const questionRegisterImg = '/img/questionRegister.jpg'
 const QuestionRegister = () => {
   const [textContents, setTextContents] = useState('')
   const [textContentsLength, setTextContentsLength] = useState(0)
-  const [questionTags, setQuestionTags] = useState('')
-  // const [checkTextLength, setCheckTextLength] = useState(textContentsLength + '/1000')
-
+  const [userName, setUserName] = useState('')
   useEffect(() => {
     setTextContentsLength(textContents.length)
     const textArea = document.getElementById('text-counts')
@@ -24,20 +22,32 @@ const QuestionRegister = () => {
     }
   })
 
-  // const registerQuestionAndTags = () => {
-  //   axios
-  //     .post(`/api/v1/question`, {
-  //       bookmark_count: 0,
-  //       content: 'string',
-  //       tags: taksdaglkas,
-  //     })
-  //     .then((response) => {
-  //       console.log(response)
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
-  // }
+  const registerQuestionAndTags = () => {
+    if (JWT_TOKEN) {
+      axios
+        .get(`/api/v1/user/profile/`)
+        .then((res) => {
+          setUserName(res.data?.username)
+          console.log(userName)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+
+    const questionRegiTag = localStorage.getItem('questionRegiTag')
+    axios
+      .post(`/api/v1/question/`, {
+        content: textContents,
+        tags: questionRegiTag,
+      })
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
   return (
     <div className="question-register">
@@ -49,9 +59,7 @@ const QuestionRegister = () => {
       <div className="question-register-input">
         <Form>
           <h1>문제를 입력하삼</h1>
-          <span id="text-counts">
-            {/* ({checkTextLength}) */}({textContentsLength}/1000)
-          </span>
+          <span id="text-counts">({textContentsLength}/1000)</span>
           <hr />
           <Input
             type="textarea"
@@ -67,12 +75,12 @@ const QuestionRegister = () => {
         <hr />
         <div className="quesiton-register-tags">
           <h2>zz</h2>
-          <Tags questionTag={setQuestionTags} id="register-tags" />
-          {console.log(questionTags)}
-          <Button>완료오</Button>
+          <Tags page="question-register" id="register-tags" />
+          <Button onClick={registerQuestionAndTags}>완료오</Button>
         </div>
       </div>
     </div>
   )
 }
+
 export default QuestionRegister

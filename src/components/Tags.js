@@ -72,11 +72,13 @@ const Tags = (props) => {
   }
 
   useEffect(() => {
-    let questionTags = ''
-    selectedTag.map((item) => {
-      questionTags += items[item].name + ' '
-    })
-    props.questionTag(questionTags)
+    if (props.page == 'question-register') {
+      let questionTags = ''
+      selectedTag.map((item) => {
+        questionTags += items[item - 1].name + ' '
+      })
+      localStorage.setItem('questionRegiTag', questionTags)
+    }
   })
 
   const TagButtons = items.map((tagItem) => {
