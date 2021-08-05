@@ -11,7 +11,9 @@ function MainPage() {
     <div className="Main">
       <MainCarousel />
       <ClassificationTags />
-      <Link to="/QuestionRegister">zz</Link>
+      <Link to="/QuestionRegister">문제 등록</Link>
+      <br />
+      <Link to="/QuestionList">문제 리스트(임시)</Link>
     </div>
   )
 }
