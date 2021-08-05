@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import { Button } from 'reactstrap'
 import 'css/ClassificationTags.css'
 import Tags from 'components/Tags'
 

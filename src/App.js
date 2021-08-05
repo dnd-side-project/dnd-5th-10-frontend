@@ -1,7 +1,5 @@
-import { BrowserRouter, Router } from 'react-router-dom'
 import './App.css'
-// import Main from './pages/Main'
-import Routers from './Routes/Routers.js'
+import Routers from 'Routes/Routers.js'
 
 function App() {
   return (

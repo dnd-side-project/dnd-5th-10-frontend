@@ -57,14 +57,17 @@ const Navigation = () => {
           console.log(err)
         })
     }
-  }, [JWT_TOKEN])
+  }, [])
 
   return (
     <div id="Navigation">
       <Navbar expand={true}>
         <NavbarText>
           <Link to="/">
-            <img id="logo" src="https://www.next-t.co.kr/public/uploads/7b7f7e2138e29e598cd0cdf2c85ea08d.jpg"></img>
+            <img
+              alt="iterview-logo"
+              id="logo"
+              src="https://www.next-t.co.kr/public/uploads/7b7f7e2138e29e598cd0cdf2c85ea08d.jpg"></img>
           </Link>
         </NavbarText>
         <Nav navbar className="left-tab">
@@ -111,6 +114,7 @@ const Navigation = () => {
                 {userProfile?.username}님 &nbsp;
                 {console.log(JWT_TOKEN)}
                 <img
+                  alt="profile-img"
                   id="profile-img"
                   src="https://mblogthumb-phinf.pstatic.net/MjAxODA0MTBfODYg/MDAxNTIzMjk5NjMyNzcw.CqPIwxjy-Og7GnIho2vbO9CKvDcbE87kq6795zqgXDQg.XSGZAMbi04FtIotEg2gAAPMykMu7C-RsiMI3gr1pGc8g.PNG.dlqlwm14/%EC%82%AC5.png?type=w800"
                 />

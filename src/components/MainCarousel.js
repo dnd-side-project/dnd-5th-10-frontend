@@ -79,8 +79,8 @@ const MainCarousel = () => {
         {slides}
       </Slider>
       <div className="carousel-control">
-        <img className="button-prev" height="30px" src={arrowLeft} onClick={previous} />
-        <img className="button-next" height="30px" src={arrowRight} onClick={next} />
+        <img alt="carousel-previous" className="button-prev" height="30px" src={arrowLeft} onClick={previous} />
+        <img alt="carousel-next" className="button-next" height="30px" src={arrowRight} onClick={next} />
       </div>
     </div>
   )

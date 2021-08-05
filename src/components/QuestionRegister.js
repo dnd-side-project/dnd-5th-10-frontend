@@ -2,7 +2,6 @@ import 'css/QuestionRegister.css'
 import Tags from 'components/Tags'
 import { useEffect, useState } from 'react'
 import { Form, Input, Button } from 'reactstrap'
-import { JWT_TOKEN, API_BASE_URL } from 'constants/Oauth'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 
@@ -23,7 +22,7 @@ const QuestionRegister = ({ history }) => {
       // setCheckTextLength(textContentsLength + '/1000')
       textArea.style.setProperty('color', 'black')
     }
-  })
+  }, [textContents.length, textContentsLength])
 
   const registerQuestionAndTags = () => {
     if (textContents.length < 20) {
