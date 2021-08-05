@@ -26,7 +26,6 @@ const QuestionList = () => {
 
   const showQuestions = allQuestions.map((ques, index) => {
     let quesContent = ques.content
-    // quesContent = quesContent.slice(0, 20)
     return (
       <Question
         key={ques.id}
