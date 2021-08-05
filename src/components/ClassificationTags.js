@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Button } from 'reactstrap'
-import 'components/ClassificationTags.css'
+import 'css/ClassificationTags.css'
 import Tags from 'components/Tags'
 
 const ClassificationTags = () => {

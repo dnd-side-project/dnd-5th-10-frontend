@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Button } from 'reactstrap'
-import 'components/Tags.css'
+import 'css/Tags.css'
 
 const Tags = (props) => {
   const items = [
