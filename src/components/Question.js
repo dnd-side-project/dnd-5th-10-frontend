@@ -1,11 +1,11 @@
 import 'css/Question.css'
-import { useState } from 'react'
 import { Button } from 'reactstrap'
+import { withRouter } from 'react-router-dom'
 
 const Question = (props) => {
   const showQuestionTags = props.tagList.map((item, index) => {
     return (
-      <Button key={index} disabled>
+      <Button disabled key={index}>
         {item['tagTitle']}
       </Button>
     )
@@ -19,21 +19,27 @@ const Question = (props) => {
     return questionNum
   }
 
+  const gotoDetails = () => {
+    props.history.push(`/QuestionDetails/${props.id}`)
+  }
+
   return (
     <div className="each-question">
-      <div className="question-number">{checkQuestionNumber(props.number)}</div>
-      <div className="question-bookmark">
-        <h1>좋아요</h1>
-        <span>{props.bookmarkCount}</span>
-      </div>
-      <div className="question-content">
-        {props.content}
-        <br />
-        {showQuestionTags}
-      </div>
-      <div className="date-or-username">{props.username}</div>
+      <Button onClick={gotoDetails}>
+        <div className="question-number">{checkQuestionNumber(props.number)}</div>
+        <div className="question-bookmark">
+          <h1>좋아요</h1>
+          <span>{props.bookmarkCount}</span>
+        </div>
+        <div className="question-content">
+          {props.content}
+          <br />
+          {showQuestionTags}
+        </div>
+        <div className="date-or-username">{props.username}</div>
+      </Button>
     </div>
   )
 }
 
-export default Question
+export default withRouter(Question)

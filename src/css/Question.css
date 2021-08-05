@@ -8,6 +8,20 @@
   white-space: nowrap;
 }
 
+.each-question > Button {
+  width: 900px;
+  height: 170px;
+  border-radius: 25px;
+  border: 0;
+  background-color: white;
+  color: black;
+}
+.each-question > Button:hover {
+  color: black;
+
+  background-color: rgba(247, 244, 255, 0.856);
+}
+
 .question-number {
   line-height: 170px;
   width: 140px;
