@@ -11,12 +11,12 @@ import {
   Dropdown,
   Button,
 } from 'reactstrap'
-import './Navigation.css'
-import LoginModal from './LoginModal'
+import 'components/Navigation.css'
+import LoginModal from 'components/LoginModal'
 import axios from 'axios'
-import { JWT_TOKEN } from '../constants/Oauth'
-import { removeCookie } from './Cookies'
-import { Route } from 'react-router-dom'
+import { JWT_TOKEN } from 'constants/Oauth'
+import { removeCookie } from 'components/Cookies'
+import { Link } from 'react-router-dom'
 
 const Navigation = () => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -50,6 +50,8 @@ const Navigation = () => {
         .then((res) => {
           console.log(res.data)
           setUserProfile(res.data)
+          localStorage.setItem('userName', res.data.username)
+          localStorage.setItem('userEmail', res.data.email)
         })
         .catch((err) => {
           console.log(err)
@@ -61,7 +63,9 @@ const Navigation = () => {
     <div id="Navigation">
       <Navbar expand={true}>
         <NavbarText>
-          <img id="logo" src="https://www.next-t.co.kr/public/uploads/7b7f7e2138e29e598cd0cdf2c85ea08d.jpg"></img>
+          <Link to="/">
+            <img id="logo" src="https://www.next-t.co.kr/public/uploads/7b7f7e2138e29e598cd0cdf2c85ea08d.jpg"></img>
+          </Link>
         </NavbarText>
         <Nav navbar className="left-tab">
           <NavItem>
@@ -100,48 +104,43 @@ const Navigation = () => {
         </Nav>
         {/* jwt_token이 존재하면 login 처리 */}
         {JWT_TOKEN ? (
-          <Route exact path="/login">
-            <Nav navbar className="profile-tab">
-              <Dropdown isOpen={profileDropdownOpen} toggle={profileToggle}>
-                <DropdownToggle nav caret>
-                  {console.log(userProfile?.username)}
-                  {userProfile?.username}님 &nbsp;
-                  {console.log(JWT_TOKEN)}
-                  <img
-                    id="profile-img"
-                    src="https://mblogthumb-phinf.pstatic.net/MjAxODA0MTBfODYg/MDAxNTIzMjk5NjMyNzcw.CqPIwxjy-Og7GnIho2vbO9CKvDcbE87kq6795zqgXDQg.XSGZAMbi04FtIotEg2gAAPMykMu7C-RsiMI3gr1pGc8g.PNG.dlqlwm14/%EC%82%AC5.png?type=w800"
-                  />
-                </DropdownToggle>
-                <DropdownMenu>
-                  <DropdownItem>profile-1</DropdownItem>
-                  <DropdownItem>profile-2</DropdownItem>
-                  <DropdownItem>profile-3</DropdownItem>
-                  <DropdownItem
-                    onClick={() => {
-                      removeCookie('Authorization', { path: '/' })
-                    }}>
-                    Logout
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </Nav>
-          </Route>
+          <Nav navbar className="profile-tab">
+            <Dropdown isOpen={profileDropdownOpen} toggle={profileToggle}>
+              <DropdownToggle nav caret>
+                {console.log(userProfile?.username)}
+                {userProfile?.username}님 &nbsp;
+                {console.log(JWT_TOKEN)}
+                <img
+                  id="profile-img"
+                  src="https://mblogthumb-phinf.pstatic.net/MjAxODA0MTBfODYg/MDAxNTIzMjk5NjMyNzcw.CqPIwxjy-Og7GnIho2vbO9CKvDcbE87kq6795zqgXDQg.XSGZAMbi04FtIotEg2gAAPMykMu7C-RsiMI3gr1pGc8g.PNG.dlqlwm14/%EC%82%AC5.png?type=w800"
+                />
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem>profile-1</DropdownItem>
+                <DropdownItem>profile-2</DropdownItem>
+                <DropdownItem>profile-3</DropdownItem>
+                <a
+                  href="/"
+                  onClick={() => {
+                    removeCookie('Authorization', { path: '/' })
+                    localStorage.removeItem('userName')
+                    localStorage.removeItem('userEmail')
+                    localStorage.removeItem('questionRegiTag')
+                  }}>
+                  Logout
+                </a>
+              </DropdownMenu>
+            </Dropdown>
+          </Nav>
         ) : (
-          <Route exact path="/">
-            <Nav navbar className="right-tab">
-              <NavItem>
-                <Button className="sign-in" onClick={openModal}>
-                  Sign in
-                </Button>
-                <LoginModal open={modalOpen} close={closeModal} header="Login to ITerview"></LoginModal>
-              </NavItem>
-              {/* <NavItem className="sign-up">
-              <Button outline color="light" size="sm">
-                Sign Up
+          <Nav navbar className="right-tab">
+            <NavItem>
+              <Button className="sign-in" onClick={openModal}>
+                Sign in
               </Button>
-            </NavItem> */}
-            </Nav>
-          </Route>
+              <LoginModal open={modalOpen} close={closeModal} header="Login to ITerview"></LoginModal>
+            </NavItem>
+          </Nav>
         )}
       </Navbar>
     </div>

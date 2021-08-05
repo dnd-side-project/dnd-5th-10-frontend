@@ -1,6 +1,6 @@
 import React from 'react'
-import './LoginModal.css'
-import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL } from '../constants/Oauth.js'
+import 'components/LoginModal.css'
+import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL } from 'constants/Oauth.js'
 
 const googleLogo = '/img/google-logo.png'
 const facebookLogo = '/img/fb-logo.png'

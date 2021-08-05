@@ -1,0 +1,88 @@
+.question-register {
+  /* background-color: #a3a3a3 !important; */
+  width: 100%;
+  vertical-align: middle;
+  min-width: 1000px;
+}
+
+.question-register-img > img {
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+.question-register-img > h1 {
+  position: relative;
+  top: -150px;
+  font-size: 30pt;
+}
+
+.question-register-img > h3 {
+  position: relative;
+  top: -150px;
+  font-size: 20pt;
+}
+
+.question-register-input {
+  position: relative;
+  margin: auto;
+  width: 80%;
+  top: -50px;
+  /* border: 1px solid black; */
+  box-shadow: 0px 3px 10px 1px rgb(187, 187, 187);
+}
+
+.question-register-input > Form > h1 {
+  position: relative;
+  width: 10%;
+  top: 30px;
+  padding-left: 20px;
+  padding-top: 20px;
+  margin-right: 100%;
+  white-space: nowrap;
+  font-size: 25pt;
+}
+
+.question-register-input > Form {
+  text-align: right;
+}
+.question-register-input > Form > span {
+  position: relative;
+  z-index: 4;
+
+  white-space: nowrap;
+  padding-right: 10px;
+  font-size: 10pt;
+  top: 45px;
+}
+
+textarea.form-control {
+  position: relative;
+  z-index: 0;
+  resize: none;
+  width: 100%;
+  height: 300px;
+  top: -15px;
+  border: 0;
+  padding-left: 25px;
+  padding-top: 20px;
+  margin-bottom: -30px;
+}
+.quesiton-register-tags {
+  margin: auto;
+  padding-left: 20px;
+  text-align: right;
+}
+
+.quesiton-register-tags > h2 {
+  text-align: left;
+  white-space: nowrap;
+  font-size: 30pt;
+  font-weight: bold;
+}
+
+.quesiton-register-tags > Button {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
