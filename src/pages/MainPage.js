@@ -12,6 +12,8 @@ function MainPage() {
       <MainCarousel />
       <ClassificationTags />
       <Link to="/QuestionRegister">zz</Link>
+      <br />
+      <Link to="/SetQuizOptions">퀴즈풀러가기</Link>
     </div>
   )
 }
