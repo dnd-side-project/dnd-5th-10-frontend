@@ -2,13 +2,17 @@ import 'css/Question.css'
 import { Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
 
+// TODO: 디자이너 분들이랑 태그 여러개일 때 표시 방법 논의하기
+
 const Question = (props) => {
   const showQuestionTags = props.tagList.map((item, index) => {
-    return (
-      <Button disabled key={index}>
-        {item['tagTitle']}
-      </Button>
-    )
+    if (index < 3) {
+      return (
+        <div className="question-tags" key={index}>
+          {item['tagTitle']}
+        </div>
+      )
+    }
   })
 
   const checkQuestionNumber = (num) => {

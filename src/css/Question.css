@@ -58,14 +58,21 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.question-content > Button {
-  color: #5b52a3 !important;
+.question-tags {
+  width: min-content;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  position: relative;
+  float: left;
+  color: #5b52a3;
   font-weight: bold;
   margin-top: 20px;
   margin-right: 5px;
   margin-left: 5px;
-  background-color: #e0daff !important;
-  border-radius: 15px;
+  background-color: #e0daff;
+  border-radius: 30px;
   border: 0;
 }
 
