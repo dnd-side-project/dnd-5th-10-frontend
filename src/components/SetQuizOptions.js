@@ -15,6 +15,11 @@ const SetQuizOptions = () => {
   const [selectedQuizTag, setselectedQuizTag] = useState([])
   const [selectedQuizCnt, setSelectedQuizCnt] = useState(null)
 
+  const quizCnt = new Array(30).fill().map((cnt, i) => {
+    return i
+  })
+  const quizMinToMax = quizCnt.slice(4, 30)
+
   const selectedTag = (e) => {
     if (selectedQuizTag.length > 9) {
       alert('지정할 수 있는 태그는 최대 10개입니다')
@@ -33,11 +38,6 @@ const SetQuizOptions = () => {
   const selectedCnt = (e) => {
     setSelectedQuizCnt(e.target.id)
   }
-  // 최대 문제 선택 갯수
-  const quizCnt = new Array(30).fill().map((cnt, i) => {
-    return i
-  })
-  const quizMinToMax = quizCnt.slice(4, 30)
 
   return (
     <div className="set-quiz-options">
