@@ -1,16 +1,36 @@
 import 'components/SetQuizOptions.css'
-import Tags from 'components/Tags'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
+import tagItems from 'constants/TagItems'
 
 const questionRegisterImg = '/img/questionRegister.jpg'
 
-const SetQuizOptions = (props) => {
+const SetQuizOptions = () => {
   const [tagDropdownOpen, setTagDropdownOpen] = useState(false)
   const [cntDropdownOpen, setCntDropdownOpen] = useState(false)
   const tagToggle = () => setTagDropdownOpen((prevState) => !prevState)
   const cntToggle = () => setCntDropdownOpen((prevState) => !prevState)
+
+  const [selectedQuizTag, setselectedQuizTag] = useState([])
+  const [selectedQuizCnt, setSelectedQuizCnt] = useState(null)
+
+  const selectedTag = (e) => {
+    setselectedQuizTag(selectedQuizTag.concat(e.target.id))
+  }
+
+  const deselectedTag = (e) => {
+    setselectedQuizTag(selectedQuizTag.filter((element) => element !== e.target.id))
+  }
+
+  const selectedCnt = (e) => {
+    setSelectedQuizCnt(e.target.id)
+  }
+  // 최대 문제 선택 갯수
+  const quizCnt = new Array(30).fill().map((cnt, i) => {
+    return i
+  })
+  const quizMinToMax = quizCnt.slice(4, 30)
 
   return (
     <div className="set-quiz-options">
@@ -32,26 +52,54 @@ const SetQuizOptions = (props) => {
           <hr className="line" />
           <Dropdown isOpen={tagDropdownOpen} toggle={tagToggle}>
             <DropdownToggle caret>태그 선택</DropdownToggle>
-            <DropdownMenu>
-              <DropdownItem text></DropdownItem>
+            <DropdownMenu className="dropdown-menu">
+              {tagItems.map((tagItem, i) => {
+                return (
+                  <DropdownItem key={i} onClick={selectedTag} id={tagItem.name}>
+                    {tagItem.name}
+                  </DropdownItem>
+                )
+              })}
             </DropdownMenu>
           </Dropdown>
         </div>
+        {console.log(selectedQuizTag)}
         <div className="select-quiz-count">
           <h4>갯수</h4>
           <hr className="line" />
           <Dropdown isOpen={cntDropdownOpen} toggle={cntToggle}>
             <DropdownToggle caret>퀴즈 갯수 선택</DropdownToggle>
-            <DropdownMenu>
-              <DropdownItem text></DropdownItem>
+            <DropdownMenu className="dropdown-menu">
+              {quizMinToMax.map((cnt, i) => {
+                return (
+                  <DropdownItem key={i} onClick={selectedCnt} id={cnt + 1}>
+                    {cnt + 1}
+                  </DropdownItem>
+                )
+              })}
             </DropdownMenu>
           </Dropdown>
         </div>
-        <Button className="quiz-option-btn">완료</Button>
+        {console.log(selectedQuizCnt)}
       </div>
       <div className="quiz-setting-result-box">
-        <div>선택된 퀴즈 태그</div>
-        <div>선택된 퀴즈 수</div>
+        <div>
+          <h4>선택된 퀴즈 태그</h4>
+          <hr className="two-line" />
+          {selectedQuizTag.map((selectedTag, i) => {
+            return (
+              <Button className="selected-tag-btn" key={i} id={selectedTag} onClick={deselectedTag}>
+                {selectedTag} X
+              </Button>
+            )
+          })}
+        </div>
+        <div>
+          <h4>선택된 퀴즈 수</h4>
+          <hr className="two-line" />
+          <h1>{selectedQuizCnt} 개</h1>
+        </div>
+        <Button className="quiz-start-btn">시작하기</Button>
       </div>
     </div>
   )
