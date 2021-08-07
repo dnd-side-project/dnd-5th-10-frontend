@@ -12,6 +12,8 @@ const Question = (props) => {
           {item['tagTitle']}
         </div>
       )
+    } else {
+      return <div key={index}></div>
     }
   })
 
