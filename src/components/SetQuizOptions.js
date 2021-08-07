@@ -16,7 +16,14 @@ const SetQuizOptions = () => {
   const [selectedQuizCnt, setSelectedQuizCnt] = useState(null)
 
   const selectedTag = (e) => {
-    setselectedQuizTag(selectedQuizTag.concat(e.target.id))
+    if (selectedQuizTag.length > 9) {
+      alert('지정할 수 있는 태그는 최대 10개입니다')
+    }
+    if (!selectedQuizTag.includes(e.target.id) && selectedQuizTag.length <= 9) {
+      setselectedQuizTag(selectedQuizTag.concat(e.target.id))
+    } else if (selectedQuizTag.includes(e.target.id)) {
+      alert('이미 선택된 태그입니다.')
+    }
   }
 
   const deselectedTag = (e) => {
