@@ -14,6 +14,8 @@ function MainPage() {
       <Link to="/QuestionRegister">문제 등록</Link>
       <br />
       <Link to="/QuestionList">문제 리스트(임시)</Link>
+      <br />
+      <Link to="/SetQuizOptions">퀴즈풀러가기</Link>
     </div>
   )
 }
