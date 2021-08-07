@@ -1,4 +1,4 @@
-import 'components/QuestionRegister.css'
+import 'css/QuestionRegister.css'
 import Tags from 'components/Tags'
 import { useEffect, useState } from 'react'
 import { Form, Input, Button } from 'reactstrap'

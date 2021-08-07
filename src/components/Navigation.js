@@ -11,7 +11,7 @@ import {
   Dropdown,
   Button,
 } from 'reactstrap'
-import 'components/Navigation.css'
+import 'css/Navigation.css'
 import LoginModal from 'components/LoginModal'
 import axios from 'axios'
 import { JWT_TOKEN } from 'constants/Oauth'

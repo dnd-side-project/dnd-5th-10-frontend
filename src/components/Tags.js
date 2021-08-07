@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Button } from 'reactstrap'
-import 'components/Tags.css'
 import tagItems from 'constants/TagItems'
+import 'css/Tags.css'
 
 const Tags = (props) => {
   const [selectedTag, setSelectedTag] = useState([])
