@@ -1,12 +1,12 @@
 .classification-tag-btn {
   margin: auto;
   width: 100%;
-  text-align: left;
+  text-align: center;
   min-width: 700px;
 }
 
 .classification-tag-btn > button {
-  font-size: 11pt;
+  font-size: 10pt;
   height: 35px;
 
   margin-top: 4px;
@@ -18,14 +18,13 @@
   padding-top: 8px;
   padding-bottom: 8px;
 
-  border-radius: 7px;
-  font-weight: bold;
-  border: 0;
+  border-radius: 50px;
+  border: 0.3px solid #cdc9ff;
   outline: 0;
-  color: black !important;
+  color: #302b7d !important;
 }
 .classification-tag-unselected {
-  background-color: #e3e3e3 !important;
+  background-color: #efecff !important;
 }
 
 .classification-tag-selected {
