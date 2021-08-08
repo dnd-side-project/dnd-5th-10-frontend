@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import 'css/Navigation.css'
 import axios from 'axios'
-import { JWT_TOKEN } from 'constants/Oauth'
 import { useInView } from 'react-intersection-observer'
 import Question from 'components/Question'
 
@@ -27,11 +26,11 @@ const QuestionList = () => {
         console.log(err)
         setLoading(false)
       })
-  })
+  }, [allQuestions, page])
 
   useEffect(() => {
     getQuestions()
-  }, [page])
+  }, [getQuestions])
 
   useEffect(() => {
     if (inView && !loading) {
