@@ -17,7 +17,7 @@ const QuestionList = () => {
       let questions = allQuestions
 
       await axios
-        .get(`/api/v1/question/all?page=${page}&size=3`)
+        .get(`/api/v1/question/all?page=${page}&size=10`)
         .then((res) => {
           res.data.forEach((item) => {
             questions.push(item)
