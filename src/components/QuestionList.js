@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import 'css/Navigation.css'
 import axios from 'axios'
-import { JWT_TOKEN } from 'constants/Oauth'
 import { useInView } from 'react-intersection-observer'
 import Question from 'components/Question'
 
@@ -10,34 +9,40 @@ const QuestionList = () => {
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(0)
   const [ref, inView] = useInView()
+  const [stopRequest, setStopRequest] = useState(false)
 
   const getQuestions = useCallback(async () => {
-    let questions = allQuestions
-    setLoading(true)
-    await axios
-      .get(`/api/v1/question/all?page=${page}&size=5`)
-      .then((res) => {
-        res.data.forEach((item) => {
-          questions.push(item)
+    if (!stopRequest) {
+      setLoading(true)
+      let questions = allQuestions
+
+      await axios
+        .get(`/api/v1/question/all?page=${page}&size=3`)
+        .then((res) => {
+          res.data.forEach((item) => {
+            questions.push(item)
+          })
+          setAllQuestions(allQuestions)
+          setLoading(false)
+          if (res.data.length === 0) setStopRequest(true)
         })
-        setAllQuestions(questions)
-        setLoading(false)
-      })
-      .catch((err) => {
-        console.log(err)
-        setLoading(false)
-      })
-  })
+        .catch((err) => {
+          console.log(err)
+        })
+      setLoading(false)
+    }
+  }, [stopRequest, allQuestions, page])
+
+  useEffect(() => {
+    if (inView && !loading && !stopRequest) {
+      setPage((p) => p + 1)
+      // console.log(page)
+    }
+  }, [stopRequest, inView, loading])
 
   useEffect(() => {
     getQuestions()
-  }, [page])
-
-  useEffect(() => {
-    if (inView && !loading) {
-      setPage((p) => p + 1)
-    }
-  }, [inView, loading])
+  }, [getQuestions])
 
   return (
     <div>
