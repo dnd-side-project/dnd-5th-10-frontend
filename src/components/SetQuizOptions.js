@@ -1,4 +1,4 @@
-import 'components/SetQuizOptions.css'
+import 'css/SetQuizOptions.css'
 import { useState } from 'react'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
