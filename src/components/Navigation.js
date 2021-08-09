@@ -120,7 +120,7 @@ const Navigation = () => {
                 />
               </DropdownToggle>
               <DropdownMenu>
-                <a href="/MyPage">
+                <a href="/MyPage/MyRegisterQuestion">
                   <DropdownItem>마이페이지</DropdownItem>
                 </a>
                 <DropdownItem>profile-2</DropdownItem>

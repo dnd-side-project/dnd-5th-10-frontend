@@ -6,14 +6,20 @@ import QuestionListPage from 'pages/QuestionListPage'
 import QuizPage from 'pages/QuizPage'
 import Navigation from 'components/Navigation'
 import Footer from 'components/Footer'
-import MyPage from 'components/MyPage'
+import MyRegisterQuestion from 'components/MyRegisterQuestion'
+import MyRegisterAnswer from 'components/MyRegisterAnswer'
+import MyLikeAnswer from 'components/MyLikeAnswer'
+import MyBookmarkQuestion from 'components/MyBookmarkQuestion'
 
 const Routers = () => (
   <BrowserRouter>
     <Navigation />
     <Route exact path="/" component={MainPage} />
     <Route exact path="/login" component={MainPage} />
-    <Route exact path="/MyPage" component={MyPage} />
+    <Route exact path="/MyPage/MyRegisterQuestion" component={MyRegisterQuestion} />
+    <Route exact path="/MyPage/MyRegisterAnswer" component={MyRegisterAnswer} />
+    <Route exact path="/MyPage/MyLikeAnswer" component={MyLikeAnswer} />
+    <Route exact path="/MyPage/MyBookmarkQuestion" component={MyBookmarkQuestion} />
     <Route exact path="/QuestionRegister" component={QuestionRegisterPage} />
     <Route exact path="/QuestionList" component={QuestionListPage} />
     <Route exact path="/SetQuizOptions" component={QuizPage} />

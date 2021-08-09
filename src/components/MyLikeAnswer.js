@@ -1,31 +1,31 @@
-import 'css/MyPage.css'
+import 'css/MyLikeAnswer.css'
 import { Button } from 'reactstrap'
 
-const MyPage = () => {
+const MyLikeAnswer = () => {
   return (
     <div className="my-page">
       <div className="mypage-category">
         <a href="/MyPage/MyRegisterQuestion">
-          <span>
+          <button>
             <img src="https://img.icons8.com/small/452/pink-cute-folder.png"></img>내가 등록한 문제
-          </span>
+          </button>
         </a>
         <a href="/MyPage/MyRegisterAnswer">
-          <span>
+          <button>
             <img src="https://img.icons8.com/small/452/pink-cute-folder.png"></img>내가 등록한 답변
-          </span>
+          </button>
         </a>
-        <a href="/MyPage/MyLike">
-          <span>
+        <a href="/MyPage/MyLikeAnswer">
+          <button className="here-title">
             <img src="https://img.icons8.com/small/452/pink-cute-folder.png"></img>좋아요 한 답변
-          </span>
+          </button>
         </a>
-        <a href="/MyPage/MyBookmark">
-          <span>
+        <a href="/MyPage/MyBookmarkQuestion">
+          <button>
             <img src="https://img.icons8.com/small/452/pink-cute-folder.png"></img>북마크 한 문제
-          </span>
+          </button>
         </a>
-        <hr></hr>
+        <hr className="line1" />
       </div>
 
       <div className="my-profile">
@@ -37,8 +37,8 @@ const MyPage = () => {
             src="https://img.icons8.com/cotton/2x/gender-neutral-user--v2.png"
             alt="profile-logo"
           />
-          <h1 className="user-name"> 김서현 </h1>
-          <hr className="line" />
+          <h1 className="user-name"> {localStorage.getItem('userName')} </h1>
+          <hr className="line2" />
         </div>
         <div className="user-info">
           <h1>좋아요</h1>
@@ -49,13 +49,16 @@ const MyPage = () => {
 
       <div className="my-question">
         <div>
-          <span className="title-name">내가 한 질문</span>
-          <Button className="popular-order-btn"> 인기순 </Button>
+          <button className="title-name">
+            <img src="https://img.icons8.com/small/452/pink-cute-folder.png"></img>좋아요 한 답변
+          </button>
           <Button className="latest-order-btn"> 최신순 </Button>
+          <Button className="popular-order-btn"> 인기순 </Button>
         </div>
+        <hr className="line3" />
       </div>
     </div>
   )
 }
 
-export default MyPage
+export default MyLikeAnswer
