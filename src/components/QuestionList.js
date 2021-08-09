@@ -12,6 +12,7 @@ const QuestionList = (props) => {
   const [stopRequest, setStopRequest] = useState(false)
   const [allReRender, setAllReRender] = useState(false)
   const [notExist, setNotExist] = useState('')
+  const [sort, setSort] = useState('bookmarkCount')
 
   const getQuestions = useCallback(async () => {
     if (!stopRequest) {
@@ -51,8 +52,6 @@ const QuestionList = (props) => {
     getQuestions()
   }, [getQuestions])
 
-  useEffect(() => {})
-
   useEffect(() => {
     if (props.tagList.length !== 0) {
       setPage(0)
@@ -69,8 +68,14 @@ const QuestionList = (props) => {
       setPage(0)
       setStopRequest(false)
       setAllReRender(true)
+    } else if (sort !== props.sortBy) {
+      setSort(props.sortBy)
+      setAllQuestions([])
+      setPage(0)
+      setStopRequest(false)
+      setAllReRender(true)
     }
-  }, [props.tagList])
+  }, [props.tagList, props.sortBy])
 
   return (
     <div>
