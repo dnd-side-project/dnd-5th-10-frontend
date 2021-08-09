@@ -31,6 +31,7 @@ const QuestionRegister = ({ history }) => {
       const questionRegiTag = localStorage.getItem('questionRegiTag')
       const questionRegiTagArr = JSON.parse(questionRegiTag)
 
+      console.log(localStorage.getItem('userName'))
       axios({
         method: 'post',
         url: '/api/v1/question',
@@ -45,11 +46,12 @@ const QuestionRegister = ({ history }) => {
       })
         .then((res) => {
           console.log(res)
+          window.alert('문제가 등록되었습니다.')
         })
         .catch((err) => {
           console.log(err)
+          window.alert('문제가 등록되지 않았습니다.')
         })
-      window.alert('문제가 등록되었습니다.')
       history.push('/')
     }
   }
