@@ -1,17 +1,18 @@
 .each-question {
-  width: 900px;
-  height: 170px;
+  width: 80%;
+  height: 135px;
   margin: auto;
-  margin-top: 40px;
-  border-radius: 25px;
+  margin-top: 20px;
+  border-radius: 15px;
   box-shadow: 0px 3px 10px 1px rgb(187, 187, 187);
   white-space: nowrap;
 }
 
 .each-question > Button {
-  width: 900px;
-  height: 170px;
-  border-radius: 25px;
+  width: 100%;
+  height: 135px;
+  border-radius: 15px;
+
   border: 0;
   background-color: white;
   color: black;
@@ -23,13 +24,17 @@
 }
 
 .question-number {
-  line-height: 170px;
-  width: 140px;
-  height: 100%;
-  font-size: 30pt;
+  line-height: 135px;
   position: relative;
   float: left;
+
+  height: 100%;
+  width: 120px;
+
+  font-size: 25pt;
   color: #c9c9c9;
+  /* background-color: khaki; */
+  padding-left: 20px;
   /* color: #e7e7e7; */
 }
 .question-bookmark {
@@ -49,32 +54,57 @@
 .question-content {
   position: relative;
   float: left;
-  width: 50%;
-  margin-top: 40px;
-  margin-left: 30px;
-  margin-right: 30px;
-  color: #2a74dc;
-  font-size: 15pt;
+  width: 45%;
+  /* background-color: yellow; */
+
+  margin-top: 30px;
+
+  color: black;
+  font-size: 16pt;
+  font-weight: bold;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.question-content > span {
+  color: #a3a3a3;
+  font-size: 14pt;
+  font-weight: normal;
+  /* background-color: burlywood; */
+
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.question-tags {
-  width: min-content;
-  padding-left: 20px;
-  font-size: 14pt;
-  padding-right: 20px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+.question-tag {
   position: relative;
-  float: left;
-  color: #5b52a3;
-  font-weight: bold;
-  margin-top: 20px;
-  margin-right: 5px;
-  margin-left: 5px;
-  background-color: #e0daff;
+  float: right;
+  top: -30px;
+  width: 50%;
+  /* background-color: cadetblue; */
+  margin-top: 0;
+}
+.question-tags {
+  line-height: 35px;
+
+  font-size: 12pt;
+  height: 35px;
+
+  padding-left: 15px;
+  padding-right: 15px;
+
+  position: relative;
+  float: right;
+
+  /* margin-top: 50px; */
+  margin-right: 4px;
+  margin-left: 4px;
+
   border-radius: 30px;
-  border: 0;
+  background-color: #efecff;
+  color: #302b7d;
+  border: 1px solid #cdc9ff;
 }
 
 .date-or-username {

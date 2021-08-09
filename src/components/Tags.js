@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Button } from 'reactstrap'
 import tagItems from 'constants/TagItems'
 import 'css/Tags.css'
 
