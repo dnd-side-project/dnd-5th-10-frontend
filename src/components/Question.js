@@ -31,16 +31,17 @@ const Question = (props) => {
     <div className="each-question">
       <Button onClick={gotoDetails}>
         <div className="question-number">{checkQuestionNumber(props.number)}</div>
-        <div className="question-bookmark">
+        {/* <div className="question-bookmark">
           <h1>좋아요</h1>
           <span>{props.bookmarkCount}</span>
-        </div>
+        </div> */}
         <div className="question-content">
           {props.content}
           <br />
-          {showQuestionTags}
+          <span>"답이다답이다"</span>
         </div>
-        <div className="date-or-username">{props.username}</div>
+        <div className="question-tag">{showQuestionTags}</div>
+        {/* <div className="date-or-username">{props.username}</div> */}
       </Button>
     </div>
   )
