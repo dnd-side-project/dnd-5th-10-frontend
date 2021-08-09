@@ -1,0 +1,83 @@
+.my-page {
+  min-height: 1000px;
+  position: relative;
+}
+
+.mypage-category {
+  margin-top: 15px;
+  /* background-color: aqua; */
+}
+
+.mypage-category > a {
+  color: rgb(172, 172, 172);
+  text-decoration: none;
+}
+.mypage-category > a > span {
+  font-size: 13pt;
+  text-align: center;
+
+  margin-right: 30px;
+  margin-left: 100px;
+}
+.mypage-category > a > span > img {
+  width: 20px;
+  margin-right: 10px;
+}
+.my-profile {
+  float: left;
+  width: 25%;
+  height: 800px;
+  background-color: rgb(255, 255, 255);
+}
+
+.my-question {
+  float: right;
+  width: 75%;
+  height: 800px;
+  /* background-color: cadetblue; */
+}
+
+.profile-img {
+  display: block;
+  margin-top: 50px;
+  margin-left: 120px;
+  width: 130px;
+}
+
+.my-profile > .user-name-info > .profile-logo {
+  margin-left: 80px;
+  margin-top: 30px;
+  float: left;
+  width: 30px;
+}
+
+.my-profile > .user-name-info > .user-name {
+  margin-left: 10px;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  float: left;
+  display: inline;
+  font-size: 15pt;
+}
+
+.my-profile > .user-name-info {
+  width: 370px;
+  margin-top: 20px;
+  display: inline;
+}
+
+.line {
+  width: 220px;
+  margin-left: 80px;
+}
+
+.user-info > h1 {
+  margin-left: 80px;
+  text-align: left;
+  font-size: 12pt;
+  color: rgb(153, 153, 153);
+}
+
+.title-name {
+  float: left;
+}
