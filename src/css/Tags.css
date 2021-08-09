@@ -6,27 +6,29 @@
 }
 
 .classification-tag-btn > button {
-  font-size: 10pt;
+  font-size: 12pt;
   height: 35px;
 
   margin-top: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 14px;
   margin-right: 8px;
+  margin-left: 8px;
 
   padding-left: 15px;
   padding-right: 15px;
-  padding-top: 8px;
-  padding-bottom: 8px;
 
   border-radius: 50px;
-  border: 0.3px solid #cdc9ff;
-  outline: 0;
-  color: #302b7d !important;
+  transition-duration: 0.3s;
 }
+
 .classification-tag-unselected {
-  background-color: #efecff !important;
+  background-color: #efecff;
+  color: #302b7d;
+  border: 1px solid #cdc9ff;
 }
 
 .classification-tag-selected {
-  background-color: rgb(148, 148, 148) !important;
+  background-color: #635faa;
+  color: #ffffff;
+  border: 1px solid #5b41e7;
 }

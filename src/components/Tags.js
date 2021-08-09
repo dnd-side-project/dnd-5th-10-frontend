@@ -16,21 +16,23 @@ const Tags = (props) => {
   useEffect(() => {
     if (props.page === 'question-register') {
       localStorage.setItem('questionRegiTag', JSON.stringify(selectedTag))
+    } else if (props.page === 'question-search') {
+      localStorage.setItem('questionSearchTag', JSON.stringify(selectedTag))
     }
   })
 
   const TagButtons = tagItems.map((tagItem) => {
     if (selectedTag.includes(tagItem.name)) {
       return (
-        <Button className="classification-tag-selected" key={tagItem.id} id={tagItem.name} onClick={deselectThisTag}>
+        <button className="classification-tag-selected" key={tagItem.id} id={tagItem.name} onClick={deselectThisTag}>
           {tagItem.name}
-        </Button>
+        </button>
       )
     } else {
       return (
-        <Button className="classification-tag-unselected" key={tagItem.id} id={tagItem.name} onClick={selectThisTag}>
+        <button className="classification-tag-unselected" key={tagItem.id} id={tagItem.name} onClick={selectThisTag}>
           {tagItem.name}
-        </Button>
+        </button>
       )
     }
   })
