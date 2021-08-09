@@ -13,8 +13,6 @@ function MainPage() {
       <ClassificationTags />
       <Link to="/QuestionRegister">문제 등록</Link>
       <br />
-      <Link to="/QuestionList">문제 리스트(임시)</Link>
-      <br />
       <Link to="/SetQuizOptions">퀴즈풀러가기</Link>
       <br />
       <Link to="/QuestionSearch">문제 검색하러 가기</Link>
