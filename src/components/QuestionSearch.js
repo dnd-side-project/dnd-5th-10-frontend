@@ -1,11 +1,12 @@
 import 'css/QuestionSearch.css'
 import Tags from 'components/Tags.js'
-import { useEffect, useState } from 'react'
-import { Form, Input } from 'reactstrap'
+import { useState } from 'react'
+import { Input } from 'reactstrap'
 import QuestionList from './QuestionList'
 
 const questionRegisterImg = '/img/questionRegister.jpg'
 
+// xd 복붙 시작 -->
 const searchIcon = () => {
   return (
     <div className="search-icon">
@@ -38,10 +39,13 @@ const searchIcon = () => {
     </div>
   )
 }
+// <-- xd 복붙 끝
 
 const QuestionSearch = () => {
   const [searchWord, setSearchWord] = useState('')
   const [questionSearchTag, setQuestionSearchTag] = useState([])
+  // const [questionSearchWord, setQuestionSearchWord] = useState('')
+  const [sort, setSort] = useState('bookmarkCount')
 
   return (
     <div className="question-search">
@@ -74,11 +78,9 @@ const QuestionSearch = () => {
         <button
           onClick={() => {
             const tagList = localStorage.getItem('questionSearchTag')
-            console.log(typeof tagList)
-
             const questionSerachTagArr = JSON.parse(tagList)
-            console.log(Array.isArray(questionSerachTagArr))
             setQuestionSearchTag(questionSerachTagArr)
+            setSearchWord('')
           }}>
           검색하기
         </button>
@@ -87,13 +89,35 @@ const QuestionSearch = () => {
         <div className="title-sort">
           <span>검색된 면접 문제</span>
           <div className="sort-button">
-            <button>인기순</button>
-            <button>최신순</button>
+            <button
+              id="sort-by-bookmark"
+              onClick={() => {
+                setSort('bookmarkCount')
+                document.getElementById('sort-by-bookmark').style.color = '#4d4d4e'
+                document.getElementById('sort-by-latest').style.color = '#6a737d'
+                document.getElementById('sort-by-bookmark').style.borderColor = '#707070'
+                document.getElementById('sort-by-latest').style.borderColor = '#cdcdd5'
+              }}>
+              인기순
+            </button>
+            <button
+              id="sort-by-latest"
+              onClick={() => {
+                setSort('bookmarkCount')
+
+                // setSort('createDate')
+                document.getElementById('sort-by-bookmark').style.color = '#6a737d'
+                document.getElementById('sort-by-latest').style.color = '#4d4d4e'
+                document.getElementById('sort-by-bookmark').style.borderColor = '#cdcdd5'
+                document.getElementById('sort-by-latest').style.borderColor = '#707070'
+              }}>
+              최신순
+            </button>
             <div className="question-search-hr" />
           </div>
         </div>
         <div className="question-section">
-          <QuestionList tagList={questionSearchTag} />
+          <QuestionList tagList={questionSearchTag} sortBy={sort} />
         </div>
       </div>
     </div>

@@ -11,16 +11,16 @@ const QuestionList = (props) => {
   const [ref, inView] = useInView()
   const [stopRequest, setStopRequest] = useState(false)
   const [allReRender, setAllReRender] = useState(false)
+  const [notExist, setNotExist] = useState('')
 
   // const [allAnswers, setAllAnswers] = useState([])
   const getQuestions = useCallback(async () => {
     if (!stopRequest) {
       setLoading(true)
-      console.log(props.tagList.length)
       if (props.tagList.length === 0) {
         let questions = allQuestions
         await axios
-          .get(`/api/v1/question/all?page=${page}&size=10`)
+          .get(`/api/v1/question/all?page=${page}&size=10&sort=${props.sortBy},desc`)
           .then((res) => {
             res.data.forEach((item) => {
               questions.push(item)
@@ -34,13 +34,11 @@ const QuestionList = (props) => {
             console.log(err)
           })
       } else {
-        console.log('gogogo2')
-        console.log(props.tagList)
         let questions = allQuestions
         await axios
-          .get(`/api/v1/question/search?page=${page}&size=5&tags=${props.tagList}`)
+          .get(`/api/v1/question/search?page=${page}&size=2&tags=${props.tagList}&sort=${props.sortBy},desc`)
           .then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             res.data.forEach((item) => {
               questions.push(item)
             })
@@ -53,8 +51,13 @@ const QuestionList = (props) => {
           })
       }
       setLoading(false)
+      if (allQuestions.length === 0) {
+        setNotExist('There is no question')
+      } else {
+        setNotExist('')
+      }
     }
-  }, [stopRequest, allQuestions, page])
+  }, [stopRequest, allQuestions, page, props.sortBy, props.tagList])
 
   // const getAnswers = useCallback(
   //   async (a) => {
@@ -102,7 +105,7 @@ const QuestionList = (props) => {
       setAllQuestions([])
       setAllReRender(true)
     }
-  }, [props.tagList])
+  }, [props])
 
   return (
     <div>
@@ -135,6 +138,7 @@ const QuestionList = (props) => {
           )}
         </div>
       ))}
+      {notExist}
     </div>
   )
 }
