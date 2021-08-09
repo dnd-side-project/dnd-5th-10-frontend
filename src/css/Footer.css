@@ -28,8 +28,8 @@ footer > .footer-top > .footer-logo > img {
 
 footer > .footer-top > .footer-top-div {
   margin-top: 60px;
-  margin-left: 100px;
-  width: 10%;
+  /* margin-left: 100px; */
+  width: 20%;
   min-width: 20px;
 }
 
