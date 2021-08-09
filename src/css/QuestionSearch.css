@@ -1,0 +1,143 @@
+.question-search {
+  /* background-color: #a3a3a3; */
+  width: 100%;
+  min-width: 1000px;
+}
+
+.question-search-img {
+  /* background-color: #ff0000; */
+  height: 370px;
+}
+
+.question-search-img > img {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.question-search-img > h1 {
+  position: relative;
+  top: -210px;
+  font-size: 30pt;
+  margin-bottom: 0;
+}
+
+.question-search-img > h3 {
+  position: relative;
+  top: -190px;
+  font-size: 16pt;
+  margin-bottom: 0;
+}
+
+.question-search-tag {
+  text-align: left;
+  width: 80%;
+  margin: auto;
+}
+
+.question-search-tag > span {
+  margin-left: 75px;
+  font-size: 25pt;
+}
+.question-tag-hr {
+  min-width: 800px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  height: 2px;
+  background-color: #cccccc;
+  border-bottom: solid 1px #dfdfdf;
+}
+
+textarea#question-search-input.form-control {
+  /* font-size: 16pt; */
+  position: relative;
+  resize: none;
+  margin: auto;
+  width: 60%; /*580px*/
+  height: 40px;
+  margin-top: 50px;
+  border: 1px solid#554da0;
+  text-align: center;
+  color: black;
+  z-index: 1;
+  background-color: transparent;
+}
+
+textarea#question-search-input.form-control::placeholder {
+  /* font-size: 16pt; */
+  color: #554da0;
+  text-align: center;
+}
+
+.search-icon {
+  position: relative;
+  top: -33px;
+  width: 60%;
+  margin: auto;
+  z-index: 0;
+
+  /* background-color: black; */
+  text-align: left;
+}
+
+.search-icon > svg {
+  margin-left: 20px;
+  z-index: 0;
+}
+
+.question-search-word > button {
+  width: 196px;
+  height: 63px;
+  margin-top: 50px;
+  margin-left: 70%;
+  color: #ffffff;
+  border: 0;
+  border-radius: 30px 0px 30px 0px;
+  /* font-size: 18pt; */
+  background-image: linear-gradient(to right, #ffab00 0%, #eb2d2e 30%, #e91388 95%, #c8198a 100%);
+}
+
+.searched-question {
+  /* width: 80%; */
+  margin: auto;
+  margin-top: 50px;
+  background-color: #e3e2f0;
+}
+
+.title-sort {
+  width: 80%;
+  margin: auto;
+}
+.title-sort > span {
+  /* background-color: yellow; */
+  position: relative;
+  float: left;
+
+  margin-top: 55px;
+  margin-left: 100px;
+
+  font-size: 25pt;
+}
+
+.sort-button {
+  text-align: right;
+}
+
+.sort-button > button {
+  margin-left: 10px;
+  margin-top: 75px;
+  background-color: tomato;
+}
+
+.question-search-hr {
+  min-width: 800px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  height: 2px;
+  background-color: #cccccc;
+  border-bottom: solid 1px #dfdfdf;
+}
+
+.question-section {
+  margin-top: 500px;
+}
