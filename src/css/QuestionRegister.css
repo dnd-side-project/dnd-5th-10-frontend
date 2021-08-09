@@ -3,6 +3,7 @@
   width: 100%;
   vertical-align: middle;
   min-width: 1000px;
+  /* padding-bottom: 100px; */
 }
 
 .question-register-img > img {
