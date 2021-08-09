@@ -5,6 +5,7 @@ import QuestionRegisterPage from 'pages/QuestionRegisterPage'
 import QuestionListPage from 'pages/QuestionListPage'
 import QuizPage from 'pages/QuizPage'
 import Navigation from 'components/Navigation'
+import Footer from 'components/Footer'
 
 const Routers = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const Routers = () => (
     <Route exact path="/QuestionRegister" component={QuestionRegisterPage} />
     <Route exact path="/QuestionList" component={QuestionListPage} />
     <Route exact path="/SetQuizOptions" component={QuizPage} />
+    <Footer />
   </BrowserRouter>
 )
 
