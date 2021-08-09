@@ -21,7 +21,7 @@ const tagItems = [
   },
   {
     id: 6,
-    name: '소프트웨어공학',
+    name: 'SW공학',
   },
   {
     id: 7,

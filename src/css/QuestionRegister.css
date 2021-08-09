@@ -56,7 +56,7 @@
   top: 45px;
 }
 
-textarea.form-control {
+textarea#question-contents.form-control {
   position: relative;
   z-index: 0;
   resize: none;
