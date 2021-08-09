@@ -13,75 +13,33 @@ const QuestionList = (props) => {
   const [allReRender, setAllReRender] = useState(false)
   const [notExist, setNotExist] = useState('')
 
-  // const [allAnswers, setAllAnswers] = useState([])
   const getQuestions = useCallback(async () => {
     if (!stopRequest) {
       setLoading(true)
-      if (props.tagList.length === 0) {
-        let questions = allQuestions
-        await axios
-          .get(`/api/v1/question/all?page=${page}&size=10&sort=${props.sortBy},desc`)
-          .then((res) => {
-            res.data.forEach((item) => {
-              questions.push(item)
-              // getAnswers(item.id)
-            })
-            setAllQuestions(allQuestions)
-            setLoading(false)
-            if (res.data.length === 0) setStopRequest(true)
+      let questions = allQuestions
+      await axios
+        .get(
+          `/api/v1/question/search?keyword=${props.word}&page=${page}&size=10&tags=${props.tagList}&sort=${props.sortBy},desc`,
+        )
+        .then((res) => {
+          res.data.forEach((item) => {
+            questions.push(item)
           })
-          .catch((err) => {
-            console.log(err)
-          })
-      } else {
-        let questions = allQuestions
-        await axios
-          .get(`/api/v1/question/search?page=${page}&size=2&tags=${props.tagList}&sort=${props.sortBy},desc`)
-          .then((res) => {
-            // console.log(res.data)
-            res.data.forEach((item) => {
-              questions.push(item)
-            })
-            setAllQuestions(allQuestions)
-            setLoading(false)
-            if (res.data.length === 0) setStopRequest(true)
-          })
-          .catch((err) => {
-            console.log(err)
-          })
-      }
-      setLoading(false)
-      if (allQuestions.length === 0) {
-        setNotExist('There is no question')
-      } else {
-        setNotExist('')
-      }
+          setAllQuestions(allQuestions)
+          setLoading(false)
+          if (res.data.length === 0) setStopRequest(true)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
-  }, [stopRequest, allQuestions, page, props.sortBy, props.tagList])
-
-  // const getAnswers = useCallback(
-  //   async (a) => {
-  //     if (!stopRequest) {
-  //       setLoading(true)
-  //       let answers = allAnswers
-
-  //       await axios
-  //         .get(`/api/v1/answer/question/${a}`)
-  //         .then((res) => {
-  //           answers.push(res.data.content)
-  //           setAllAnswers(answers)
-  //           console.log(allAnswers)
-  //           if (res.data.length === 0) setStopRequest(true)
-  //         })
-  //         .catch((err) => {
-  //           console.log(err)
-  //         })
-
-  //       setLoading(false)
-  //     }
-  //   },
-  //   [stopRequest, allQuestions, page],
-  // )
+    setLoading(false)
+    if (allQuestions.length === 0) {
+      setNotExist('There is no question')
+    } else {
+      setNotExist('')
+    }
+  }, [stopRequest, allQuestions, page, props.tagList, props.sortBy])
 
   useEffect(() => {
     if (inView && !loading && !stopRequest) {
@@ -92,6 +50,8 @@ const QuestionList = (props) => {
   useEffect(() => {
     getQuestions()
   }, [getQuestions])
+
+  useEffect(() => {})
 
   useEffect(() => {
     if (props.tagList.length !== 0) {
@@ -104,8 +64,13 @@ const QuestionList = (props) => {
       setStopRequest(false)
       setAllQuestions([])
       setAllReRender(true)
+    } else if (props.word.length > 0) {
+      setAllQuestions([])
+      setPage(0)
+      setStopRequest(false)
+      setAllReRender(true)
     }
-  }, [props])
+  }, [props.tagList])
 
   return (
     <div>

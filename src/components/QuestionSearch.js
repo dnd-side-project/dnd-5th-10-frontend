@@ -44,7 +44,7 @@ const searchIcon = () => {
 const QuestionSearch = () => {
   const [searchWord, setSearchWord] = useState('')
   const [questionSearchTag, setQuestionSearchTag] = useState([])
-  // const [questionSearchWord, setQuestionSearchWord] = useState('')
+  const [questionSearchWord, setQuestionSearchWord] = useState('')
   const [sort, setSort] = useState('bookmarkCount')
 
   return (
@@ -80,6 +80,7 @@ const QuestionSearch = () => {
             const tagList = localStorage.getItem('questionSearchTag')
             const questionSerachTagArr = JSON.parse(tagList)
             setQuestionSearchTag(questionSerachTagArr)
+            setQuestionSearchWord(searchWord)
             setSearchWord('')
           }}>
           검색하기
@@ -103,9 +104,7 @@ const QuestionSearch = () => {
             <button
               id="sort-by-latest"
               onClick={() => {
-                setSort('bookmarkCount')
-
-                // setSort('createDate')
+                setSort('createdDate')
                 document.getElementById('sort-by-bookmark').style.color = '#6a737d'
                 document.getElementById('sort-by-latest').style.color = '#4d4d4e'
                 document.getElementById('sort-by-bookmark').style.borderColor = '#cdcdd5'
@@ -117,7 +116,7 @@ const QuestionSearch = () => {
           </div>
         </div>
         <div className="question-section">
-          <QuestionList tagList={questionSearchTag} sortBy={sort} />
+          <QuestionList tagList={questionSearchTag} sortBy={sort} word={questionSearchWord} />
         </div>
       </div>
     </div>
