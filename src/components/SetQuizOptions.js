@@ -1,7 +1,7 @@
 import 'css/SetQuizOptions.css'
 import { useState } from 'react'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import tagItems from 'constants/TagItems'
 
 const questionRegisterImg = '/img/questionRegister.jpg'
@@ -58,7 +58,9 @@ const SetQuizOptions = () => {
           <h4>퀴즈태그</h4>
           <hr className="line" />
           <Dropdown isOpen={tagDropdownOpen} toggle={tagToggle}>
-            <DropdownToggle caret>태그 선택</DropdownToggle>
+            <DropdownToggle className="quiz-dropdown" caret>
+              태그 선택
+            </DropdownToggle>
             <DropdownMenu className="dropdown-menu">
               {tagItems.map((tagItem, i) => {
                 return (
@@ -70,12 +72,13 @@ const SetQuizOptions = () => {
             </DropdownMenu>
           </Dropdown>
         </div>
-        {console.log(selectedQuizTag)}
         <div className="select-quiz-count">
           <h4>갯수</h4>
           <hr className="line" />
           <Dropdown isOpen={cntDropdownOpen} toggle={cntToggle}>
-            <DropdownToggle caret>퀴즈 갯수 선택</DropdownToggle>
+            <DropdownToggle className="quiz-dropdown" caret>
+              퀴즈 갯수 선택
+            </DropdownToggle>
             <DropdownMenu className="dropdown-menu">
               {quizMinToMax.map((cnt, i) => {
                 return (
@@ -96,17 +99,24 @@ const SetQuizOptions = () => {
           {selectedQuizTag.map((selectedTag, i) => {
             return (
               <Button className="selected-tag-btn" key={i} id={selectedTag} onClick={deselectedTag}>
-                {selectedTag} X
+                {selectedTag} ⅹ{localStorage.setItem('selectedQuizTag', JSON.stringify(selectedQuizTag))}
               </Button>
             )
           })}
+          {/* {console.log(JSON.parse(selectedQuizTag))} */}
         </div>
         <div>
           <h4>선택된 퀴즈 수</h4>
           <hr className="two-line" />
-          <h1>{selectedQuizCnt} 개</h1>
+          <span className="quiz-cnt">
+            {selectedQuizCnt}
+            {localStorage.setItem('selectedQuizCnt', selectedQuizCnt)}
+          </span>
+          <span>개</span>
         </div>
-        <Button className="quiz-start-btn">시작하기</Button>
+        <Link to="/SetQuizOptions/QuizSolving">
+          <Button className="quiz-start-btn">시작하기</Button>
+        </Link>
       </div>
     </div>
   )
