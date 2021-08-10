@@ -16,9 +16,9 @@ import LoginModal from 'components/LoginModal'
 import axios from 'axios'
 import { JWT_TOKEN } from 'constants/Oauth'
 import { removeCookie } from 'components/Cookies'
-import { Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
-const Navigation = () => {
+const Navigation = (props) => {
   const [modalOpen, setModalOpen] = useState(false)
   const [firstDropdownOpen, setFirstDropdownOpen] = useState(false)
   const [secondDropdownOpen, setSecondDropdownOpen] = useState(false)
@@ -120,9 +120,12 @@ const Navigation = () => {
                 />
               </DropdownToggle>
               <DropdownMenu>
-                <a href="/MyPage/MyRegisterQuestion">
-                  <DropdownItem>마이페이지</DropdownItem>
-                </a>
+                <DropdownItem
+                  onClick={() => {
+                    props.history.push('/MyPage/MyRegisterQuestion')
+                  }}>
+                  마이페이지
+                </DropdownItem>
                 <DropdownItem>profile-2</DropdownItem>
                 <DropdownItem>profile-3</DropdownItem>
                 <a
@@ -153,4 +156,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation
+export default withRouter(Navigation)

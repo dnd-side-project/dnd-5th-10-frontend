@@ -7,22 +7,22 @@ const MyBookmarkQuestion = () => {
       <div className="mypage-category">
         <a href="/MyPage/MyRegisterQuestion">
           <button>
-            <img src="https://img.icons8.com/small/452/pink-cute-folder.png"></img>내가 등록한 문제
+            <img src="https://img.icons8.com/small/452/pink-cute-folder.png" alt="my-question"></img>내가 등록한 문제
           </button>
         </a>
         <a href="/MyPage/MyRegisterAnswer">
           <button>
-            <img src="https://img.icons8.com/small/452/pink-cute-folder.png"></img>내가 등록한 답변
+            <img src="https://img.icons8.com/small/452/pink-cute-folder.png" alt="my-answer"></img>내가 등록한 답변
           </button>
         </a>
         <a href="/MyPage/MyLikeAnswer">
           <button>
-            <img src="https://img.icons8.com/small/452/pink-cute-folder.png"></img>좋아요 한 답변
+            <img src="https://img.icons8.com/small/452/pink-cute-folder.png" alt="my-like"></img>좋아요 한 답변
           </button>
         </a>
         <a href="/MyPage/MyBookmarkQuestion">
           <button className="here-title">
-            <img src="https://img.icons8.com/small/452/pink-cute-folder.png"></img>북마크 한 문제
+            <img src="https://img.icons8.com/small/452/pink-cute-folder.png" alt="my-bookmark"></img>북마크 한 문제
           </button>
         </a>
         <hr className="line1" />
@@ -50,7 +50,7 @@ const MyBookmarkQuestion = () => {
       <div className="my-question">
         <div>
           <button className="title-name">
-            <img src="https://img.icons8.com/small/452/pink-cute-folder.png"></img>북마크 한 문제
+            <img src="https://img.icons8.com/small/452/pink-cute-folder.png" alt="my-bookmark-tap"></img>북마크 한 문제
           </button>
           <Button className="latest-order-btn"> 최신순 </Button>
           <Button className="popular-order-btn"> 인기순 </Button>
