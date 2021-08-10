@@ -1,7 +1,12 @@
-.mypage-register-answer {
+.mypage {
   position: relative;
+  /* float: left; */
+
+  background-color: tomato;
+  /* min-height: 300px; */
+  /* margin-bottom: 0; */
 }
-.mypage-register-answer-question {
+.mypage-questions {
   position: relative;
   width: 80%;
   margin: auto;

@@ -1,0 +1,64 @@
+.mypage-profile {
+  width: 250px;
+  height: 400px;
+  float: left;
+  margin-top: 65px;
+  margin-left: 65px;
+}
+
+.mypage-profile-img {
+  margin: auto;
+  width: 130px;
+}
+
+.mypage-user-name-info {
+  text-align: left;
+}
+.mypage-user-name-info > img {
+  margin-right: 5px;
+
+  margin-top: 30px;
+  float: left;
+  width: 30px;
+}
+
+.mypage-user-name-info > h1 {
+  font-size: 18pt;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.mypage-line2 {
+  width: 100%;
+  height: 1px;
+  margin: auto;
+  margin-top: 25px;
+  background-color: #d2d2d2;
+}
+
+.mypage-user-info {
+  margin-top: 20px;
+}
+.mypage-user-info-left {
+  float: left;
+  text-align: left;
+  color: rgb(153, 153, 153);
+}
+.mypage-user-info-left > div {
+  white-space: nowrap;
+  font-size: 16pt;
+  margin-top: 5px;
+}
+
+.mypage-user-info-right {
+  float: right;
+  text-align: right;
+  color: rgb(153, 153, 153);
+}
+.mypage-user-info-right > div {
+  padding-top: 3px;
+  margin-bottom: 3px;
+  font-size: 14pt;
+  margin-top: 5px;
+  color: black;
+}

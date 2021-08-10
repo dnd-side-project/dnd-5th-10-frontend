@@ -1,0 +1,45 @@
+.mypage-navigation {
+  background-color: blanchedalmond;
+}
+
+.line1 {
+  position: relative;
+  top: -1px;
+  height: 1px;
+  background-color: #e7e7e7;
+  z-index: 0;
+}
+
+.mypage-category {
+  margin: auto;
+  margin-top: 12px;
+}
+
+.mypage-category > button {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  font-size: 13pt;
+  text-align: center;
+  padding-bottom: 10px;
+  border: 0;
+  border-bottom: 1px solid #e7e7e7;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  white-space: nowrap;
+}
+
+.mypage-category > button > span {
+  font-size: 14pt;
+  color: #6a737d;
+  padding: 12px;
+}
+
+.mypage-category > button:hover > span {
+  color: black;
+}
+
+.mypage-category > button > img {
+  width: 20px;
+}
