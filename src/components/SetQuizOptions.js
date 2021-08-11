@@ -48,48 +48,55 @@ const SetQuizOptions = () => {
       </div>
       <div className="set-quiz-options-box">
         <div className="user-info">
-          <h4>{localStorage.getItem('userName')}</h4>
-          <hr className="line" />
-          <h6>문제당 평균 시간</h6>
-          <h6>좋아요</h6>
-          <h6>퀴즈로 푼 문제</h6>
+          <div className="user-info-content">
+            <h4>{localStorage.getItem('userName')}</h4>
+            <hr className="line" />
+            <h6>문제당 평균 시간</h6>
+            <h6>좋아요</h6>
+            <h6>퀴즈로 푼 문제</h6>
+          </div>
         </div>
         <div className="select-tag">
-          <h4>퀴즈태그</h4>
-          <hr className="line" />
-          <Dropdown isOpen={tagDropdownOpen} toggle={tagToggle}>
-            <DropdownToggle className="quiz-dropdown" caret>
-              태그 선택
-            </DropdownToggle>
-            <DropdownMenu className="dropdown-menu">
-              {tagItems.map((tagItem, i) => {
-                return (
-                  <DropdownItem key={i} onClick={selectedTag} id={tagItem.name}>
-                    {tagItem.name}
-                  </DropdownItem>
-                )
-              })}
-            </DropdownMenu>
-          </Dropdown>
+          <div className="select-tag-content">
+            <h4>퀴즈태그</h4>
+            <hr className="line" />
+            <Dropdown isOpen={tagDropdownOpen} toggle={tagToggle}>
+              <DropdownToggle className="quiz-dropdown" caret>
+                태그 선택
+              </DropdownToggle>
+              <DropdownMenu className="dropdown-menu">
+                {tagItems.map((tagItem, i) => {
+                  return (
+                    <DropdownItem key={i} onClick={selectedTag} id={tagItem.name}>
+                      {tagItem.name}
+                    </DropdownItem>
+                  )
+                })}
+              </DropdownMenu>
+            </Dropdown>
+          </div>
         </div>
         <div className="select-quiz-count">
-          <h4>갯수</h4>
-          <hr className="line" />
-          <Dropdown isOpen={cntDropdownOpen} toggle={cntToggle}>
-            <DropdownToggle className="quiz-dropdown" caret>
-              퀴즈 갯수 선택
-            </DropdownToggle>
-            <DropdownMenu className="dropdown-menu">
-              {quizMinToMax.map((cnt, i) => {
-                return (
-                  <DropdownItem key={i} onClick={selectedCnt} id={cnt + 1}>
-                    {cnt + 1}
-                  </DropdownItem>
-                )
-              })}
-            </DropdownMenu>
-          </Dropdown>
+          <div className="select-quiz-count-content">
+            <h4>갯수</h4>
+            <hr className="line" />
+            <Dropdown isOpen={cntDropdownOpen} toggle={cntToggle}>
+              <DropdownToggle className="quiz-dropdown" caret>
+                퀴즈 갯수 선택
+              </DropdownToggle>
+              <DropdownMenu className="dropdown-menu">
+                {quizMinToMax.map((cnt, i) => {
+                  return (
+                    <DropdownItem key={i} onClick={selectedCnt} id={cnt + 1}>
+                      {cnt + 1}
+                    </DropdownItem>
+                  )
+                })}
+              </DropdownMenu>
+            </Dropdown>
+          </div>
         </div>
+
         {console.log(selectedQuizCnt)}
       </div>
       <div className="quiz-setting-result-box">

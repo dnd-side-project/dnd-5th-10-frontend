@@ -17,15 +17,13 @@
 }
 
 .set-quiz-options-box {
-  padding-left: 300px;
-  padding-right: 200px;
   display: flex;
-  width: 100%;
+  width: 80%;
+  margin: auto;
   height: 300px;
 }
 
 .set-quiz-options-box > div {
-  padding-right: 50px;
   font-size: 25pt;
   flex: 1;
   text-align: left;
@@ -57,8 +55,8 @@
   background-color: #efecff;
   display: flex;
   overflow: auto;
-  margin-left: 230px;
   margin-top: 50px;
+  margin: auto;
   margin-bottom: 100px;
   align-content: center;
   width: 75%;
@@ -76,6 +74,7 @@
 .quiz-setting-result-box > div > h4 {
   margin-left: 10px;
   margin-top: 40px;
+  font-size: 18pt;
 }
 
 .quiz-cnt {
@@ -119,4 +118,27 @@
 
 .selected-quiz-cnt {
   font-size: 60px;
+}
+
+.user-info {
+  display: relative;
+  width: 300px;
+  float: left;
+  height: inherit;
+  flex: 1;
+}
+
+.user-info-content {
+  width: 300px;
+  margin: auto;
+}
+
+.select-tag-content {
+  width: 300px;
+  margin: auto;
+}
+
+.select-quiz-count-content {
+  width: 300px;
+  margin: auto;
 }
