@@ -1,13 +1,57 @@
 .mypage-register-question {
   position: relative;
+  width: 80%;
 }
 .mypage-register-question-question {
   position: relative;
-  width: 80%;
+  width: 70%;
   margin: auto;
-  margin-left: 330px;
+  margin-left: 390px;
+  min-height: 800px;
+  /* background-color: rgb(255, 230, 230); */
+}
 
-  min-height: 500px;
+.mypage-register-question-title {
+  padding-top: 65px;
+  padding-bottom: 38px;
+  border-bottom: 1.5px solid #e7e7e7;
+  margin-bottom: 30px;
+}
 
-  /* background-color: rgb(223, 255, 228); */
+.mypage-register-question-title > span > img {
+  float: left;
+  width: 15px;
+  height: 15px;
+  margin-top: 6px;
+  margin-right: 10px;
+}
+
+.mypage-register-question-title > span {
+  padding-bottom: 10px;
+  font-size: 14pt;
+  float: left;
+  font-weight: bold;
+  border-bottom: 1.5px solid black;
+}
+
+.mypage-register-question-title > button {
+  float: right;
+  background-color: #ffffff;
+  color: #6a737d;
+  margin-left: 10px;
+
+  width: 90px;
+  height: 30px;
+
+  border-radius: 30px;
+  border: 1px solid #cdcdd5;
+  transition-duration: 0.3s;
+}
+
+.mypage-register-question-title > button:hover {
+  color: #4d4d4e !important;
+  border: 1px solid #707070 !important;
+}
+div > .each-question {
+  width: 100%;
 }

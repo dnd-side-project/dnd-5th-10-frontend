@@ -18,10 +18,13 @@ const QuestionList = (props) => {
     if (!stopRequest) {
       setLoading(true)
       let questions = allQuestions
+      let getUrl = `/api/v1/question/search?keyword=${props.word}&page=${page}&size=10&tags=${props.tagList}&sort=${props.sortBy},desc`
+
+      if (props.type === 'question') {
+        getUrl = `/api/v1/question/mine?page=${page}&size=10&sort=${props.sortBy},desc`
+      }
       await axios
-        .get(
-          `/api/v1/question/search?keyword=${props.word}&page=${page}&size=10&tags=${props.tagList}&sort=${props.sortBy},desc`,
-        )
+        .get(getUrl)
         .then((res) => {
           res.data.forEach((item) => {
             questions.push(item)

@@ -2,7 +2,7 @@ import 'css/QuestionSearch.css'
 import Tags from 'components/Tags.js'
 import { useEffect, useState } from 'react'
 import { Input } from 'reactstrap'
-import QuestionList from './QuestionList'
+import QuestionList from 'components/QuestionList'
 
 const questionRegisterImg = '/img/questionRegister.jpg'
 
@@ -131,7 +131,7 @@ const QuestionSearch = () => {
           </div>
         </div>
         <div className="question-section">
-          <QuestionList tagList={questionSearchTag} sortBy={sort} word={questionSearchWord} />
+          <QuestionList tagList={questionSearchTag} sortBy={sort} word={questionSearchWord} type={''} />
         </div>
       </div>
     </div>
