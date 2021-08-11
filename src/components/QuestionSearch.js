@@ -1,6 +1,6 @@
 import 'css/QuestionSearch.css'
 import Tags from 'components/Tags.js'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Input } from 'reactstrap'
 import QuestionList from './QuestionList'
 
@@ -46,6 +46,29 @@ const QuestionSearch = () => {
   const [questionSearchTag, setQuestionSearchTag] = useState([])
   const [questionSearchWord, setQuestionSearchWord] = useState('')
   const [sort, setSort] = useState('bookmarkCount')
+
+  useEffect(() => {
+    const bookmarkBtn = document.getElementById('sort-by-bookmark')
+    const latestBtn = document.getElementById('sort-by-latest')
+
+    if (sort === 'bookmarkCount') {
+      bookmarkBtn.style.color = '#4d4d4e'
+      bookmarkBtn.style.borderColor = '#707070'
+      bookmarkBtn.style.fontWeight = 'bold'
+
+      latestBtn.style.color = '#6a737d'
+      latestBtn.style.borderColor = '#cdcdd5'
+      latestBtn.style.fontWeight = 'normal'
+    } else {
+      bookmarkBtn.style.color = '#6a737d'
+      bookmarkBtn.style.borderColor = '#cdcdd5'
+      bookmarkBtn.style.fontWeight = 'normal'
+
+      latestBtn.style.color = '#4d4d4e'
+      latestBtn.style.borderColor = '#707070'
+      latestBtn.style.fontWeight = 'bold'
+    }
+  }, [sort])
 
   return (
     <div className="question-search">
@@ -94,10 +117,6 @@ const QuestionSearch = () => {
               id="sort-by-bookmark"
               onClick={() => {
                 setSort('bookmarkCount')
-                document.getElementById('sort-by-bookmark').style.color = '#4d4d4e'
-                document.getElementById('sort-by-latest').style.color = '#6a737d'
-                document.getElementById('sort-by-bookmark').style.borderColor = '#707070'
-                document.getElementById('sort-by-latest').style.borderColor = '#cdcdd5'
               }}>
               인기순
             </button>
@@ -105,10 +124,6 @@ const QuestionSearch = () => {
               id="sort-by-latest"
               onClick={() => {
                 setSort('createdDate')
-                document.getElementById('sort-by-bookmark').style.color = '#6a737d'
-                document.getElementById('sort-by-latest').style.color = '#4d4d4e'
-                document.getElementById('sort-by-bookmark').style.borderColor = '#cdcdd5'
-                document.getElementById('sort-by-latest').style.borderColor = '#707070'
               }}>
               최신순
             </button>
