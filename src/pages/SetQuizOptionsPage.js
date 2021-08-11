@@ -4,7 +4,7 @@ import { JWT_TOKEN } from 'constants/Oauth'
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_TOKEN}`
 
-const QuizPage = () => {
+const SetQuizOptionsPage = () => {
   return <SetQuizOptions />
 }
-export default QuizPage
+export default SetQuizOptionsPage
