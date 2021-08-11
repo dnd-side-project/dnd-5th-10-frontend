@@ -1,9 +1,8 @@
 .quiz-box {
-  background-color: #bebebe;
-
   margin: 5% 20% 5% 20%;
   min-width: 800px;
   min-height: 600px;
+  border: 1px solid #d3d3d3;
 }
 
 .breadcrumbs {
@@ -42,7 +41,6 @@
   display: inline-block;
   color: white;
   font-size: 18pt;
-
   padding-top: 20px;
   margin-left: 15px;
 }
@@ -50,8 +48,7 @@
 .quiz-contents-box {
   text-align: left;
   background-color: white;
-  height: 220px;
-  border: 0.1px solid rgb(211, 211, 211);
+  height: 250px;
 }
 
 .quiz-contents-title {
@@ -61,25 +58,27 @@
 }
 
 .quiz-contents {
-  font-size: 10pt;
-  margin-left: 30px;
+  height: 220px;
+  font-size: 12pt;
+  padding-left: 30px;
+  padding-right: 30px;
   margin-top: 20px;
 }
-.quiz-answer {
-  background-color: cadetblue;
-  height: 220px;
-}
 
-.quizAnswerLine {
-  margin: 0;
-  color: #afafaf;
+#answer-text-length {
+  position: relative;
+  font-size: 11pt;
+
+  left: 46%;
+  top: 26px;
 }
 
 #quiz-contents {
-  height: 220px;
+  height: 280px;
   resize: none;
-  border: 0px 1px 0px 1px;
+  border: 0;
   border-radius: 0;
+  border-top: 1px solid #b6b6b6;
 
   padding-top: 20px;
   padding-left: 30px;
@@ -91,7 +90,7 @@
   text-align: right;
 }
 
-.next-quiz > button {
+.quiz-btn {
   color: white;
   font-size: 8pt;
   border: 0;

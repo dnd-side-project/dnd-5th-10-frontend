@@ -1,33 +1,35 @@
 import 'css/QuizSolving.css'
-import { useEffect } from 'react'
-import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { Form, Input } from 'reactstrap'
 import { useState } from 'react'
 
-const QuizSolving = () => {
-  const quizTag = localStorage.getItem('selectedQuizTag')
-  const quizTagArr = JSON.parse(quizTag)
-  const quizCnt = parseInt(localStorage.getItem('selectedQuizCnt'))
-
-  const [allQuizContents, setAllQuizContents] = useState([])
+const QuizSolving = ({ quiz }) => {
   const [answerTextContents, setanswerTextContents] = useState('')
-  let quizContents = allQuizContents
+  let quizList = []
+  let quizIdList = []
+  const [quizNum, setQuizNum] = useState(0)
 
-  useEffect(() => {
-    axios
-      .get(`/api/v1/question/quiz?size=${quizCnt}&tags=${quizTagArr}`)
-      .then((res) => {
-        res.data.forEach((item, i, arr) => {
-          quizContents.push(arr[i].content)
-        })
-        setAllQuizContents(allQuizContents)
-        console.log(allQuizContents)
-      })
-      .catch((err) => {
-        console.log(err)
-      }, [])
+  console.log(quiz)
+
+  quiz.forEach((item) => {
+    quizList.push(item.content)
+    quizIdList.push(item.id)
   })
+
+  const nextBtn = () => {
+    return (
+      <button
+        className="quiz-btn"
+        onClick={() => {
+          setQuizNum(quizNum + 1)
+        }}>
+        다음 문제로 넘어가기
+      </button>
+    )
+  }
+  const exitQuizBtn = () => {
+    return <button className="quiz-btn">퀴즈 종료 하기</button>
+  }
 
   return (
     <div className="quiz-box">
@@ -47,10 +49,10 @@ const QuizSolving = () => {
         </div>
         <div className="quiz-contents-box">
           <h1 className="quiz-contents-title">문제 설명</h1>
-          <h1 className="quiz-contents"> {allQuizContents[0]} </h1>
+          <h1 className="quiz-contents">{quizList[quizNum]}</h1>
         </div>
-        {console.log(quizContents)}
-        <hr className="quizAnswerLine" />
+        {/* {console.log(quizContents)} */}
+        <span id="answer-text-length">({answerTextContents.length}/1000)</span>
         <Input
           type="textarea"
           value={answerTextContents}
@@ -59,12 +61,10 @@ const QuizSolving = () => {
             setanswerTextContents(e.target.value)
           }}
           id="quiz-contents"
-          placeholder="답변을 입력해주세요."
+          placeholder="답을 입력해주세요."
         />
       </Form>
-      <div className="next-quiz">
-        <button>다음 문제로 넘어가기</button>
-      </div>
+      <div className="next-quiz">{quizNum !== quizList.length - 1 ? nextBtn() : exitQuizBtn()}</div>
     </div>
   )
 }
