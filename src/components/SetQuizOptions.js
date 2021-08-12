@@ -4,8 +4,6 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 're
 import { withRouter } from 'react-router-dom'
 import tagItems from 'constants/TagItems'
 
-const questionRegisterImg = '/img/questionRegister.jpg'
-
 const SetQuizOptions = () => {
   const [tagDropdownOpen, setTagDropdownOpen] = useState(false)
   const [cntDropdownOpen, setCntDropdownOpen] = useState(false)
@@ -41,11 +39,6 @@ const SetQuizOptions = () => {
 
   return (
     <div className="set-quiz-options">
-      <div className="set-quiz-options-img">
-        <img src={questionRegisterImg} alt="question-register-img" />
-        <h1>퀴즈 옵션 세팅 페이지</h1>
-        <h3>퀴즈 옵션을 선택해주세요</h3>
-      </div>
       <div className="set-quiz-options-box">
         <div className="user-info">
           <h4>{localStorage.getItem('userName')}</h4>

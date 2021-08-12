@@ -10,15 +10,17 @@ function MainPage() {
   return (
     <div className="Main">
       <MainCarousel />
-      <ClassificationTags />
-      <Link to="/QuestionRegister">문제 등록</Link>
-      <br />
-      <Link to="/SetQuizOptions">퀴즈풀러가기</Link>
-      <br />
-      <Link to="/QuestionSearch">문제 검색하러 가기</Link>
-      <br />
-      <br />
-      <br />
+      <div className="body">
+        <ClassificationTags />
+        <Link to="/QuestionRegister">문제 등록</Link>
+        <br />
+        <Link to="/SetQuizOptions">퀴즈풀러가기</Link>
+        <br />
+        <Link to="/QuestionSearch">문제 검색하러 가기</Link>
+        <br />
+        <br />
+        <br />
+      </div>
     </div>
   )
 }

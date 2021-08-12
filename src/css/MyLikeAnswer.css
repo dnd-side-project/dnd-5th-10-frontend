@@ -1,6 +1,7 @@
 .mypage-register-like {
   position: relative;
-  width: 80%;
+  width: 1400px;
+  margin: auto;
 }
 .mypage-register-like-question {
   position: relative;

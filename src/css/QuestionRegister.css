@@ -5,10 +5,13 @@
   min-width: 1000px;
   /* padding-bottom: 100px; */
 }
-
+.question-register-img {
+  background-color: rgb(0, 0, 0);
+  height: 250px;
+}
 .question-register-img > img {
   position: relative;
-  width: 100%;
+  width: 1000px;
   height: 250px;
 }
 
@@ -28,7 +31,9 @@
   position: relative;
   margin: auto;
   width: 80%;
-  top: -50px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  /* top: -50px; */
   /* border: 1px solid black; */
   box-shadow: 0px 3px 10px 1px rgb(187, 187, 187);
 }
