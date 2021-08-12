@@ -5,7 +5,6 @@ import { Form, Input, Button } from 'reactstrap'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 
-const questionRegisterImg = '/img/questionRegister.jpg'
 const QuestionRegister = ({ history }) => {
   const [textContents, setTextContents] = useState('')
   const [textContentsLength, setTextContentsLength] = useState(0)
@@ -58,11 +57,6 @@ const QuestionRegister = ({ history }) => {
 
   return (
     <div className="question-register">
-      <div className="question-register-img">
-        <img src={questionRegisterImg} alt="question-register-img" />
-        <h1>문제 등록 페이지</h1>
-        <h3>문제를 등록해주셈</h3>
-      </div>
       <div className="question-register-input">
         <Form>
           <h1>문제를 입력하삼</h1>
