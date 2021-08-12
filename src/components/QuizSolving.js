@@ -1,21 +1,61 @@
 import 'css/QuizSolving.css'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Form, Input } from 'reactstrap'
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const QuizSolving = ({ quiz }) => {
   const [answerTextContents, setAnswerTextContents] = useState('')
-  const [allAnswer, setAllAnswer] = useState([{}])
+  const [allAnswer, setAllAnswer] = useState([])
   const [answerContentsLength, setAnswerContentsLength] = useState(0)
   const [quizNum, setQuizNum] = useState(0)
   const [quizIdNum, setQuizIdNum] = useState(0)
 
   let quizList = []
   let quizIdList = []
-  let answerList = []
 
-  console.log(quiz)
-  console.log(answerList)
+  const [alltime, setAllTimer] = useState('')
+
+  var time = 0
+  var hour = 0
+  var min = 0
+  var sec = 0
+  var timer
+
+  // console.log(quiz)
+  const init = () => {
+    document.getElementById('timer').innerHTML = '00:00:00'
+  }
+
+  const countTime = () => {
+    if (time == 0) {
+      init()
+    }
+
+    timer = setInterval(function () {
+      time++
+
+      min = Math.floor(time / 60)
+      hour = Math.floor(min / 60)
+      sec = time % 60
+      min = min % 60
+
+      var th = hour
+      var tm = min
+      var ts = sec
+      if (th < 10) {
+        th = '0' + hour
+      }
+      if (tm < 10) {
+        tm = '0' + min
+      }
+      if (ts < 10) {
+        ts = '0' + sec
+      }
+
+      document.getElementById('timer').innerHTML = th + ':' + tm + ':' + ts
+    }, 1000)
+  }
 
   useEffect(() => {
     setAnswerContentsLength(answerTextContents.length)
@@ -43,13 +83,18 @@ const QuizSolving = ({ quiz }) => {
             window.alert('최소 20자 이상 입력해주세요')
           } else {
             // post로 answer 전송할 코드 추가
-            console.log(quizNum)
-            console.log(quizIdNum)
-            answerList.push({ content: answerTextContents, questionId: quizIdList[quizIdNum] })
-            setAnswerTextContents('')
-            setQuizNum(quizNum + 1)
-            setQuizIdNum(quizIdNum + 1)
-            console.log(answerList)
+            if (answerTextContents.length === 0) {
+              setQuizNum(quizNum + 1)
+              setQuizIdNum(quizIdNum + 1)
+            } else {
+              let answerList = allAnswer
+              answerList.push({ content: answerTextContents, questionId: quizIdList[quizNum] })
+              setAllAnswer(answerList)
+              setAnswerTextContents('')
+              setQuizNum(quizNum + 1)
+              setQuizIdNum(quizIdNum + 1)
+              console.log(answerList)
+            }
           }
         }}>
         다음 문제로 넘어가기
@@ -58,12 +103,33 @@ const QuizSolving = ({ quiz }) => {
   }
 
   const exitQuizBtn = () => {
-    return <button className="quiz-btn">퀴즈 종료 하기</button>
-  }
-
-  const registerAnswerAboutQuiz = () => {
-    if (answerTextContents.length >= 1 && answerTextContents.length < 20) {
-    }
+    return (
+      <Link to="/QuizResult">
+        <button
+          className="quiz-btn"
+          onClick={() => {
+            axios({
+              method: 'post',
+              url: '/api/v1/answer/',
+              data: allAnswer,
+            })
+              .then((res) => {
+                console.log(res)
+              })
+              .catch((err) => {
+                console.log(err)
+              })
+          }}>
+          퀴즈 종료 하기
+        </button>
+        <div>
+          {localStorage.setItem('allTime', time)}
+          {(time = 0)}
+          {init()}
+          {clearInterval(timer)}
+        </div>
+      </Link>
+    )
   }
 
   return (
@@ -80,7 +146,15 @@ const QuizSolving = ({ quiz }) => {
         </div>
         <div className="quiz-title">
           <img src="https://img.icons8.com/cotton/452/warning-triangle.png" alt="quiz-logo" />
-          <span>Quiz {quizNum + 1}.</span>
+          <span className="quiz-number">Quiz {quizNum + 1}.</span>
+          <span className="total-elapsed-time">
+            <img
+              className="timer-img"
+              src="https://images.vexels.com/media/users/3/128840/isolated/preview/c091629800ce3d91d8527d32d60bc46f-stopwatch-timer.png"
+              alt="quiz-timer-img"></img>
+            이번퀴즈 총 소요시간
+          </span>
+          <span id="timer">00:00:00</span>
         </div>
         <div className="quiz-contents-box">
           <h1 className="quiz-contents-title">문제 설명</h1>
@@ -99,6 +173,7 @@ const QuizSolving = ({ quiz }) => {
           placeholder="답을 입력해주세요."
         />
       </Form>
+      {/* {countTime()} */}
       <div className="next-quiz">{quizNum !== quizList.length - 1 ? nextBtn() : exitQuizBtn()}</div>
     </div>
   )

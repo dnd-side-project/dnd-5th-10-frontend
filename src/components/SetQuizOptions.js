@@ -1,10 +1,11 @@
 import 'css/SetQuizOptions.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
 import tagItems from 'constants/TagItems'
 import axios from 'axios'
 import QuizSolving from './QuizSolving'
+
 const questionRegisterImg = '/img/questionRegister.jpg'
 const SetQuizOptions = (props) => {
   const [tagDropdownOpen, setTagDropdownOpen] = useState(false)
@@ -148,7 +149,7 @@ const SetQuizOptions = (props) => {
                         setRequest(false)
                       })
                       .catch((err) => {
-                        window.alert('퀴즈 갯수을 선택해주세요.')
+                        window.alert('퀴즈 갯수를 선택해주세요.')
                       })
                   }
                 }}>

@@ -37,7 +37,29 @@
   margin-left: 20px;
 }
 
-.quiz-title > span {
+.timer-img {
+  width: 18px;
+  margin-right: 10px;
+}
+
+.total-elapsed-time {
+  position: relative;
+  color: white;
+  font-size: 10pt;
+  left: 520px;
+  bottom: 20px;
+}
+
+#timer {
+  position: relative;
+  color: white;
+  font-size: 10pt;
+  left: 520px;
+  bottom: 20px;
+  margin-left: 10px;
+}
+
+.quiz-title > .quiz-number {
   display: inline-block;
   color: white;
   font-size: 18pt;
