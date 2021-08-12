@@ -138,6 +138,13 @@
   margin: auto;
 }
 
+.comments {
+  padding-left: 20px;
+  margin: auto;
+  font-size: 11pt;
+  color: rgb(170, 170, 170);
+}
+
 .select-quiz-count-content {
   width: 300px;
   margin: auto;

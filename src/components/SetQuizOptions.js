@@ -1,5 +1,5 @@
 import 'css/SetQuizOptions.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
 import tagItems from 'constants/TagItems'
@@ -39,12 +39,12 @@ const SetQuizOptions = (props) => {
     }
   }
   const deselectedTag = (e) => {
-    localStorage.removeItem('selectedQuizTag')
     setselectedQuizTag(selectedQuizTag.filter((element) => element !== e.target.id))
   }
   const selectedCnt = (e) => {
     setSelectedQuizCnt(e.target.id)
   }
+
   return (
     <div>
       {allQuiz.length === 0 ? (
@@ -67,7 +67,10 @@ const SetQuizOptions = (props) => {
               </div>
               <div className="select-tag">
                 <div className="select-tag-content">
-                  <h4>퀴즈태그</h4>
+                  <h4>
+                    퀴즈태그<span className="comments">*미선택시 랜덤출제</span>
+                  </h4>
+
                   <hr className="line" />
                   <Dropdown isOpen={tagDropdownOpen} toggle={tagToggle}>
                     <DropdownToggle className="quiz-dropdown" caret>
@@ -77,7 +80,7 @@ const SetQuizOptions = (props) => {
                       {tagItems.map((tagItem, i) => {
                         return (
                           <DropdownItem key={i} onClick={selectedTag} id={tagItem.name}>
-                            {tagItem.name}
+                            {tagItem.name} {localStorage.setItem('selectedQuizTag', JSON.stringify(selectedQuizTag))}
                           </DropdownItem>
                         )
                       })}
@@ -114,11 +117,11 @@ const SetQuizOptions = (props) => {
                 {selectedQuizTag.map((selectedTag, i) => {
                   return (
                     <Button className="selected-tag-btn" key={i} id={selectedTag} onClick={deselectedTag}>
-                      {selectedTag} ⅹ{localStorage.setItem('selectedQuizTag', JSON.stringify(selectedQuizTag))}
+                      {selectedTag} ⅹ
                     </Button>
                   )
                 })}
-                {/* {console.log(quizTagArr)} */}
+                {console.log(quizTagArr)}
               </div>
               <div>
                 <h4>선택된 퀴즈 수</h4>
@@ -145,7 +148,7 @@ const SetQuizOptions = (props) => {
                         setRequest(false)
                       })
                       .catch((err) => {
-                        console.log(err)
+                        window.alert('퀴즈 갯수을 선택해주세요.')
                       })
                   }
                 }}>
