@@ -24,11 +24,11 @@
 .classification-tag-unselected {
   background-color: #efecff;
   color: #302b7d;
-  border: 1px solid #cdc9ff;
+  border: 0;
 }
 
 .classification-tag-selected {
   background-color: #635faa;
   color: #ffffff;
-  border: 1px solid #5b41e7;
+  border: 0;
 }
