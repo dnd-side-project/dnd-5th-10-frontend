@@ -1,56 +1,57 @@
 footer {
-  /* margin-top: 45px; */
+  /* width: 1400px; */
   width: 100%;
-  min-width: 1000px;
+  min-width: 1400px;
   color: white;
+  margin: auto;
 }
 
-footer > div > div {
+footer > div > div > div {
   float: left;
 }
 
-footer > .footer-top {
+.footer-top {
   background-color: rgb(12, 12, 46);
-  width: 100%;
+  width: 1400px;
+  margin: auto;
   height: 180px;
 }
 
-footer > .footer-top > .footer-logo {
+.footer-logo {
   width: 130px;
   height: 130px;
 
   margin-top: 40px;
   margin-left: 70px;
 }
-
-footer > .footer-top > .footer-logo > img {
+.footer-logo > img {
   width: 100px;
 }
 
-footer > .footer-top > .footer-top-div {
+.footer-top-div {
   margin-top: 60px;
   /* margin-left: 100px; */
   width: 20%;
   min-width: 20px;
 }
 
-footer > .footer-top > .footer-top-div > h1 {
+.footer-top-div > h1 {
   margin-bottom: 15px;
   font-size: 11pt;
 }
 
-footer > .footer-top > .footer-top-div > h3 {
+.footer-top-div > h3 {
   font-size: 8pt;
 }
-
-footer > .footer-bottom {
+.footer-bottom-div {
   height: 50px;
-  width: 100%;
+  width: 1400px;
+  margin: auto;
 
   background-color: rgb(161, 134, 235);
 }
 
-footer > .footer-bottom > .footer-bottom-div > h1 {
+.footer-bottom-div > h1 {
   margin-bottom: 0px;
   margin-top: 15px;
   margin-left: 100px;
@@ -58,4 +59,12 @@ footer > .footer-bottom > .footer-bottom-div > h1 {
   font-size: 9pt;
   float: left;
   align-content: left;
+}
+
+.expand-footer-top {
+  background-color: rgb(12, 12, 46);
+}
+
+.footer-bottom-expand {
+  background-color: rgb(161, 134, 235);
 }
