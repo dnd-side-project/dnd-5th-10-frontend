@@ -1,0 +1,82 @@
+.quiz-result-page {
+  width: 100%;
+  height: 100%;
+  min-width: 1000px;
+  min-height: 1800px;
+}
+.set-quiz-result-img {
+  height: 300px;
+}
+
+.set-quiz-result-img > img {
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+.set-quiz-result-img > h1 {
+  position: relative;
+  top: -150px;
+  font-size: 30pt;
+}
+
+.set-quiz-result-img > h3 {
+  position: relative;
+  top: -150px;
+  font-size: 20pt;
+}
+
+.set-quiz-result-box {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  height: 300px;
+}
+.set-quiz-result-box > div {
+  font-size: 25pt;
+  flex: 1;
+  text-align: left;
+}
+
+.hr {
+  width: 300px;
+}
+
+.user-quiz-result {
+  display: relative;
+  width: 300px;
+  float: left;
+  height: inherit;
+  flex: 1;
+}
+
+.user-quiz-result-content {
+  width: 300px;
+  margin: auto;
+}
+
+.selectd-quiz-tag-content {
+  width: 300px;
+  margin: auto;
+}
+
+.quiz-time-content {
+  width: 300px;
+  margin: auto;
+}
+
+.solved-quiz-title > span {
+  position: relative;
+  float: left;
+
+  left: 150px;
+  bottom: 70px;
+  font-size: 25pt;
+}
+
+.hr4 {
+  position: relative;
+  bottom: 10px;
+  right: 30px;
+  width: 80%;
+}

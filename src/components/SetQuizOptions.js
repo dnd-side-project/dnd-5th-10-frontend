@@ -29,12 +29,15 @@ const SetQuizOptions = (props) => {
   const [request, setRequest] = useState(false)
 
   let quiz = allQuiz
+  let quizTagList = selectedQuizTag
+
   const selectedTag = (e) => {
     if (selectedQuizTag.length > 9) {
       alert('지정할 수 있는 태그는 최대 10개입니다')
     }
     if (!selectedQuizTag.includes(e.target.id) && selectedQuizTag.length <= 9) {
       setselectedQuizTag(selectedQuizTag.concat(e.target.id))
+      quizTagList.push(e.target.id)
     } else if (selectedQuizTag.includes(e.target.id)) {
       alert('이미 선택된 태그입니다.')
     }
@@ -122,7 +125,7 @@ const SetQuizOptions = (props) => {
                     </Button>
                   )
                 })}
-                {console.log(quizTagArr)}
+                {/* {console.log(quizTagArr)} */}
               </div>
               <div>
                 <h4>선택된 퀴즈 수</h4>
@@ -164,4 +167,5 @@ const SetQuizOptions = (props) => {
     </div>
   )
 }
+
 export default withRouter(SetQuizOptions)

@@ -42,21 +42,27 @@
   margin-right: 10px;
 }
 
-.total-elapsed-time {
+.time-title {
   position: relative;
   color: white;
   font-size: 10pt;
-  left: 520px;
+  left: 510px;
   bottom: 20px;
 }
 
-#timer {
+.breadcrumbs > span {
   position: relative;
-  color: white;
-  font-size: 10pt;
-  left: 520px;
-  bottom: 20px;
+  top: 6px;
+}
+
+.breadcrumbs > img {
+  position: relative;
+  top: 6px;
+}
+
+#time {
   margin-left: 10px;
+  color: white;
 }
 
 .quiz-title > .quiz-number {
