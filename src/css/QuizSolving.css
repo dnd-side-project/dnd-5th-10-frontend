@@ -44,10 +44,11 @@
 
 .time-title {
   position: relative;
+  float: right;
   color: white;
   font-size: 10pt;
-  left: 510px;
-  bottom: 20px;
+  right: 15px;
+  top: 5px;
 }
 
 .breadcrumbs > span {

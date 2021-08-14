@@ -8,6 +8,8 @@ const QuizResult = (props) => {
   let index = 0
   let arrIndex = 0
   let keyIndex = 0
+  const tagItem = JSON.parse(localStorage.selectedQuizTag)
+
   return (
     <div className="quiz-result-page">
       <div className="set-quiz-result-img">
@@ -30,7 +32,13 @@ const QuizResult = (props) => {
           <div className="selectd-quiz-tag-content">
             <h4>퀴즈 태그</h4>
             <hr className="hr2" />
-            {localStorage.getItem('selectedQuizTag')}
+            {tagItem.map((item, i) => {
+              return (
+                <button key={i} className="tag-btn">
+                  {item}
+                </button>
+              )
+            })}
           </div>
         </div>
         <div className="quiz-time-info">
@@ -40,23 +48,23 @@ const QuizResult = (props) => {
           </div>
         </div>
       </div>
-      <div className="solved-quiz-content">
+      <div className="solved-quiz">
         <div className="solved-quiz-title">
           <span>풀었던 문제</span>
-          <hr className="hr4" />
-          <div>
-            {props.id.map(() => {
-              return (
-                <Question
-                  key={keyIndex++}
-                  id={props.id[arrIndex]}
-                  number={++index}
-                  content={props.content[arrIndex]}
-                  tagList={props.tag[arrIndex++]}
-                />
-              )
-            })}
-          </div>
+          <div className="hr4" />
+        </div>
+        <div className="each-questions">
+          {props.id.map(() => {
+            return (
+              <Question
+                key={keyIndex++}
+                id={props.id[arrIndex]}
+                number={++index}
+                content={props.content[arrIndex]}
+                tagList={props.tag[arrIndex++]}
+              />
+            )
+          })}
         </div>
       </div>
     </div>

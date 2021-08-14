@@ -155,3 +155,7 @@ textarea#question-search-input.form-control::placeholder {
 .question-section {
   margin-top: 30px;
 }
+
+.selectd-quiz-tag-content > button {
+  width: 300px;
+}
