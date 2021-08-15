@@ -6,12 +6,8 @@ import tagItems from 'constants/TagItems'
 import axios from 'axios'
 import QuizSolving from './QuizSolving'
 
-<<<<<<< HEAD
-const SetQuizOptions = () => {
-=======
 const questionRegisterImg = '/img/questionRegister.jpg'
 const SetQuizOptions = (props) => {
->>>>>>> feature/26-Quiz-page
   const [tagDropdownOpen, setTagDropdownOpen] = useState(false)
   const [cntDropdownOpen, setCntDropdownOpen] = useState(false)
   const tagToggle = () => setTagDropdownOpen((prevState) => !prevState)
