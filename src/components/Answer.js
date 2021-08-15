@@ -1,4 +1,5 @@
 import { Button } from 'reactstrap'
+import 'css/Answer.css'
 
 const Answer = (props) => {
   const checkQuestionNumber = (num) => {
@@ -14,9 +15,9 @@ const Answer = (props) => {
       <div className="answer-card">
         <div className="answer-number">{checkQuestionNumber(props.number)}</div>
         <div className="answer-content">
-          {props.content_title}
+          <h1>{props.content_title}</h1>
           <br />
-          {props.content_answer}
+          <span>{props.content_answer}</span>
         </div>
         <Button>좋아요! {props.like}</Button>
       </div>
