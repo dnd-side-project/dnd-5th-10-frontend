@@ -17,6 +17,7 @@ import axios from 'axios'
 import { JWT_TOKEN } from 'constants/Oauth'
 import { removeCookie } from 'components/Cookies'
 import { withRouter, Link } from 'react-router-dom'
+import { getCookie } from 'components/Cookies.js'
 
 const Navigation = (props) => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -55,6 +56,11 @@ const Navigation = (props) => {
         })
         .catch((err) => {
           console.log(err)
+          removeCookie('Authorization', { path: '/' })
+          localStorage.removeItem('userName')
+          localStorage.removeItem('userEmail')
+          localStorage.removeItem('questionRegiTag')
+          JWT_TOKEN = getCookie('Authorization')
         })
     }
   }, [])

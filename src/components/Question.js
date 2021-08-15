@@ -24,7 +24,7 @@ const Question = (props) => {
   }
 
   const gotoDetails = () => {
-    props.history.push(`/QuestionDetails/${props.id}`)
+    props.history.push(`/QuestionDetail?${props.id}`)
   }
 
   return (
