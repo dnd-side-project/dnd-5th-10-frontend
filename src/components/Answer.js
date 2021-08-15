@@ -1,6 +1,6 @@
 import { Button } from 'reactstrap'
 
-const Answer = () => {
+const Answer = (props) => {
   const checkQuestionNumber = (num) => {
     let questionNum = num.toString()
     if (questionNum.length < 2) {
