@@ -17,6 +17,7 @@ const QuizSolving = ({ quiz }) => {
   let quizList = []
   let quizIdList = []
   let quizTagList = allQuizTag
+  let answerList = allAnswer
 
   useEffect(() => {
     setAnswerContentsLength(answerTextContents.length)
@@ -28,7 +29,7 @@ const QuizSolving = ({ quiz }) => {
     } else {
       answerArea.style.setProperty('color', 'black')
     }
-  }, [answerTextContents.length, answerContentsLength])
+  }, [answerContentsLength, answerTextContents.length])
 
   quiz.forEach((item) => {
     quizList.push(item.content)
@@ -64,7 +65,6 @@ const QuizSolving = ({ quiz }) => {
               setQuizNum(quizNum + 1)
               setQuizIdNum(quizIdNum + 1)
             } else {
-              let answerList = allAnswer
               answerList.push({ content: answerTextContents, questionId: quizIdList[quizNum] })
               setAllAnswer(answerList)
               setAnswerTextContents('')
@@ -80,12 +80,25 @@ const QuizSolving = ({ quiz }) => {
   }
 
   const exitQuizBtn = () => {
+    // console.log(quizNum)
     return (
       <button
         className="quiz-btn"
         onClick={() => {
-          postAnswer()
-          setShowResult(true)
+          if (answerTextContents.length >= 1 && answerTextContents.length < 20) {
+            window.alert('최소 20자 이상 입력해주세요')
+          } else {
+            if (answerTextContents.length === 0) {
+              postAnswer()
+              setShowResult(true)
+            } else {
+              answerList.push({ content: answerTextContents, questionId: quizIdList[quizNum] })
+              setAllAnswer(answerList)
+              // console.log(answerList)
+              postAnswer()
+              setShowResult(true)
+            }
+          }
         }}>
         퀴즈 종료 하기
       </button>
