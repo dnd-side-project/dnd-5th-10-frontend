@@ -43,7 +43,7 @@
 
   background-color: #796aca;
   color: white;
-  transition-duration: 0.5s;
+  transition-duration: 0.3s;
 }
 
 .question-detail-title > button:hover {
@@ -73,9 +73,10 @@
 
 .question-detail-answer {
   background-color: #e3e2f0;
+  margin: auto;
   padding-top: 45px;
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 5%;
+  padding-right: 5%;
   padding-bottom: 60px;
   text-align: left;
   box-shadow: rgb(199, 199, 199) 0px 3px 5px 2px;
@@ -84,4 +85,48 @@
   float: left;
   font-size: 18pt;
   font-weight: bold;
+}
+
+.question-detail-others {
+  text-align: left;
+  height: 40px;
+  width: 90%;
+  margin: auto;
+  margin-top: 65px;
+}
+.question-detail-others > h2 {
+  float: left;
+  font-size: 23pt;
+  font-weight: bold;
+}
+
+.question-detail-others > button {
+  float: right;
+  background-color: #ffffff;
+  color: #6a737d;
+  margin-left: 10px;
+
+  width: 90px;
+  height: 30px;
+
+  border-radius: 30px;
+  border: 1px solid #cdcdd5;
+  transition-duration: 0.3s;
+}
+
+.question-detail-others > button:hover {
+  color: #4d4d4e !important;
+  border: 1px solid #707070 !important;
+}
+
+#hr-line {
+  height: 1px;
+  background-color: #cccccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.queiston-detail-others-answer {
+  width: 90%;
+  margin: auto;
 }
