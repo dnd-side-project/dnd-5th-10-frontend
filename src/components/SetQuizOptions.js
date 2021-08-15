@@ -23,11 +23,11 @@ const SetQuizOptions = (props) => {
 
   const quizTag = localStorage.getItem('selectedQuizTag')
   const quizTagArr = JSON.parse(quizTag)
-  const quizSize = localStorage.getItem('selectedQuizCnt')
 
   const [allQuiz, setAllQuiz] = useState([])
   const [request, setRequest] = useState(false)
 
+  let quizSize = localStorage.getItem('selectedQuizCnt')
   let quiz = allQuiz
   let quizTagList = selectedQuizTag
 
@@ -140,21 +140,24 @@ const SetQuizOptions = (props) => {
                 className="quiz-start-btn"
                 onClick={() => {
                   setRequest(true)
-                  if (request) {
-                    axios
-                      .get(`/api/v1/question/quiz?size=${quizSize}&tags=${quizTagArr}`)
-                      .then((res) => {
-                        res.data.forEach((item) => {
-                          quiz.push(item)
-                        })
-                        console.log(allQuiz)
-                        setAllQuiz(allQuiz)
-                        setRequest(false)
+                  // if (request) {
+                  quizSize = localStorage.getItem('selectedQuizCnt')
+                  console.log('퀴즈 시작시작시작')
+                  axios
+                    .get(`/api/v1/question/quiz?size=${quizSize}&tags=${quizTagArr}`)
+                    .then((res) => {
+                      res.data.forEach((item) => {
+                        quiz.push(item)
                       })
-                      .catch((err) => {
-                        window.alert('퀴즈 갯수를 선택해주세요.')
-                      })
-                  }
+                      console.log(allQuiz)
+                      setAllQuiz(allQuiz)
+                      setRequest(false)
+                    })
+                    .catch((err) => {
+                      console.log(err)
+                      // window.alert('퀴즈 갯수를 선택해주세요.')
+                    })
+                  // }
                 }}>
                 시작하기
               </Button>
