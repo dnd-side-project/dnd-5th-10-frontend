@@ -23,13 +23,17 @@
   padding-left: 50px;
   /* color: #e7e7e7; */
 }
+
+.answer-content {
+  text-align: left;
+  padding-top: 40px;
+  background-color: khaki;
+}
+
 .answer-content > h1 {
   position: relative;
-  float: left;
-  width: 45%;
-  background-color: yellow;
-
-  margin-top: 50px;
+  width: 80%;
+  /* background-color: yellow; */
 
   color: black;
   font-size: 16pt;
@@ -39,49 +43,12 @@
   text-overflow: ellipsis;
   text-align: left;
 }
-
-.question-content > span {
+.answer-content > h5 {
+  display: inline-block;
+  width: 80%;
+  background-color: lavender;
   color: #a3a3a3;
   font-size: 14pt;
-  font-weight: normal;
-  /* background-color: burlywood; */
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.question-tag {
-  position: relative;
-  float: right;
-  top: -30px;
-  width: 50%;
-  /* background-color: cadetblue; */
-  margin-top: 0;
-}
-.question-tags {
-  line-height: 35px;
-
-  font-size: 12pt;
-  height: 35px;
-
-  padding-left: 15px;
-  padding-right: 15px;
-
-  position: relative;
-  float: right;
-
-  /* margin-top: 50px; */
-  margin-right: 4px;
-  margin-left: 4px;
-
-  border-radius: 30px;
-  background-color: #efecff;
-  color: #302b7d;
-}
-
-.date-or-username {
-  line-height: 170px;
-  position: relative;
-  float: left;
-  height: 100%;
-  width: 150px;
+  word-break: normal;
+  background-color: lawngreen;
 }
