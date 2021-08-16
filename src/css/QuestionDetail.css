@@ -1,5 +1,22 @@
-.question-detail-bar {
+.question-detail-top {
   background-color: #111036;
+  width: 100%;
+}
+
+.question-detail-bar {
+  width: 1400px;
+  margin: auto;
+  background-color: #111036;
+  text-align: left;
+}
+#top-hr-line {
+  border-top: 1px solid #707070;
+}
+.question-detail-bar > img {
+  height: 25px;
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .question-detail-title {
   background-color: #111036;
@@ -53,7 +70,7 @@
 .question-detail-content {
   min-height: 230px;
   text-align: left;
-  border: 1px solid #b5b5b5;
+  border-bottom: 1px solid #b5b5b5;
   padding-bottom: 20px;
 }
 

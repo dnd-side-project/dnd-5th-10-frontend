@@ -23,7 +23,8 @@ const Question = (props) => {
   }
 
   const gotoDetails = () => {
-    window.open(`/QuestionDetail?${props.id}`)
+    localStorage.setItem('detailTitle', props.content)
+    window.open(`/QuestionDetail?${props.id}`, '문제상세페이지', 'width=2000')
   }
 
   return (

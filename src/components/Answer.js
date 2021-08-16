@@ -15,9 +15,9 @@ const Answer = (props) => {
       <div className="answer-card">
         <div className="answer-number">{checkQuestionNumber(props.number)}</div>
         <div className="answer-content">
-          <h1>{props.content_title}</h1>
+          <h1>{props.title}</h1>
 
-          <h5>{props.content_answer}</h5>
+          <h5>{props.answer}</h5>
         </div>
         <button>좋아요! {props.like}</button>
       </div>

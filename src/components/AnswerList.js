@@ -1,38 +1,81 @@
-import { getDefaultNormalizer } from '@testing-library/react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Answer from './Answer'
 
-const AnswerList = () => {
+const AnswerList = (props) => {
   const [answerList, setAnswerList] = useState([])
   const [skip, setSktip] = useState(0)
   const [limit, setLimit] = useState(10)
   const [fetching, setFetching] = useState(false)
+  const [answerType, setAnswerType] = useState(props.type)
+  const [questionId, setQuestionId] = useState(props.question)
+  const [questionTitle, setQuestionTitle] = useState(props.title)
+
+  const username = localStorage.getItem('userName')
+
   useEffect(() => {
+    setQuestionTitle(props.title)
+    setAnswerType(props.type)
+    setQuestionId(props.question)
+    // console.log(questionTitle)
+    // console.log(questionId)
+    // console.log(answerType)
     const body = {
       skip: skip,
       limit: limit,
     }
+    // setAnswerType(props.type)
+    // console.log(answerType)
     getData(body)
   }, [])
+
   const getData = (body) => {
-    axios.get('/api/v1/answer/question/2').then((res) => {
-      // console.log(res.data.content)
-      // if (body.loadMore)
-      setAnswerList(res.data.content)
-      console.log(answerList)
-    })
+    console.log('zz')
+    if (answerType === 'other-answer') {
+      let answer = answerList
+      axios.get(`/api/v1/answer/question/${questionId}`).then((res) => {
+        res.data.content.forEach((item) => {
+          answer.push(item)
+        })
+        setAnswerList(answer)
+        console.log(answerList)
+      })
+    } else {
+    }
   }
+
   return (
     <div>
-      <Answer
-        number={1}
-        content_title="문제 제목"
-        content_answer={
-          '첫번째 답변입니당. 첫ㅅ번째 답변입니다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ다 첫번째 답변 배고파 으흥헣ㅇ'
-        }
-        like={55}
-      />
+      {console.log(answerType)}
+      {answerType === 'other-answer' ? (
+        <div>
+          {answerList.map((ans, index) => (
+            <div key={index}>
+              <Answer
+                key={ans.id}
+                id={ans.id}
+                number={index + 1}
+                answer={ans.content}
+                title={questionTitle}
+                username={ans.username}
+                like={ans.liked}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div>
+          <Answer
+            key={0}
+            id={0}
+            number={1}
+            answer="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+            title={questionTitle}
+            username={username}
+            like={0}
+          />
+        </div>
+      )}
     </div>
   )
 }

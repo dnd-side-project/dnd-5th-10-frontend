@@ -3,31 +3,34 @@ import 'css/QuestionDetail.css'
 import { Button } from 'reactstrap'
 import axios from 'axios'
 import QuestionList from './QuestionList'
-import AnswerList from './AnswerList'
+import AnswerList from 'components/AnswerList'
+import Answer from 'components/Answer'
+
+import InfiniteAnswerList from 'components/InfiniteAnswerList'
 
 // 북마크 개수, 해당되는 태그, 작성자 없음
 
 const QuestionDetail = () => {
-  const [questionId, setQuestionId] = useState('')
-  const [questionContent, setQuesitonContent] = useState('문제 설명 업따')
-  const [sort, setSort] = useState('bookmarkCount')
+  const [questionId, setQuestionId] = useState(window.location.search.slice(1, window.location.search.length))
+  const [questionContent, setQuesitonContent] = useState(localStorage.getItem('detailTitle'))
+  const [sort, setSort] = useState('liked')
 
   useEffect(() => {
-    const bookmarkBtn = document.getElementById('sort-by-bookmark')
+    const likeBtn = document.getElementById('sort-by-like')
     const latestBtn = document.getElementById('sort-by-latest')
 
-    if (sort === 'bookmarkCount') {
-      bookmarkBtn.style.color = '#4d4d4e'
-      bookmarkBtn.style.borderColor = '#707070'
-      bookmarkBtn.style.fontWeight = 'bold'
+    if (sort === 'liked') {
+      likeBtn.style.color = '#4d4d4e'
+      likeBtn.style.borderColor = '#707070'
+      likeBtn.style.fontWeight = 'bold'
 
       latestBtn.style.color = '#6a737d'
       latestBtn.style.borderColor = '#cdcdd5'
       latestBtn.style.fontWeight = 'normal'
     } else {
-      bookmarkBtn.style.color = '#6a737d'
-      bookmarkBtn.style.borderColor = '#cdcdd5'
-      bookmarkBtn.style.fontWeight = 'normal'
+      likeBtn.style.color = '#6a737d'
+      likeBtn.style.borderColor = '#cdcdd5'
+      likeBtn.style.fontWeight = 'normal'
 
       latestBtn.style.color = '#4d4d4e'
       latestBtn.style.borderColor = '#707070'
@@ -48,7 +51,7 @@ const QuestionDetail = () => {
 
   useEffect(() => {
     setQuestionId(window.location.search.slice(1, window.location.search.length))
-    console.log('문제받아오기')
+    // console.log('문제받아오기')
     getQuestion()
   })
 
@@ -60,7 +63,7 @@ const QuestionDetail = () => {
       </div>
       <div className="question-detail-answer">
         <span>나의 답변</span>
-        <AnswerList />
+        <Answer number={1} answer="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" title={questionContent} like={0} />
       </div>
       <div className="question-detail-others">
         <h2>다른 사람의 답변</h2>
@@ -72,16 +75,17 @@ const QuestionDetail = () => {
           최신순
         </button>
         <button
-          id="sort-by-bookmark"
+          id="sort-by-like"
           onClick={() => {
-            setSort('bookmarkCount')
+            setSort('liked')
           }}>
           인기순
         </button>
       </div>
       <div className="queiston-detail-others-answer">
         <div id="hr-line" />
-        <AnswerList />
+        <InfiniteAnswerList question={questionId} title={questionContent} sortBy={sort} />
+        {/* {console.log(sort)} */}
       </div>
     </div>
   )
