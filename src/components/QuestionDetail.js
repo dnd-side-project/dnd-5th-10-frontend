@@ -13,6 +13,7 @@ import InfiniteAnswerList from 'components/InfiniteAnswerList'
 const QuestionDetail = () => {
   const [questionId, setQuestionId] = useState(window.location.search.slice(1, window.location.search.length))
   const [questionContent, setQuesitonContent] = useState(localStorage.getItem('detailTitle'))
+  const [answerContent, setAnswerContent] = useState('')
   const [sort, setSort] = useState('liked')
 
   useEffect(() => {
@@ -39,6 +40,14 @@ const QuestionDetail = () => {
   }, [sort])
   const getQuestion = useCallback(async () => {
     await axios
+      .get(`/api/v1/answer/${questionId}/mine`)
+      .then((res) => {
+        setAnswerContent(res.data.content)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    await axios
       .get(`/api/v1/question/${questionId}`)
       .then((res) => {
         console.log(res.data)
@@ -63,7 +72,7 @@ const QuestionDetail = () => {
       </div>
       <div className="question-detail-answer">
         <span>나의 답변</span>
-        <Answer number={1} answer="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" title={questionContent} like={0} />
+        <Answer number={1} answer={answerContent} title={questionContent} like={0} />
       </div>
       <div className="question-detail-others">
         <h2>다른 사람의 답변</h2>

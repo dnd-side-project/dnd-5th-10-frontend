@@ -27,7 +27,9 @@ const QuestionList = (props) => {
         .get(getUrl)
         .then((res) => {
           res.data.forEach((item) => {
+            if (item.mostLikedAnswer === null) item.mostLikedAnswer = { content: '(등록된 답변이 없습니다)' }
             questions.push(item)
+            console.log(item)
           })
           setAllQuestions(allQuestions)
           setLoading(false)
@@ -94,6 +96,7 @@ const QuestionList = (props) => {
                 username={ques.username}
                 tagList={ques.tagList}
                 bookmarkCount={ques.bookmarkCount}
+                answer={ques.mostLikedAnswer.content}
               />
             </div>
           ) : (
@@ -106,6 +109,7 @@ const QuestionList = (props) => {
                 username={ques.username}
                 tagList={ques.tagList}
                 bookmarkCount={ques.bookmarkCount}
+                answer={ques.mostLikedAnswer.content}
               />
             </div>
           )}

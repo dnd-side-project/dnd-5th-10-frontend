@@ -38,7 +38,7 @@ const Question = (props) => {
         <div className="question-content">
           {props.content}
           <br />
-          <span>"답이다답이다"</span>
+          <span>{props.answer}</span>
         </div>
         <div className="question-tag">{showQuestionTags}</div>
         {/* <div className="date-or-username">{props.username}</div> */}
