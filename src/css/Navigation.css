@@ -1,5 +1,6 @@
 nav {
-  background-color: #111036;
+  z-index: 3;
+  background-color: #11103600;
   /* font-size: small; */
   height: 70px;
   width: 1400px;
@@ -13,7 +14,7 @@ nav {
   margin-left: 15px;
   text-align: left;
   text-decoration: none;
-  color: #111036;
+  color: #000000;
 }
 
 .dropdown-toggle::after {
@@ -21,11 +22,13 @@ nav {
 }
 
 .dropdown-menu.show {
-  margin-right: 70%;
+  z-index: 10 !important;
+  margin-right: 70% !important;
 }
 
 .dropdown-menu {
-  right: 100px !important;
+  position: relative;
+  right: 500px !important;
   width: 200px !important;
   height: 190px !important;
   overflow-y: visible !important;
@@ -34,6 +37,7 @@ nav {
 .dropdown-btn {
   border-color: white !important;
   border-radius: 30px !important;
+  margin-right: 30px !important;
   width: 130px !important;
   background-color: #111036 !important;
 }
@@ -104,7 +108,7 @@ nav .navbar-text {
   margin-right: 50px;
   color: white;
   border: 0;
-  background-color: #111036;
+  background-color: #11103600;
   min-width: 130px;
 }
 
