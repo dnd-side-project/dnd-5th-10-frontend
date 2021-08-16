@@ -15,9 +15,9 @@ import QuestionDetailPage from 'pages/QuestionDetailPage'
 
 const Routers = () => (
   <BrowserRouter>
-    <Navigation />
     <Route exact path="/" component={MainPage} />
     <Route exact path="/login" component={MainPage} />
+    <Route path="/MyPage" component={Navigation} />
     <Route path="/MyPage" component={MyPageNavigation} />
     <Route exact path="/MyPage/MyRegisterQuestion" component={MyRegisterQuestion} />
     <Route exact path="/MyPage/MyRegisterAnswer" component={MyRegisterAnswer} />
@@ -27,7 +27,7 @@ const Routers = () => (
     <Route exact path="/QuestionSearch" component={QuestionSearchPage} />
     <Route path="/QuestionDetail" component={QuestionDetailPage} />
     <Route exact path="/SetQuizOptions" component={SetQuizOptionsPage} />
-    <Footer />
+    <Route path="/MyPage" component={Footer} />
   </BrowserRouter>
 )
 

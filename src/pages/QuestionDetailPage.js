@@ -4,7 +4,6 @@ const QuestionDetailPage = () => {
   const iterviewLogo = '/img/iterview-logo.jpg'
   return (
     <>
-      {/* Todo: 그냥 바로 할 건지 네비게이션 바가 보이게 할 건지 의논 */}
       {/* <div className="question-detail-bar">
         <img src={iterviewLogo} />
       </div> */}
