@@ -3,8 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import MainPage from 'pages/MainPage'
 import QuestionRegisterPage from 'pages/QuestionRegisterPage'
 import QuestionSearchPage from 'pages/QuestionSearchPage'
-import QuizPage from 'pages/QuizPage'
-import QuestionDetailPage from 'pages/QuestionDetailPage'
+import SetQuizOptionsPage from 'pages/SetQuizOptionsPage'
 import Navigation from 'components/Navigation'
 import Footer from 'components/Footer'
 import MyRegisterQuestion from 'components/MyRegisterQuestion'
@@ -12,6 +11,7 @@ import MyRegisterAnswer from 'components/MyRegisterAnswer'
 import MyLikeAnswer from 'components/MyLikeAnswer'
 import MyBookmarkQuestion from 'components/MyBookmarkQuestion'
 import MyPageNavigation from 'components/MyPageNavigation'
+import QuestionDetailPage from 'pages/QuestionDetailPage'
 
 const Routers = () => (
   <BrowserRouter>
@@ -25,8 +25,8 @@ const Routers = () => (
     <Route exact path="/MyPage/MyBookmarkQuestion" component={MyBookmarkQuestion} />
     <Route exact path="/QuestionRegister" component={QuestionRegisterPage} />
     <Route exact path="/QuestionSearch" component={QuestionSearchPage} />
-    <Route exact path="/SetQuizOptions" component={QuizPage} />
     <Route path="/QuestionDetail" component={QuestionDetailPage} />
+    <Route exact path="/SetQuizOptions" component={SetQuizOptionsPage} />
     <Footer />
   </BrowserRouter>
 )
