@@ -17,7 +17,6 @@ import axios from 'axios'
 import { JWT_TOKEN } from 'constants/Oauth'
 import { removeCookie } from 'components/Cookies'
 import { withRouter, Link } from 'react-router-dom'
-import { getCookie } from 'components/Cookies.js'
 
 const Navigation = (props) => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -56,11 +55,11 @@ const Navigation = (props) => {
         })
         .catch((err) => {
           console.log(err)
+          setUserProfile(null)
           removeCookie('Authorization', { path: '/' })
           localStorage.removeItem('userName')
           localStorage.removeItem('userEmail')
           localStorage.removeItem('questionRegiTag')
-          JWT_TOKEN = getCookie('Authorization')
         })
     }
   }, [])
@@ -112,7 +111,7 @@ const Navigation = (props) => {
           </NavItem>
         </Nav>
         {/* jwt_token이 존재하면 login 처리 */}
-        {JWT_TOKEN ? (
+        {userProfile ? (
           <Nav navbar className="profile-tab">
             <Dropdown isOpen={profileDropdownOpen} toggle={profileToggle}>
               <DropdownToggle nav caret>
