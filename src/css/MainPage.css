@@ -43,7 +43,7 @@
   font-size: 13pt;
 }
 
-.question-search-box > button {
+.main-mypage-btn {
   background-color: white;
   color: #035bd6;
 
@@ -59,7 +59,6 @@
 
 .intro-functions {
   margin: auto;
-  margin-top: 12px;
 }
 
 .intro-functions > button {
@@ -73,9 +72,126 @@
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 10px;
+  margin-right: 50px;
   white-space: nowrap;
+  top: 17px;
+}
+
+.intro-functions > button:hover {
+  border-bottom: 0.01px solid #2f00ff;
+}
+
+#search-ex {
+  display: none;
+}
+
+#register-ex {
+  display: none;
+}
+
+#mypage-ex {
+  display: none;
+}
+
+#quiz-ex {
+  display: none;
 }
 
 .intro-hr {
   border: 0.01px solid #afafaf;
+}
+
+.question-section {
+  background-color: #111036;
+  border-radius: 15px;
+  width: 1400px;
+  height: 800px;
+}
+
+.question-section > .search-title {
+  position: relative;
+  left: 100px;
+  top: 60px;
+  font-size: 25pt;
+  color: white;
+  float: left;
+}
+
+.question-section > h1 > img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.search-hr {
+  position: relative;
+  top: 120px;
+  right: 95px;
+  border: 0.01px solid #afafaf;
+}
+
+.question-section > .search-subtext {
+  float: left;
+  position: relative;
+  right: 100px;
+  top: 120px;
+  color: white;
+}
+
+.search-tag {
+  position: relative;
+  top: 150px;
+}
+
+.main-search-btn {
+  width: 200px;
+  height: 70px;
+  font-size: 18pt;
+  color: white;
+  border: 0;
+  border-radius: 40px;
+  position: relative;
+  background-color: #796aca;
+  float: right;
+  top: 200px;
+  right: 100px;
+}
+
+.question-section > .register-title {
+  position: relative;
+  left: 100px;
+  top: 330px;
+  font-size: 25pt;
+  color: white;
+  float: left;
+}
+
+.register-hr {
+  position: relative;
+  width: 1210px;
+  top: 320px;
+  left: 95px;
+  border: 0.01px solid #afafaf;
+}
+
+.question-section > .register-subtext {
+  text-align: left;
+  float: left;
+  position: relative;
+  left: 90px;
+  top: 320px;
+  color: white;
+}
+
+.main-register-btn {
+  width: 200px;
+  height: 70px;
+  font-size: 18pt;
+  color: white;
+  border: 0;
+  border-radius: 40px;
+  position: relative;
+  background-color: #796aca;
+  float: right;
+  top: 450px;
+  right: 100px;
 }
