@@ -1,5 +1,4 @@
 import 'css/Question.css'
-import { Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
 
 const Question = (props) => {
@@ -24,12 +23,12 @@ const Question = (props) => {
   }
 
   const gotoDetails = () => {
-    props.history.push(`/QuestionDetail?${props.id}`)
+    window.open(`/QuestionDetail?${props.id}`)
   }
 
   return (
     <div className="each-question">
-      <Button onClick={gotoDetails}>
+      <button onClick={gotoDetails}>
         <div className="question-number">{checkQuestionNumber(props.number)}</div>
         {/* <div className="question-bookmark">
           <h1>좋아요</h1>
@@ -42,7 +41,7 @@ const Question = (props) => {
         </div>
         <div className="question-tag">{showQuestionTags}</div>
         {/* <div className="date-or-username">{props.username}</div> */}
-      </Button>
+      </button>
     </div>
   )
 }
