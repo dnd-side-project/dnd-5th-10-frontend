@@ -91,7 +91,7 @@ const QuestionDetail = () => {
       </div>
       <div className="queiston-detail-others-answer">
         <div id="hr-line" />
-        <InfiniteAnswerList question={questionId} title={questionContent} sortBy={sort} />
+        <InfiniteAnswerList question={questionId} title={questionContent} sortBy={sort} type="" />
         {/* {console.log(sort)} */}
       </div>
     </div>

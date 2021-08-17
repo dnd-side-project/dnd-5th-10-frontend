@@ -1,86 +1,159 @@
 import axios from 'axios'
 import InfiniteAnswer from 'components/InfiniteAnswer'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
+import Question from 'components/Question'
+import { useInView } from 'react-intersection-observer'
+import Answer from 'components/Answer'
 
 const InfiniteAnswerList = (props) => {
-  const [listInfo, setListInfo] = useState([])
-  const [skip, setSkip] = useState(0)
-  const [limit, setLimit] = useState(10)
-  const [fetching, setFetching] = useState(false)
+  const [allAnswers, setAllAnswers] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [page, setPage] = useState(0)
+  const [ref, inView] = useInView()
+  const [stopRequest, setStopRequest] = useState(false)
+  const [allReRender, setAllReRender] = useState(false)
+  const [notExist, setNotExist] = useState('')
 
   const [questionId, setQuestionId] = useState(props.question)
   const [questionTitle, setQuestionTitle] = useState(props.title)
-  const [page, setPage] = useState(0)
   const [sort, setSort] = useState('liked')
 
-  useEffect(() => {
-    setSort(props.sortBy)
-    setPage(0)
-    setListInfo([])
-  }, [props.sortBy])
-
-  useEffect(() => {
-    setQuestionTitle(props.title)
-    setQuestionId(props.question)
-    const body = {
-      skip: skip,
-      limit: limit,
-    }
-    getData(body)
-  }, [props])
-
-  const getData = (body) => {
-    let answer = listInfo
-    axios
-      .get(`/api/v1/answer/question/${questionId}?page=${page}&size=10&sort=${sort},desc`, body)
-      .then((res) => {
-        if (res.data.content.length > 0) {
-          res.data.content.forEach((item) => {
-            if (answer.length < 1) {
-              answer.push(item)
-            } else {
-              let check = true
-              answer.forEach((ans) => {
-                if (JSON.stringify(ans) === JSON.stringify(item)) {
-                  check = false
-                }
-              })
-              if (check) {
-                answer.push(item)
-              }
+  const getAnswers = useCallback(async () => {
+    console.log('gogo')
+    if (!stopRequest) {
+      setLoading(true)
+      let answers = allAnswers
+      let getUrl = `/api/v1/answer/question/${questionId}?page=${page}&size=3&sort=${sort},desc`
+      if (props.type === 'myanswer') {
+        getUrl = `/api/v1/answer/mine?page=${page}&size=13&sort=${sort},desc`
+      } else {
+        getUrl = `/api/v1/answer/question/${questionId}?page=${page}&size=3&sort=${sort},desc`
+      }
+      await axios
+        .get(getUrl)
+        .then((res) => {
+          // console.log(res.data.content.length)
+          if (res.data.content.length > 0) {
+            res.data.content.forEach((item) => {
+              // if (answers.length < 1) {
+              answers.push(item)
+              // } else {
+              //   let check = true
+              //   answers.forEach((ans) => {
+              //     if (JSON.stringify(ans) === JSON.stringify(item)) {
+              //       check = false
+              //     }
+              //   })
+              //   if (check) {
+              //     answers.push(item)
+              //   }
+              // }
+            })
+            setAllAnswers(answers)
+            setLoading(false)
+            if (res.data.content.length == 0) {
+              console.log('stop')
+              setStopRequest(true)
             }
-          })
-          setListInfo(answer)
-          setPage((p) => p + 1)
-          // console.log(page)
-        }
-        // console.log(listInfo)
-      })
-      .catch((err) => console.log(err))
-  }
-
-  const fetchMoreData = () => {
-    setFetching(true)
-    let tmpSkip = skip + limit
-    let body = {
-      skip: tmpSkip,
-      limit: limit,
-      loadMore: true,
+          }
+        })
+        .catch((err) => console.log(err))
+      console.log(allAnswers)
     }
+    setLoading(false)
+    if (allAnswers.length === 0) {
+      setNotExist('There is no answer')
+    } else {
+      setNotExist('')
+    }
+  }, [stopRequest, allAnswers, page, props.sortBy])
 
-    getData(body)
-    setSkip(tmpSkip)
-    setFetching(false)
-  }
+  useEffect(() => {
+    if (inView && !loading && !stopRequest) {
+      setPage((p) => p + 1)
+    }
+  }, [stopRequest, inView, loading])
+
+  useEffect(() => {
+    getAnswers()
+  }, [getAnswers])
+
+  useEffect(() => {
+    if (allReRender) {
+      setPage(0)
+      setStopRequest(false)
+      setAllAnswers([])
+      setAllReRender(true)
+    } else if (sort !== props.sortBy) {
+      console.log(props.sortBy)
+      console.log(sort)
+      setSort(props.sortBy)
+      setPage(0)
+      setStopRequest(false)
+      setAllAnswers([])
+      setAllReRender(true)
+    }
+  }, [props.sortBy])
 
   return (
     <div>
-      <InfiniteAnswer
-        questionTitle={questionTitle}
-        answers={listInfo}
-        fetchMoreData={fetchMoreData}
-        fetching={fetching}
-      />
+      {props.type === 'myanswer'
+        ? allAnswers.map((ans, index) => (
+            <div key={index}>
+              {allAnswers.length - 1 === index ? (
+                <div ref={ref}>
+                  <Question
+                    key={ans.id}
+                    id={ans.id}
+                    number={index + 1}
+                    content={ans.question.content}
+                    answer={ans.content}
+                    tagList={ans.question.tagList}
+                  />
+                </div>
+              ) : (
+                <div>
+                  <Question
+                    key={ans.id}
+                    id={ans.id}
+                    number={index + 1}
+                    content={ans.question.content}
+                    answer={ans.content}
+                    tagList={ans.question.tagList}
+                  />
+                </div>
+              )}
+            </div>
+          ))
+        : allAnswers.map((ans, index) => (
+            <div key={index}>
+              {allAnswers.length - 1 === index ? (
+                <div ref={ref}>
+                  <Answer
+                    key={ans.id}
+                    id={ans.id}
+                    number={index + 1}
+                    answer={ans.content}
+                    title={questionTitle}
+                    username={ans.username}
+                    like={ans.liked}
+                  />
+                </div>
+              ) : (
+                <div>
+                  <Answer
+                    key={ans.id}
+                    id={ans.id}
+                    number={index + 1}
+                    answer={ans.content}
+                    title={questionTitle}
+                    username={ans.username}
+                    like={ans.liked}
+                  />
+                </div>
+              )}
+            </div>
+          ))}
     </div>
   )
 }

@@ -31,7 +31,7 @@ const QuestionList = (props) => {
             questions.push(item)
             console.log(item)
           })
-          setAllQuestions(allQuestions)
+          setAllQuestions(questions)
           setLoading(false)
           if (res.data.length === 0) setStopRequest(true)
         })
@@ -93,9 +93,7 @@ const QuestionList = (props) => {
                 id={ques.id}
                 number={index + 1}
                 content={ques.content}
-                username={ques.username}
                 tagList={ques.tagList}
-                bookmarkCount={ques.bookmarkCount}
                 answer={ques.mostLikedAnswer.content}
               />
             </div>
@@ -106,9 +104,7 @@ const QuestionList = (props) => {
                 id={ques.id}
                 number={index + 1}
                 content={ques.content}
-                username={ques.username}
                 tagList={ques.tagList}
-                bookmarkCount={ques.bookmarkCount}
                 answer={ques.mostLikedAnswer.content}
               />
             </div>
