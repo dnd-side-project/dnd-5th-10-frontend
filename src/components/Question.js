@@ -24,7 +24,7 @@ const Question = (props) => {
 
   const gotoDetails = () => {
     localStorage.setItem('detailTitle', props.content)
-    window.open(`/QuestionDetail?${props.id}`, '문제상세페이지', 'width=2000')
+    window.open(`/QuestionDetail?${props.id}`)
   }
 
   return (
