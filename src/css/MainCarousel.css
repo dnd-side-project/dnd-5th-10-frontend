@@ -8,25 +8,26 @@
   min-width: 1000px;
   margin: 0;
 }
-
+#background {
+  width: 1400px;
+  margin: auto;
+}
 .space1 {
   bottom: 80px;
-  display: flex;
+  /* display: flex; */
   position: relative;
-  display: inline;
+  /* display: inline; */
   z-index: 1;
   margin: auto;
-  /* height: 880px; */
+  height: 880px;
   width: 1400px;
 }
 
 .main-quiz-btn {
-  display: inline;
-  float: left;
-  right: 1300px;
-  top: 400px;
+  position: relative;
+  right: 400px;
+  top: -400px;
   z-index: 2;
-  position: absolute;
   width: 196px;
   height: 63px;
   color: #ffffff;
