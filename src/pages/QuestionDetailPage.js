@@ -16,11 +16,11 @@ const QuestionDetailPage = () => {
     })
       .then((res) => {
         console.log(res)
-        window.alert('북마크O')
+        window.alert('북마크 되었습니다.')
       })
       .catch((err) => {
         console.log(err)
-        window.alert('북마크X')
+        window.alert('이미 북마크한 문제입니다.')
       })
   }
   return (
