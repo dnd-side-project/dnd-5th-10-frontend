@@ -2,9 +2,11 @@ import React from 'react'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import 'css/MainCarousel.css'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const MainCarousel = () => {
+  const history = useHistory()
+
   return (
     <div id="carousel-slide">
       <div id="background">
@@ -17,9 +19,13 @@ const MainCarousel = () => {
             체계적인 면접학습을 경험해보세요.
           </span>
         </div>
-        <Link to="/SetQuizOptions">
-          <button className="main-quiz-btn">퀴즈풀기</button>
-        </Link>
+        <button
+          className="main-quiz-btn"
+          onClick={() => {
+            history.push('/SetQuizOptions')
+          }}>
+          퀴즈풀기
+        </button>
       </div>
     </div>
   )

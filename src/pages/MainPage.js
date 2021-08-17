@@ -44,7 +44,7 @@ function MainPage() {
           </Link>
         </div>
         <div className="intro-functions">
-          <button>
+          <button className="search-ex-btn">
             <span
               onClick={() => {
                 searchEx.style.display = 'inline'
@@ -55,7 +55,7 @@ function MainPage() {
               문제 검색
             </span>
           </button>
-          <button className="here-title">
+          <button className="register-ex-btn">
             <span
               onClick={() => {
                 registerEx.style.display = 'inline'
@@ -66,7 +66,7 @@ function MainPage() {
               문제 등록
             </span>
           </button>
-          <button>
+          <button className="mypage-ex-btn">
             <span
               onClick={() => {
                 mypageEx.style.display = 'inline'
@@ -77,7 +77,7 @@ function MainPage() {
               마이페이지
             </span>
           </button>
-          <button>
+          <button className="quiz-ex-btn">
             <span
               onClick={() => {
                 quizEx.style.display = 'inline'
