@@ -14,9 +14,7 @@
 }
 .space1 {
   bottom: 80px;
-  /* display: flex; */
   position: relative;
-  /* display: inline; */
   z-index: 1;
   margin: auto;
   height: 880px;
@@ -25,8 +23,8 @@
 
 .main-quiz-btn {
   position: relative;
-  right: 400px;
-  top: -400px;
+  right: 520px;
+  top: -450px;
   z-index: 2;
   width: 196px;
   height: 63px;

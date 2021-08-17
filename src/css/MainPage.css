@@ -158,14 +158,14 @@
   position: relative;
   background-color: #796aca;
   float: right;
-  top: 200px;
+  top: 50px;
   right: 100px;
 }
 
 .main-question-section > div > .register-title {
   position: relative;
   left: 100px;
-  top: 330px;
+  top: 150px;
   font-size: 25pt;
   color: white;
   float: left;
@@ -174,7 +174,7 @@
 .register-hr {
   position: relative;
   width: 1210px;
-  top: 320px;
+  top: 150px;
   left: 95px;
   border: 0.01px solid #afafaf;
 }
@@ -184,7 +184,7 @@
   float: left;
   position: relative;
   left: 90px;
-  top: 320px;
+  top: 150px;
   color: white;
 }
 
@@ -198,6 +198,6 @@
   position: relative;
   background-color: #796aca;
   float: right;
-  top: 450px;
+  top: 250px;
   right: 100px;
 }

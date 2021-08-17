@@ -104,7 +104,6 @@ function MainPage() {
             </div>
             <button className="main-search-btn">검색하기</button>
           </div>
-
           <div>
             <h1 className="register-title">
               <img src="/img/figure2.png" alt="figure1_icon" />
