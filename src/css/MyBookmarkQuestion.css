@@ -52,3 +52,7 @@
   color: #4d4d4e !important;
   border: 1px solid #707070 !important;
 }
+
+.mypage-register-bookmark > div > div > div > div > div > button {
+  width: 100%;
+}

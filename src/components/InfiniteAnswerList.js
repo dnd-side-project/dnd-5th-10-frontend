@@ -35,9 +35,12 @@ const InfiniteAnswerList = (props) => {
     let getUrl = `/api/v1/answer/question/${questionId}?page=${page}&size=10&sort=${sort},desc`
     if (props.type === 'myanswer') {
       getUrl = `/api/v1/answer/mine?page=${page}&size=4&sort=${sort},desc`
+    } else if (props.type === 'mylike') {
+      getUrl = `/api/v1/answer/like/mine?page=${page}&size=4`
     } else {
       getUrl = `/api/v1/answer/question/${questionId}?page=${page}&size=10&sort=${sort},desc`
     }
+
     axios
       .get(getUrl, body)
       .then((res) => {
@@ -80,13 +83,13 @@ const InfiniteAnswerList = (props) => {
 
   return (
     <div>
-      {props.type === 'myanswer' ? (
+      {props.type === 'myanswer' || props.type === 'mylike' ? (
         listInfo.map((ans, index) => {
           console.log(ans)
           return (
             <Question
               key={ans.id}
-              id={ans.id}
+              id={ans.question.id}
               number={index + 1}
               content={ans.question.content}
               answer={ans.content}

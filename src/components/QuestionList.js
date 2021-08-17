@@ -22,22 +22,56 @@ const QuestionList = (props) => {
 
       if (props.type === 'question') {
         getUrl = `/api/v1/question/mine?page=${page}&size=10&sort=${props.sortBy},desc`
-      }
-      await axios
-        .get(getUrl)
-        .then((res) => {
-          res.data.forEach((item) => {
-            if (item.mostLikedAnswer === null) item.mostLikedAnswer = { content: '(등록된 답변이 없습니다)' }
-            questions.push(item)
-            console.log(item)
+        await axios
+          .get(getUrl)
+          .then((res) => {
+            res.data.forEach((item) => {
+              if (item.mostLikedAnswer === null) item.mostLikedAnswer = { content: '(등록된 답변이 없습니다)' }
+              questions.push(item)
+              console.log(item)
+            })
+            setAllQuestions(questions)
+            setLoading(false)
+            if (res.data.length === 0) setStopRequest(true)
           })
-          setAllQuestions(questions)
-          setLoading(false)
-          if (res.data.length === 0) setStopRequest(true)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+          .catch((err) => {
+            console.log(err)
+          })
+      } else if (props.type === 'bookmark') {
+        getUrl = `/api/v1/bookmark/mine?page=${page}&size=10`
+        await axios
+          .get(getUrl)
+          .then((res) => {
+            console.log(res.data)
+            res.data.forEach((item) => {
+              if (item.mostLikedAnswer === null) item.mostLikedAnswer = { content: '(등록된 답변이 없습니다)' }
+              questions.push(item.question)
+              console.log(item)
+            })
+            setAllQuestions(questions)
+            setLoading(false)
+            if (res.data.length === 0) setStopRequest(true)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      } else {
+        await axios
+          .get(getUrl)
+          .then((res) => {
+            res.data.forEach((item) => {
+              if (item.mostLikedAnswer === null) item.mostLikedAnswer = { content: '(등록된 답변이 없습니다)' }
+              questions.push(item)
+              console.log(item)
+            })
+            setAllQuestions(questions)
+            setLoading(false)
+            if (res.data.length === 0) setStopRequest(true)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
     }
     setLoading(false)
     if (allQuestions.length === 0) {

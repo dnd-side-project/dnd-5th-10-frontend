@@ -1,6 +1,7 @@
 import 'css/MyBookmarkQuestion.css'
 import MyPageProfile from 'components/MyPageProfile'
 import { useState, useEffect } from 'react'
+import QuestionList from 'components/QuestionList'
 
 const MyBookmarkQuestion = () => {
   const [sort, setSort] = useState('bookmarkCount')
@@ -54,6 +55,7 @@ const MyBookmarkQuestion = () => {
             인기순
           </button>
         </div>
+        <QuestionList tagList={[]} sortBy={sort} word={''} type={'bookmark'} />
       </div>
     </div>
   )
