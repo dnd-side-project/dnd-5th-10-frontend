@@ -80,7 +80,7 @@ const SetQuizOptions = (props) => {
                     <DropdownToggle className="quiz-dropdown" caret>
                       태그 선택
                     </DropdownToggle>
-                    <DropdownMenu className="dropdown-menu">
+                    <DropdownMenu className="quiz-dropdown-menu">
                       {tagItems.map((tagItem, i) => {
                         return (
                           <DropdownItem key={i} onClick={selectedTag} id={tagItem.name}>
@@ -100,7 +100,7 @@ const SetQuizOptions = (props) => {
                     <DropdownToggle className="quiz-dropdown" caret>
                       퀴즈 갯수 선택
                     </DropdownToggle>
-                    <DropdownMenu className="dropdown-menu">
+                    <DropdownMenu className="quiz-dropdown-menu">
                       {quizMinToMax.map((cnt, i) => {
                         return (
                           <DropdownItem key={i} onClick={selectedCnt} id={cnt + 1}>
