@@ -101,14 +101,14 @@
   border: 0.01px solid #afafaf;
 }
 
-.question-section {
+.main-question-section {
   background-color: #111036;
   border-radius: 15px;
   width: 1400px;
   height: 800px;
 }
 
-.question-section > div > .search-title {
+.main-question-section > div > .search-title {
   position: relative;
   left: 100px;
   top: 60px;
@@ -117,7 +117,7 @@
   float: left;
 }
 
-.question-section > div > h1 > img {
+.main-question-section > div > h1 > img {
   width: 30px;
   margin-right: 10px;
 }
@@ -129,7 +129,7 @@
   border: 0.01px solid #afafaf;
 }
 
-.question-section > div > .search-subtext {
+.main-question-section > div > .search-subtext {
   float: left;
   position: relative;
   right: 100px;
@@ -137,7 +137,7 @@
   color: white;
 }
 
-.question-section > .main-question-tags {
+.main-question-section > .main-question-tags {
   position: relative;
   top: 200px;
 }
@@ -156,7 +156,7 @@
   right: 100px;
 }
 
-.question-section > div > .register-title {
+.main-question-section > div > .register-title {
   position: relative;
   left: 100px;
   top: 330px;
@@ -173,7 +173,7 @@
   border: 0.01px solid #afafaf;
 }
 
-.question-section > div > .register-subtext {
+.main-question-section > div > .register-subtext {
   text-align: left;
   float: left;
   position: relative;

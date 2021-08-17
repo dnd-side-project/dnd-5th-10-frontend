@@ -89,7 +89,7 @@ function MainPage() {
             <span id="quiz-ex">퀴즈 기능을 통해 모의 면접을 경험해보세요!</span>
           </div>
         </div>
-        <div className="question-section">
+        <div className="main-question-section">
           <div>
             <h1 className="search-title">
               <img src="/img/figure1.png" alt="figure1_icon" />

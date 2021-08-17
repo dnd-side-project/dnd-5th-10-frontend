@@ -15,13 +15,14 @@ import LoginModal from 'components/LoginModal'
 import axios from 'axios'
 import { JWT_TOKEN } from 'constants/Oauth'
 import { removeCookie } from 'components/Cookies'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter, useHistory, Link } from 'react-router-dom'
+import MyRegisterAnswer from './MyRegisterAnswer'
 
 const Navigation = (props) => {
   const [modalOpen, setModalOpen] = useState(false)
   const [userProfile, setUserProfile] = useState(null)
   const [dropdownOpen, setOpen] = useState(false)
-
+  const history = useHistory()
   const toggle = () => setOpen(!dropdownOpen)
 
   const openModal = () => {
@@ -95,19 +96,30 @@ const Navigation = (props) => {
               <img src="/img/nav_icon6.png" alt="nav_icon" />
             </DropdownToggle>
             <DropdownMenu className="dropdown-menu">
-              <Link to="/MyPage/MyRegisterQuestion">
-                <DropdownItem>내가 등록한 문제</DropdownItem>
-              </Link>
-              <Link to="/MyPage/MyRegisterAnswer">
-                <DropdownItem>내가 등록한 답변</DropdownItem>
-              </Link>
-              <Link to="/MyPage/MyLikeAnswer">
-                <DropdownItem>내가 좋아요한 답변</DropdownItem>
-              </Link>
-              <Link to="/MyPage/MyBookmarkQuestion">
-                <DropdownItem>내가 북마크한 문제</DropdownItem>
-              </Link>
-
+              <DropdownItem
+                onClick={() => {
+                  history.push('/MyPage/MyRegisterQuestion')
+                }}>
+                등록 문제
+              </DropdownItem>
+              <DropdownItem
+                onClick={() => {
+                  history.push('/MyPage/MyRegisterAnswer')
+                }}>
+                등록 답변
+              </DropdownItem>
+              <DropdownItem
+                onClick={() => {
+                  history.push('/MyPage/MyLikeAnswer')
+                }}>
+                좋아요한 답변
+              </DropdownItem>
+              <DropdownItem
+                onClick={() => {
+                  history.push('/MyPage/MyBookmarkQuestion')
+                }}>
+                북마크한 문제
+              </DropdownItem>
               <DropdownItem divider />
               <a
                 className="logout-btn"
