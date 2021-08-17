@@ -31,18 +31,22 @@ const MyPageNavigation = (props) => {
       document.getElementById('text-question').style.borderBottom = '2px solid #2188FF'
       document.getElementById('text-question').style.color = 'black'
       document.getElementById('text-question').style.fontWeight = 'bold'
+      changeBorderColor(document.getElementById('text-question'))
     } else if (pathname.indexOf('MyRegisterAnswer') !== -1) {
       document.getElementById('text-answer').style.borderBottom = '2px solid #2188FF'
       document.getElementById('text-answer').style.color = 'black'
       document.getElementById('text-answer').style.fontWeight = 'bold'
+      changeBorderColor(document.getElementById('text-answer'))
     } else if (pathname.indexOf('MyLikeAnswer') !== -1) {
       document.getElementById('text-like').style.borderBottom = '2px solid #2188FF'
       document.getElementById('text-like').style.color = 'black'
       document.getElementById('text-like').style.fontWeight = 'bold'
+      changeBorderColor(document.getElementById('text-like'))
     } else if (pathname.indexOf('MyBookmarkQuestion') !== -1) {
       document.getElementById('text-bookmark').style.borderBottom = '2px solid #2188FF'
       document.getElementById('text-bookmark').style.color = 'black'
       document.getElementById('text-bookmark').style.fontWeight = 'bold'
+      changeBorderColor(document.getElementById('text-bookmark'))
     }
   })
   // const firstBorderColor = () => {}
