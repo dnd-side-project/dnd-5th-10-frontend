@@ -23,8 +23,13 @@ function MainPage() {
     quizEx = document.getElementById('quiz-ex')
   }, [])
 
+  const removeLocalStorage = () => {
+    localStorage.removeItem('questionSearchTag')
+  }
+
   return (
     <div className="Main">
+      {removeLocalStorage()}
       <MainCarousel />
       <div className="body">
         <div className="question-search-box">

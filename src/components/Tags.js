@@ -3,7 +3,7 @@ import tagItems from 'constants/TagItems'
 import 'css/Tags.css'
 
 const Tags = (props) => {
-  const [selectedTag, setSelectedTag] = useState(JSON.parse(localStorage.getItem('questionSearchTag')))
+  const [selectedTag, setSelectedTag] = useState([])
 
   const selectThisTag = (e) => {
     setSelectedTag(selectedTag.concat(e.target.id))
@@ -11,6 +11,12 @@ const Tags = (props) => {
   const deselectThisTag = (e) => {
     setSelectedTag(selectedTag.filter((element) => element !== e.target.id))
   }
+
+  useEffect(() => {
+    if (localStorage.getItem('questionSearchTag')) {
+      setSelectedTag(JSON.parse(localStorage.getItem('questionSearchTag')))
+    }
+  }, [])
 
   useEffect(() => {
     if (props.page === 'question-register') {
@@ -23,7 +29,7 @@ const Tags = (props) => {
   })
 
   const TagButtons = tagItems.map((tagItem) => {
-    if (selectedTag.includes(tagItem.name)) {
+    if (selectedTag && selectedTag.includes(tagItem.name)) {
       return (
         <button className="classification-tag-selected" key={tagItem.id} id={tagItem.name} onClick={deselectThisTag}>
           {tagItem.name}
