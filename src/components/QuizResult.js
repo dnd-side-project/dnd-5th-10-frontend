@@ -1,4 +1,5 @@
 import 'css/QuizResult.css'
+import { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import Question from './Question'
 
@@ -9,15 +10,20 @@ const QuizResult = (props) => {
   let arrIndex = 0
   let keyIndex = 0
   const tagItem = JSON.parse(localStorage.selectedQuizTag)
+  const midTitle = document.getElementById('quiz-middle-title')
+  const subTitle = document.getElementById('quiz-sub-title')
+  const miniBox = document.getElementById('quiz-ex-box')
+
+  useEffect(() => {
+    midTitle.innerHTML = '면접문제 결과'
+    subTitle.innerHTML = '본인이 풀었던 문제를 확인해보세요!'
+    miniBox.innerHTML = '푼 문제를 <br/> 확인 해주세요!'
+    miniBox.style.bottom = '220px'
+    miniBox.style.paddingTop = '22px'
+  }, [])
 
   return (
     <div className="quiz-result-page">
-      <div className="set-quiz-result-img">
-        <img src={questionRegisterImg} alt="question-register-img" />
-        {/* {console.log(props.id, props.content, props.tag, index)} */}
-        <h1>퀴즈 결과 페이지</h1>
-        <h3>풀었던 문제를 확인해주세요!</h3>
-      </div>
       <div className="set-quiz-result-box">
         <div className="user-quiz-result">
           <div className="user-quiz-result-content">

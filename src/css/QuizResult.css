@@ -27,10 +27,12 @@
 }
 
 .set-quiz-result-box {
+  position: relative;
   display: flex;
   width: 80%;
   margin: auto;
   height: 300px;
+  left: 80px;
 }
 
 .set-quiz-result-box > div {

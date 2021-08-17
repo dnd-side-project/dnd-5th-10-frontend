@@ -58,7 +58,7 @@
   font-size: 20pt;
 }
 
-.quiz-ex-box {
+#quiz-ex-box {
   float: right;
   font-size: 13pt;
   position: relative;
