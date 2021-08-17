@@ -58,6 +58,15 @@
   margin: auto;
 }
 
+.user-quiz-result-content > span {
+  color: #231d4c;
+  position: relative;
+  right: 20px;
+  bottom: 30px;
+  float: right;
+  font-size: 13px;
+}
+
 .selectd-quiz-tag-content {
   width: 300px;
   margin: auto;
@@ -66,6 +75,15 @@
 .quiz-time-content {
   width: 300px;
   margin: auto;
+}
+
+.quiz-time-content > span {
+  color: #231d4c;
+  position: relative;
+  right: 20px;
+  bottom: 30px;
+  float: right;
+  font-size: 13px;
 }
 
 .solved-quiz-content > span {

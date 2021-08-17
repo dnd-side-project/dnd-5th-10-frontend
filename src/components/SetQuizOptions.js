@@ -59,8 +59,11 @@ const SetQuizOptions = (props) => {
                   <h4>{localStorage.getItem('userName')}</h4>
                   <hr className="line" />
                   <h6>문제당 평균 시간</h6>
+                  <span>02:50</span>
                   <h6>좋아요</h6>
+                  <span>50</span>
                   <h6>퀴즈로 푼 문제</h6>
+                  <span>170</span>
                 </div>
               </div>
               <div className="select-tag">

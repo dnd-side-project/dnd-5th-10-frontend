@@ -127,23 +127,17 @@ const QuizSolving = ({ quiz }) => {
         <div className="quiz-box">
           <Form>
             <div className="breadcrumbs">
-              <img
-                src="https://lh3.googleusercontent.com/proxy/WwYnVCZluDkWHIl5-H0NHtVQ2dNXzvxIeioZRsXQg86tjEc2BfiIctFSw0tdOGAh0YEIHHsJJDrDXiHshW78en6XwtcJckrkct19Ya9UQl23A2e8"
-                alt="iterview-logo"
-              />
+              <img src="/img/LOGO1.png" alt="iterview-logo" />
               {/* {console.log(quiz)} */}
               <span>테스트 문제 > </span>
               <span>인기 문제 > </span>
               <span className="subhead">문제 제목</span>
             </div>
             <div className="quiz-title">
-              <img src="https://img.icons8.com/cotton/452/warning-triangle.png" alt="quiz-logo" />
+              <img src="/img/figure1.png" alt="quiz-logo" />
               <span className="quiz-number">Quiz {quizNum + 1}.</span>
               <span className="time-title">
-                <img
-                  className="timer-img"
-                  src="https://images.vexels.com/media/users/3/128840/isolated/preview/c091629800ce3d91d8527d32d60bc46f-stopwatch-timer.png"
-                  alt="quiz-timer-img"></img>
+                <img className="timer-img" src="/img/nav_icon5.png" alt="quiz-timer-img"></img>
                 이번퀴즈 총 소요시간
                 <span id="time">
                   <span id="hour">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>

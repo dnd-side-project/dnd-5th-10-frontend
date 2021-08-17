@@ -58,6 +58,7 @@
 
 .breadcrumbs > img {
   position: relative;
+  width: 55px;
   top: 6px;
 }
 

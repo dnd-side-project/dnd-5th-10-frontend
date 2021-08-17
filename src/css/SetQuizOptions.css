@@ -193,6 +193,15 @@
   margin: auto;
 }
 
+.user-info-content > span {
+  color: #231d4c;
+  position: relative;
+  right: 20px;
+  bottom: 30px;
+  float: right;
+  font-size: 13px;
+}
+
 .select-tag-content {
   width: 300px;
   margin: auto;

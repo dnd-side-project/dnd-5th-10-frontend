@@ -30,8 +30,11 @@ const QuizResult = (props) => {
             <h4>{localStorage.getItem('userName')}</h4>
             <hr className="hr" />
             <h6>문제당 평균 시간</h6>
+            <span>02:50</span>
             <h6>좋아요</h6>
+            <span>50</span>
             <h6>퀴즈로 푼 문제</h6>
+            <span>170</span>
           </div>
         </div>
         <div className="selected-quiz-tag">
@@ -49,8 +52,12 @@ const QuizResult = (props) => {
         </div>
         <div className="quiz-time-info">
           <div className="quiz-time-content">
-            <h4>총 소요시간</h4>
+            <h4>소요시간</h4>
             <hr className="hr3" />
+            <h6>총 소요시간</h6>
+            <span>00:00:00</span>
+            <h6>문제당 소요시간</h6>
+            <span>00:00:00</span>
           </div>
         </div>
       </div>
