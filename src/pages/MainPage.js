@@ -32,7 +32,7 @@ function MainPage() {
       {removeLocalStorage()}
       <MainCarousel />
       <div className="body">
-        <div className="question-search-box">
+        <div className="main-mypage-box">
           <div>
             IT'erview를 <br />
             알아가 볼까요?
