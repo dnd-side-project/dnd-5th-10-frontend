@@ -12,6 +12,12 @@
   background-color: white;
   color: black;
 }
+.main-question-search-tag {
+  width: 80%;
+  margin: auto;
+  margin-top: 200px;
+  /* background-color: blueviolet; */
+}
 
 .question-search-box > div {
   font-size: 12pt;
