@@ -1,7 +1,7 @@
 import 'css/MainPage.css'
 import MainCarousel from 'components/MainCarousel'
 import Tags from 'components/Tags'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { JWT_TOKEN } from 'constants/Oauth'
 import axios from 'axios'
 import { useEffect } from 'react'
@@ -9,6 +9,8 @@ import { useEffect } from 'react'
 axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_TOKEN}`
 
 function MainPage() {
+  const history = useHistory()
+
   let searchEx
   let registerEx
   let mypageEx
@@ -102,7 +104,13 @@ function MainPage() {
             <div className="main-question-search-tag">
               <Tags page="main-question-search" />
             </div>
-            <button className="main-search-btn">검색하기</button>
+            <button
+              className="main-search-btn"
+              onClick={() => {
+                history.push('/QuestionSearch')
+              }}>
+              검색하기
+            </button>
           </div>
           <div>
             <h1 className="register-title">
@@ -114,9 +122,13 @@ function MainPage() {
               면접문제를 어떻게 풀어야할지 막막하시죠? 어려운 문제를 등록해주세요. 함께 해결해드릴게요. <br />
               나의 의견과 다른 분들의 답변과 비교해보시고, 마음에 드는 답변을 모아보세요.
             </span>
-            <Link to="/QuestionRegister">
-              <button className="main-register-btn">등록하기</button>
-            </Link>
+            <button
+              className="main-register-btn"
+              onClick={() => {
+                history.push('/QuestionRegister')
+              }}>
+              등록하기
+            </button>
           </div>
         </div>
 
