@@ -1,4 +1,4 @@
-.question-search-box {
+.main-mypage-box {
   z-index: 2;
   position: relative;
   margin: auto;
@@ -19,7 +19,7 @@
   /* background-color: blueviolet; */
 }
 
-.question-search-box > div {
+.main-mypage-box > div {
   font-size: 12pt;
   position: relative;
   left: 580px;
@@ -31,7 +31,7 @@
   background-color: #e3e2f0;
 }
 
-.question-search-box > h1 {
+.main-mypage-box > h1 {
   color: #627597;
   float: left;
   left: 40px;
@@ -40,10 +40,10 @@
   font-size: 20pt;
 }
 
-.question-search-box > span {
+.main-mypage-box > span {
   color: #627597;
   float: left;
-  right: 93px;
+  right: 80px;
   bottom: 30px;
   position: relative;
   font-size: 13pt;
@@ -57,8 +57,8 @@
   border-radius: 6px;
   width: 180px;
   height: 60px;
-  right: 93px;
-  bottom: 10px;
+  right: 475px;
+  top: 15px;
   position: relative;
   float: left;
 }
