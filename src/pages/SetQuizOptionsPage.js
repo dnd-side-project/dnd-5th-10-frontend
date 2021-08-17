@@ -6,20 +6,32 @@ import Footer from 'components/Footer'
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_TOKEN}`
 
-const questionRegisterImg = '/img/questionRegister.jpg'
 const SetQuizOptionsPage = () => {
   return (
-    <div>
+    <div id="quiz-carousel-slide">
       <Navigation />
-      <div className="set-quiz-options-img">
-        <img src={questionRegisterImg} alt="question-register-img" />
-        <h1>퀴즈 옵션 세팅 페이지</h1>
-        <h3>퀴즈 옵션을 선택해주세요</h3>
+      <div id="quiz-background">
+        <img className="quiz-img" src="/img/quiz_img.png" alt="" />
+        <div className="quiz-ex">
+          <h1>면접문제 학습</h1>
+          <h3>
+            아직도 암기식으로 면접을 준비하시나요? <br /> 체계적으로 전략적으로 학습해보세요!
+          </h3>
+        </div>
+        <span className="quiz-ex-box">
+          풀고싶은 <br />
+          문제종류와 갯수를
+          <br /> 선택해주세요!
+        </span>
       </div>
+
       <div className="body">
         <SetQuizOptions />
       </div>
-      <Footer />
+
+      <div className="footer">
+        <Footer />
+      </div>
     </div>
   )
 }

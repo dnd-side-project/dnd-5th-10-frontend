@@ -6,7 +6,6 @@ import tagItems from 'constants/TagItems'
 import axios from 'axios'
 import QuizSolving from './QuizSolving'
 
-const questionRegisterImg = '/img/questionRegister.jpg'
 const SetQuizOptions = (props) => {
   const [tagDropdownOpen, setTagDropdownOpen] = useState(false)
   const [cntDropdownOpen, setCntDropdownOpen] = useState(false)
