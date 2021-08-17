@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const MainCarousel = () => {
   return (
     <div id="carousel-slide">
-      <div>
+      <div id="background">
         <img className="space1" src="/img/main_img.png" alt="" />
 
         <Link to="/SetQuizOptions">
