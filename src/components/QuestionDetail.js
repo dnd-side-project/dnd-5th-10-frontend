@@ -3,7 +3,6 @@ import 'css/QuestionDetail.css'
 import { Button } from 'reactstrap'
 import axios from 'axios'
 import QuestionList from './QuestionList'
-import AnswerList from 'components/AnswerList'
 import Answer from 'components/Answer'
 
 import InfiniteAnswerList from 'components/InfiniteAnswerList'
@@ -13,7 +12,7 @@ import InfiniteAnswerList from 'components/InfiniteAnswerList'
 const QuestionDetail = () => {
   const [questionId, setQuestionId] = useState(window.location.search.slice(1, window.location.search.length))
   const [questionContent, setQuesitonContent] = useState(localStorage.getItem('detailTitle'))
-  const [answerContent, setAnswerContent] = useState('')
+  const [answerContent, setAnswerContent] = useState({ content: '', liked: 0 })
   const [sort, setSort] = useState('liked')
 
   useEffect(() => {
@@ -42,7 +41,7 @@ const QuestionDetail = () => {
     await axios
       .get(`/api/v1/answer/${questionId}/mine`)
       .then((res) => {
-        setAnswerContent(res.data.content)
+        setAnswerContent(res.data)
       })
       .catch((err) => {
         console.log(err)
@@ -60,9 +59,8 @@ const QuestionDetail = () => {
 
   useEffect(() => {
     setQuestionId(window.location.search.slice(1, window.location.search.length))
-    // console.log('문제받아오기')
     getQuestion()
-  })
+  }, [])
 
   return (
     <div>
@@ -72,7 +70,7 @@ const QuestionDetail = () => {
       </div>
       <div className="question-detail-answer">
         <span>나의 답변</span>
-        <Answer number={1} answer={answerContent} title={questionContent} like={0} />
+        <Answer number={1} answer={answerContent.content} title={questionContent} like={answerContent.liked} />
       </div>
       <div className="question-detail-others">
         <h2>다른 사람의 답변</h2>
