@@ -27,10 +27,12 @@ function MainPage() {
     mypageEx = document.getElementById('mypage-ex')
     quizEx = document.getElementById('quiz-ex')
 
-    searchExBtn = document.getElementsByClassName('search-ex-btn')
-    registerExBtn = document.getElementsByClassName('register-ex-btn')
-    mypageExBtn = document.getElementsByClassName('mypage-ex-btn')
-    quizExBtn = document.getElementsByClassName('quiz-ex-btn')
+    searchExBtn = document.getElementById('search-ex-btn')
+    registerExBtn = document.getElementById('register-ex-btn')
+    mypageExBtn = document.getElementById('mypage-ex-btn')
+    quizExBtn = document.getElementById('quiz-ex-btn')
+
+    searchExBtn.style.borderBottom = '0.01px solid #2f00ff'
   }, [])
 
   const removeLocalStorage = () => {
@@ -55,44 +57,62 @@ function MainPage() {
         </div>
         <div className="intro-functions">
           <button
-            className="search-ex-btn"
+            id="search-ex-btn"
             onClick={() => {
               searchEx.style.display = 'inline'
               mypageEx.style.display = 'none'
               quizEx.style.display = 'none'
               registerEx.style.display = 'none'
 
-              searchExBtn.style.borderColor = '#2f00ff'
+              registerExBtn.style.border = 0
+              mypageExBtn.style.border = 0
+              quizExBtn.style.border = 0
+              searchExBtn.style.borderBottom = '0.01px solid #2f00ff'
             }}>
             <span>문제 검색</span>
           </button>
           <button
-            className="register-ex-btn"
+            id="register-ex-btn"
             onClick={() => {
               registerEx.style.display = 'inline'
               mypageEx.style.display = 'none'
               quizEx.style.display = 'none'
               searchEx.style.display = 'none'
+
+              searchExBtn.style.border = 0
+              mypageExBtn.style.border = 0
+              quizExBtn.style.border = 0
+              registerExBtn.style.borderBottom = '0.01px solid #2f00ff'
             }}>
             <span>문제 등록</span>
           </button>
           <button
-            className="mypage-ex-btn"
+            id="mypage-ex-btn"
             onClick={() => {
               mypageEx.style.display = 'inline'
               quizEx.style.display = 'none'
               searchEx.style.display = 'none'
               registerEx.style.display = 'none'
+
+              searchExBtn.style.border = 0
+              registerExBtn.style.border = 0
+              quizExBtn.style.border = 0
+              mypageExBtn.style.borderBottom = '0.01px solid #2f00ff'
             }}>
             <span>마이페이지</span>
           </button>
           <button
-            className="quiz-ex-btn"
+            id="quiz-ex-btn"
             onClick={() => {
               quizEx.style.display = 'inline'
               mypageEx.style.display = 'none'
               searchEx.style.display = 'none'
               registerEx.style.display = 'none'
+
+              searchExBtn.style.border = 0
+              registerExBtn.style.border = 0
+              mypageExBtn.style.border = 0
+              quizExBtn.style.borderBottom = '0.01px solid #2f00ff'
             }}>
             <span>퀴즈</span>
           </button>

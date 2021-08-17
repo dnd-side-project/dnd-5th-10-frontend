@@ -86,64 +86,7 @@
   top: 16px; */
 /* }  */
 
-.intro-functions > .search-ex-btn {
-  position: relative;
-  z-index: 1;
-  background-color: white;
-  font-size: 13pt;
-  text-align: center;
-  padding-bottom: 10px;
-  border: 0;
-  border-bottom: 1px solid rgb(255, 255, 255);
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 10px;
-  margin-right: 50px;
-  white-space: nowrap;
-  width: 127px;
-  height: 36px;
-  top: 16px;
-}
-
-.intro-functions > .register-ex-btn {
-  position: relative;
-  z-index: 1;
-  background-color: white;
-  font-size: 13pt;
-  text-align: center;
-  padding-bottom: 10px;
-  border: 0;
-  border-bottom: 1px solid rgb(255, 255, 255);
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 10px;
-  margin-right: 50px;
-  white-space: nowrap;
-  width: 127px;
-  height: 36px;
-  top: 16px;
-}
-
-.intro-functions > .mypage-ex-btn {
-  position: relative;
-  z-index: 1;
-  background-color: white;
-  font-size: 13pt;
-  text-align: center;
-  padding-bottom: 10px;
-  border: 0;
-  border-bottom: 1px solid rgb(255, 255, 255);
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 10px;
-  margin-right: 50px;
-  white-space: nowrap;
-  width: 127px;
-  height: 36px;
-  top: 16px;
-}
-
-.intro-functions > .quiz-ex-btn {
+.intro-functions > button {
   position: relative;
   z-index: 1;
   background-color: white;
