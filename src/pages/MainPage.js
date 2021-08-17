@@ -16,11 +16,21 @@ function MainPage() {
   let mypageEx
   let quizEx
 
+  let searchExBtn
+  let registerExBtn
+  let mypageExBtn
+  let quizExBtn
+
   useEffect(() => {
     searchEx = document.getElementById('search-ex')
     registerEx = document.getElementById('register-ex')
     mypageEx = document.getElementById('mypage-ex')
     quizEx = document.getElementById('quiz-ex')
+
+    searchExBtn = document.getElementsByClassName('search-ex-btn')
+    registerExBtn = document.getElementsByClassName('register-ex-btn')
+    mypageExBtn = document.getElementsByClassName('mypage-ex-btn')
+    quizExBtn = document.getElementsByClassName('quiz-ex-btn')
   }, [])
 
   const removeLocalStorage = () => {
@@ -51,6 +61,8 @@ function MainPage() {
               mypageEx.style.display = 'none'
               quizEx.style.display = 'none'
               registerEx.style.display = 'none'
+
+              searchExBtn.style.borderColor = '#2f00ff'
             }}>
             <span>문제 검색</span>
           </button>
