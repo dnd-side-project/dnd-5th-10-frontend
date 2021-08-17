@@ -36,6 +36,7 @@
 }
 
 .question-detail-title > span {
+  display: inline-block;
   line-height: 90px;
   float: left;
 
@@ -43,6 +44,11 @@
   margin-left: 20px;
 
   font-size: 22pt;
+
+  max-width: 900px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .question-detail-title > button {
