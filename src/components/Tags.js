@@ -3,7 +3,7 @@ import tagItems from 'constants/TagItems'
 import 'css/Tags.css'
 
 const Tags = (props) => {
-  const [selectedTag, setSelectedTag] = useState([])
+  const [selectedTag, setSelectedTag] = useState(JSON.parse(localStorage.getItem('questionSearchTag')))
 
   const selectThisTag = (e) => {
     setSelectedTag(selectedTag.concat(e.target.id))
