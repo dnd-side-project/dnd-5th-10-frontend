@@ -22,16 +22,22 @@ nav {
 }
 
 .dropdown-menu.show {
+  position: relative !important;
+  transform: translate3d(-190px, 40px, 0px) !important;
   z-index: 10 !important;
-  margin-right: 70% !important;
+  width: 300px !important;
 }
 
 .dropdown-menu {
   position: relative;
-  right: 500px !important;
-  width: 200px !important;
   height: 190px !important;
+  width: 300px !important;
   overflow-y: visible !important;
+}
+
+.dropdown-menu > a {
+  width: 200px !important;
+  text-decoration: none !important;
 }
 
 .dropdown-btn {
@@ -39,6 +45,7 @@ nav {
   border-radius: 30px !important;
   margin-right: 30px !important;
   width: 130px !important;
+  height: 40px !important;
   background-color: #111036 !important;
 }
 

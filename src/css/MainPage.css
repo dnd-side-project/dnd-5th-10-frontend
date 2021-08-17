@@ -108,7 +108,7 @@
   height: 800px;
 }
 
-.question-section > .search-title {
+.question-section > div > .search-title {
   position: relative;
   left: 100px;
   top: 60px;
@@ -117,7 +117,7 @@
   float: left;
 }
 
-.question-section > h1 > img {
+.question-section > div > h1 > img {
   width: 30px;
   margin-right: 10px;
 }
@@ -129,7 +129,7 @@
   border: 0.01px solid #afafaf;
 }
 
-.question-section > .search-subtext {
+.question-section > div > .search-subtext {
   float: left;
   position: relative;
   right: 100px;
@@ -137,9 +137,9 @@
   color: white;
 }
 
-.search-tag {
+.question-section > .main-question-tags {
   position: relative;
-  top: 150px;
+  top: 200px;
 }
 
 .main-search-btn {
@@ -156,7 +156,7 @@
   right: 100px;
 }
 
-.question-section > .register-title {
+.question-section > div > .register-title {
   position: relative;
   left: 100px;
   top: 330px;
@@ -173,7 +173,7 @@
   border: 0.01px solid #afafaf;
 }
 
-.question-section > .register-subtext {
+.question-section > div > .register-subtext {
   text-align: left;
   float: left;
   position: relative;

@@ -17,6 +17,8 @@ const Tags = (props) => {
       localStorage.setItem('questionRegiTag', JSON.stringify(selectedTag))
     } else if (props.page === 'question-search') {
       localStorage.setItem('questionSearchTag', JSON.stringify(selectedTag))
+    } else if (props.page === 'main-question-search') {
+      localStorage.setItem('questionSearchTag', JSON.stringify(selectedTag))
     }
   })
 

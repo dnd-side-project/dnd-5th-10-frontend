@@ -95,10 +95,19 @@ const Navigation = (props) => {
               <img src="/img/nav_icon6.png" alt="nav_icon" />
             </DropdownToggle>
             <DropdownMenu className="dropdown-menu">
-              <DropdownItem>마이페이지</DropdownItem>
-              <DropdownItem>내가 등록한 문제</DropdownItem>
-              <DropdownItem>내가 북마크한 문제</DropdownItem>
-              <DropdownItem>내가 좋아요한 답변</DropdownItem>
+              <Link to="/MyPage/MyRegisterQuestion">
+                <DropdownItem>내가 등록한 문제</DropdownItem>
+              </Link>
+              <Link to="/MyPage/MyRegisterAnswer">
+                <DropdownItem>내가 등록한 답변</DropdownItem>
+              </Link>
+              <Link to="/MyPage/MyLikeAnswer">
+                <DropdownItem>내가 좋아요한 답변</DropdownItem>
+              </Link>
+              <Link to="/MyPage/MyBookmarkQuestion">
+                <DropdownItem>내가 북마크한 문제</DropdownItem>
+              </Link>
+
               <DropdownItem divider />
               <a
                 className="logout-btn"

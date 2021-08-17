@@ -1,6 +1,6 @@
 import 'css/MainPage.css'
 import MainCarousel from 'components/MainCarousel'
-import ClassificationTags from 'components/ClassificationTags'
+import Tags from 'components/Tags'
 import { Link } from 'react-router-dom'
 import { JWT_TOKEN } from 'constants/Oauth'
 import axios from 'axios'
@@ -90,30 +90,33 @@ function MainPage() {
           </div>
         </div>
         <div className="question-section">
-          <h1 className="search-title">
-            <img src="/img/figure1.png" alt="figure1_icon" />
-            문제 검색
-          </h1>
-          <hr className="search-hr" />
-          <span className="search-subtext">
-            일일이 찾아야 했던 면접 질문과 답변들, 검증되지 않았던 정보들, 한번에 검색하고 검증된 정보를 받아보세요.
-          </span>
-          <div className="search-tag">
-            <ClassificationTags />
+          <div>
+            <h1 className="search-title">
+              <img src="/img/figure1.png" alt="figure1_icon" />
+              문제 검색
+            </h1>
+            <hr className="search-hr" />
+            <span className="search-subtext">
+              일일이 찾아야 했던 면접 질문과 답변들, 검증되지 않았던 정보들, 한번에 검색하고 검증된 정보를 받아보세요.
+            </span>
+            <Tags className="main-question-tags" page="main-question-search" />
+            <button className="main-search-btn">검색하기</button>
           </div>
-          <button className="main-search-btn">검색하기</button>
-          <h1 className="register-title">
-            <img src="/img/figure2.png" alt="figure1_icon" />
-            문제 등록
-          </h1>
-          <hr className="register-hr" />
-          <span className="register-subtext">
-            면접문제를 어떻게 풀어야할지 막막하시죠? 어려운 문제를 등록해주세요. 함께 해결해드릴게요. <br />
-            나의 의견과 다른 분들의 답변과 비교해보시고, 마음에 드는 답변을 모아보세요.
-          </span>
-          <Link to="/QuestionRegister">
-            <button className="main-register-btn">등록하기</button>
-          </Link>
+
+          <div>
+            <h1 className="register-title">
+              <img src="/img/figure2.png" alt="figure1_icon" />
+              문제 등록
+            </h1>
+            <hr className="register-hr" />
+            <span className="register-subtext">
+              면접문제를 어떻게 풀어야할지 막막하시죠? 어려운 문제를 등록해주세요. 함께 해결해드릴게요. <br />
+              나의 의견과 다른 분들의 답변과 비교해보시고, 마음에 드는 답변을 모아보세요.
+            </span>
+            <Link to="/QuestionRegister">
+              <button className="main-register-btn">등록하기</button>
+            </Link>
+          </div>
         </div>
 
         <br />
