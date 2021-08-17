@@ -9,7 +9,8 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_TOKEN}`
 const questionRegisterImg = '/img/questionRegister.jpg'
 const SetQuizOptionsPage = () => {
   return (
-    <>
+    <div>
+      <Navigation />
       <div className="set-quiz-options-img">
         <img src={questionRegisterImg} alt="question-register-img" />
         <h1>퀴즈 옵션 세팅 페이지</h1>
@@ -18,7 +19,8 @@ const SetQuizOptionsPage = () => {
       <div className="body">
         <SetQuizOptions />
       </div>
-    </>
+      <Footer />
+    </div>
   )
 }
 export default SetQuizOptionsPage
