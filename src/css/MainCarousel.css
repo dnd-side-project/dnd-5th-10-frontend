@@ -23,8 +23,8 @@
 
 .main-quiz-btn {
   position: relative;
-  right: 520px;
-  top: -450px;
+  right: 530px;
+  top: -680px;
   z-index: 2;
   width: 196px;
   height: 63px;
@@ -33,4 +33,30 @@
   border-radius: 30px 0px 30px 0px;
   font-size: 18pt;
   background-image: linear-gradient(to right, #ffab00 0%, #eb2d2e 30%, #e91388 95%, #c8198a 100%);
+}
+
+.iterview-info {
+  text-align: left;
+  color: white;
+  position: relative;
+  top: -725px;
+  left: 75px;
+  z-index: 2;
+}
+
+.iterview-info > h1 {
+  font-weight: bold;
+  font-size: 50pt;
+  letter-spacing: 0.001px;
+  word-spacing: -5px;
+}
+
+.iterview-info > h1 {
+  font-weight: bold;
+  font-size: 55pt;
+}
+
+.iterview-info > span {
+  font-weight: bold;
+  font-size: 18pt;
 }
