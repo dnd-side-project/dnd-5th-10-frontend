@@ -14,12 +14,12 @@ const InfiniteAnswerList = (props) => {
   const [sort, setSort] = useState('liked')
 
   useEffect(() => {
-    if (props.sort !== sort) {
-      console.log('changed')
-      setSort(props.sortBy)
-      setPage(0)
-      setListInfo([])
-    }
+    setSort(props.sortBy)
+    setPage(0)
+    setListInfo([])
+  }, [props.sortBy])
+
+  useEffect(() => {
     setQuestionTitle(props.title)
     setQuestionId(props.question)
     const body = {
@@ -32,9 +32,9 @@ const InfiniteAnswerList = (props) => {
   const getData = (body) => {
     let answer = listInfo
     axios
-      .get(`/api/v1/answer/question/${questionId}?page=${page}&size=3&sort=${sort},desc`, body)
+      .get(`/api/v1/answer/question/${questionId}?page=${page}&size=10&sort=${sort},desc`, body)
       .then((res) => {
-        if (res.data.content.length !== 0) {
+        if (res.data.content.length > 0) {
           res.data.content.forEach((item) => {
             if (answer.length < 1) {
               answer.push(item)
@@ -52,9 +52,9 @@ const InfiniteAnswerList = (props) => {
           })
           setListInfo(answer)
           setPage((p) => p + 1)
-          console.log(page)
+          // console.log(page)
         }
-        console.log(listInfo)
+        // console.log(listInfo)
       })
       .catch((err) => console.log(err))
   }
