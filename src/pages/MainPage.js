@@ -5,6 +5,8 @@ import { Link, useHistory } from 'react-router-dom'
 import { JWT_TOKEN } from 'constants/Oauth'
 import axios from 'axios'
 import { useEffect } from 'react'
+import Navigation from 'components/Navigation'
+import Footer from 'components/Footer'
 // header 설정
 axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_TOKEN}`
 
@@ -41,6 +43,7 @@ function MainPage() {
 
   return (
     <div className="Main">
+      <Navigation />
       {removeLocalStorage()}
       <MainCarousel />
       <div className="body">
@@ -169,6 +172,7 @@ function MainPage() {
         <br />
         <br />
       </div>
+      <Footer />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { getCookie } from '../components/Cookies.js'
+import { getCookie } from 'components/Cookies.js'
 
 export const API_BASE_URL = 'http://localhost:8080'
 

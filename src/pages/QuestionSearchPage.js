@@ -1,9 +1,11 @@
 import QuestionSearch from 'components/QuestionSearch'
-
+import Navigation from 'components/Navigation'
+import Footer from 'components/Footer'
 const QuestionSearchPage = () => {
   const questionRegisterImg = '/img/questionRegister.jpg'
   return (
     <>
+      <Navigation />
       <div className="question-search-img">
         <img src={questionRegisterImg} alt="question-register-img" />
         <h1>면접문제 검색</h1>
@@ -16,6 +18,7 @@ const QuestionSearchPage = () => {
       <div className="body">
         <QuestionSearch />
       </div>
+      <Footer />
     </>
   )
 }

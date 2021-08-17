@@ -1,0 +1,72 @@
+.each-answer {
+  height: 210px;
+  margin-top: 50px;
+  border-radius: 15px;
+  box-shadow: 0px 3px 10px 1px rgb(187, 187, 187);
+  border: 0;
+  background-color: white;
+  color: black;
+  white-space: nowrap;
+}
+
+.answer-number {
+  line-height: 210px;
+  position: relative;
+  float: left;
+
+  height: 100%;
+  width: 120px;
+
+  font-size: 25pt;
+  color: #c9c9c9;
+  padding-left: 50px;
+  /* color: #e7e7e7; */
+}
+
+.answer-content {
+  text-align: left;
+  padding-top: 40px;
+  width: 75%;
+  float: left;
+  /* margin: auto; */
+}
+
+.answer-content > h1 {
+  position: relative;
+
+  color: black;
+  font-size: 16pt;
+  font-weight: bold;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.answer-content > h5 {
+  position: relative;
+  max-height: 65px;
+  color: #a3a3a3;
+  font-size: 14pt;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.answer-card > button {
+  float: right;
+  margin-top: 145px;
+  margin-right: 35px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 17px;
+  padding-left: 17px;
+  border-radius: 4px;
+  border: 0;
+  background-color: #796aca;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.answer-card > button:hover {
+  background-color: #6a5db4;
+}

@@ -7,7 +7,7 @@
   white-space: nowrap;
 }
 
-.each-question > Button {
+.each-question > button {
   width: 80%;
   height: 135px;
   border-radius: 15px;
@@ -17,9 +17,13 @@
   background-color: white;
   color: black;
 }
-.each-question > Button:hover {
+.each-question > button:hover {
   color: black;
+  background-color: rgba(247, 244, 255, 0.856);
+}
 
+.each-question > button:focus {
+  color: black;
   background-color: rgba(247, 244, 255, 0.856);
 }
 

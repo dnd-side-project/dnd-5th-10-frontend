@@ -1,5 +1,4 @@
 import 'css/Question.css'
-import { Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
 
 const Question = (props) => {
@@ -24,12 +23,14 @@ const Question = (props) => {
   }
 
   const gotoDetails = () => {
-    props.history.push(`/QuestionDetails/${props.id}`)
+    localStorage.setItem('detailTitle', props.content)
+    window.open(`/QuestionDetail?${props.id}`)
+    localStorage.setItem('detailId', props.id)
   }
 
   return (
     <div className="each-question">
-      <Button onClick={gotoDetails}>
+      <button onClick={gotoDetails}>
         <div className="question-number">{checkQuestionNumber(props.number)}</div>
         {/* <div className="question-bookmark">
           <h1>좋아요</h1>
@@ -38,11 +39,11 @@ const Question = (props) => {
         <div className="question-content">
           {props.content}
           <br />
-          <span>"답이다답이다"</span>
+          <span>{props.answer}</span>
         </div>
         <div className="question-tag">{showQuestionTags}</div>
         {/* <div className="date-or-username">{props.username}</div> */}
-      </Button>
+      </button>
     </div>
   )
 }

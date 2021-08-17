@@ -44,6 +44,11 @@ const Navigation = (props) => {
         })
         .catch((err) => {
           console.log(err)
+          setUserProfile(null)
+          removeCookie('Authorization', { path: '/' })
+          localStorage.removeItem('userName')
+          localStorage.removeItem('userEmail')
+          localStorage.removeItem('questionRegiTag')
         })
     }
   }, [])
@@ -89,7 +94,7 @@ const Navigation = (props) => {
           </Link>
         </Nav>
         {/* jwt_token이 존재하면 login 처리 */}
-        {JWT_TOKEN ? (
+        {userProfile ? (
           <ButtonDropdown className="dropdown-btn" isOpen={dropdownOpen} toggle={toggle}>
             <DropdownToggle className="dropdown-btn" caret>
               {userProfile?.username}님
