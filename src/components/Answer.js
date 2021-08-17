@@ -26,11 +26,12 @@ const Answer = (props) => {
     })
       .then((res) => {
         console.log(res)
-        window.alert('좋아요O')
+
+        window.location.reload()
       })
       .catch((err) => {
         console.log(err)
-        window.alert('좋아요X')
+        window.alert('이미 좋아요한 답변입니다.')
       })
   }
 
