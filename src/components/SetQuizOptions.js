@@ -54,11 +54,6 @@ const SetQuizOptions = (props) => {
       {allQuiz.length === 0 ? (
         <div>
           <div className="set-quiz-options">
-            <div className="set-quiz-options-img">
-              <img src={questionRegisterImg} alt="question-register-img" />
-              <h1>퀴즈 옵션 세팅 페이지</h1>
-              <h3>퀴즈 옵션을 선택해주세요</h3>
-            </div>
             <div className="set-quiz-options-box">
               <div className="user-info">
                 <div className="user-info-content">
