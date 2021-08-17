@@ -42,8 +42,8 @@
     transform: rotate(360deg);
   }
 }
-@import url('//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-full.css');
+@import url('https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css');
 * {
-  font-family: 'D2Coding', monospace !important;
+  font-family: 'NanumSquareRound', sans-serif !important;
   /* font-size: 95%; */
 }
