@@ -44,49 +44,45 @@ function MainPage() {
           </Link>
         </div>
         <div className="intro-functions">
-          <button className="search-ex-btn">
-            <span
-              onClick={() => {
-                searchEx.style.display = 'inline'
-                mypageEx.style.display = 'none'
-                quizEx.style.display = 'none'
-                registerEx.style.display = 'none'
-              }}>
-              문제 검색
-            </span>
+          <button
+            className="search-ex-btn"
+            onClick={() => {
+              searchEx.style.display = 'inline'
+              mypageEx.style.display = 'none'
+              quizEx.style.display = 'none'
+              registerEx.style.display = 'none'
+            }}>
+            <span>문제 검색</span>
           </button>
-          <button className="register-ex-btn">
-            <span
-              onClick={() => {
-                registerEx.style.display = 'inline'
-                mypageEx.style.display = 'none'
-                quizEx.style.display = 'none'
-                searchEx.style.display = 'none'
-              }}>
-              문제 등록
-            </span>
+          <button
+            className="register-ex-btn"
+            onClick={() => {
+              registerEx.style.display = 'inline'
+              mypageEx.style.display = 'none'
+              quizEx.style.display = 'none'
+              searchEx.style.display = 'none'
+            }}>
+            <span>문제 등록</span>
           </button>
-          <button className="mypage-ex-btn">
-            <span
-              onClick={() => {
-                mypageEx.style.display = 'inline'
-                quizEx.style.display = 'none'
-                searchEx.style.display = 'none'
-                registerEx.style.display = 'none'
-              }}>
-              마이페이지
-            </span>
+          <button
+            className="mypage-ex-btn"
+            onClick={() => {
+              mypageEx.style.display = 'inline'
+              quizEx.style.display = 'none'
+              searchEx.style.display = 'none'
+              registerEx.style.display = 'none'
+            }}>
+            <span>마이페이지</span>
           </button>
-          <button className="quiz-ex-btn">
-            <span
-              onClick={() => {
-                quizEx.style.display = 'inline'
-                mypageEx.style.display = 'none'
-                searchEx.style.display = 'none'
-                registerEx.style.display = 'none'
-              }}>
-              퀴즈
-            </span>
+          <button
+            className="quiz-ex-btn"
+            onClick={() => {
+              quizEx.style.display = 'inline'
+              mypageEx.style.display = 'none'
+              searchEx.style.display = 'none'
+              registerEx.style.display = 'none'
+            }}>
+            <span>퀴즈</span>
           </button>
           <hr className="intro-hr" />
           <div className="function-explain">
