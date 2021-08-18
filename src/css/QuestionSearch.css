@@ -1,45 +1,55 @@
 .question-search {
+  position: relative;
   /* background-color: #a3a3a3; */
   width: 100%;
   min-width: 1000px;
+  margin-top: -50px;
 }
 
-.question-search-img {
-  background-color: #9c7b7b;
-  height: 300px;
+.question-search-info-background {
+  width: 100%;
+  height: 335px;
+  background-color: #111036;
 }
 
-.question-search-img > img {
+.question-search-info-background > img {
   position: relative;
-  /* width: 100%; */
-  width: 1000px;
-  height: inherit;
+  width: 1400px;
+  top: -70px;
 }
 
 .question-search-img > h1 {
   position: relative;
-  top: -210px;
+  top: -240px;
   font-size: 30pt;
   margin-bottom: 0;
+  color: white;
+  font-weight: bold;
 }
 
 .question-search-img > h3 {
   position: relative;
-  top: -190px;
+  top: -220px;
   font-size: 16pt;
   margin-bottom: 0;
+  color: white;
+  line-height: 28px;
 }
 
 .question-search-tag {
+  position: relative;
   text-align: left;
   width: 80%;
   margin: auto;
-  margin-top: 20px;
 }
-
+.question-search-tag > img {
+  width: 35px;
+  margin-bottom: 5px;
+}
 .question-search-tag > span {
-  margin-left: 75px;
+  margin-left: 15px;
   font-size: 25pt;
+  font-weight: bold;
 }
 .question-tag-hr {
   min-width: 800px;
@@ -100,7 +110,6 @@ textarea#question-search-input.form-control::placeholder {
 }
 
 .searched-question {
-  /* width: 80%; */
   margin: auto;
   margin-top: 50px;
   background-color: #e3e2f0;
@@ -111,15 +120,21 @@ textarea#question-search-input.form-control::placeholder {
   width: 80%;
   margin: auto;
 }
+
+.title-sort > img {
+  float: left;
+  width: 35px;
+  margin-top: 63px;
+}
 .title-sort > span {
-  /* background-color: yellow; */
   position: relative;
   float: left;
 
   margin-top: 55px;
-  margin-left: 75px;
+  margin-left: 15px;
 
   font-size: 25pt;
+  font-weight: bold;
 }
 
 .sort-button {
@@ -160,4 +175,17 @@ textarea#question-search-input.form-control::placeholder {
 
 .selectd-quiz-tag-content > button {
   width: 300px;
+}
+
+.question-search-info-detail {
+  float: right;
+  width: 190px;
+  height: 130px;
+  background-color: #e3e2f0;
+  padding-top: 23px;
+  font-weight: bold;
+  font-size: 14pt;
+  border-radius: 70px;
+  margin-top: -140px;
+  margin-right: 130px;
 }

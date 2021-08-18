@@ -2,12 +2,14 @@ import QuestionSearch from 'components/QuestionSearch'
 import Navigation from 'components/Navigation'
 import Footer from 'components/Footer'
 const QuestionSearchPage = () => {
-  const questionRegisterImg = '/img/questionRegister.jpg'
+  const questionRegisterImg = '/img/page_info.png'
   return (
     <>
       <Navigation />
       <div className="question-search-img">
-        <img src={questionRegisterImg} alt="question-register-img" />
+        <div className="question-search-info-background">
+          <img src={questionRegisterImg} alt="question-register-img" />
+        </div>
         <h1>면접문제 검색</h1>
         <h3>
           이리저리 흩어진 면접질문과 답변?

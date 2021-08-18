@@ -70,7 +70,15 @@ const QuestionSearch = () => {
 
   return (
     <div className="question-search">
+      <div className="question-search-info-detail">
+        알고싶은
+        <br />
+        문제종류와 키워드를
+        <br />
+        검색하세요!
+      </div>
       <div className="question-search-tag">
+        <img src="img/figure1.png" alt="question-search-tag-icon" />
         <span>문제 검색</span>
         <div className="question-tag-hr"></div>
         <Tags className="question-tags" page="question-search" />
@@ -100,6 +108,8 @@ const QuestionSearch = () => {
       </div>
       <div className="searched-question">
         <div className="title-sort">
+          <img src="img/figure3.png" alt="question-search-tag-icon" />
+
           <span>검색된 면접 문제</span>
           <div className="sort-button">
             <button
