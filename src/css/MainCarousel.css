@@ -9,6 +9,8 @@
   margin: 0;
 }
 #background {
+  position: relative;
+  top: -1120px;
   width: 1400px;
   margin: auto;
 }
@@ -59,4 +61,11 @@
 .iterview-info > span {
   font-weight: bold;
   font-size: 18pt;
+}
+
+#deem {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  top: -80px;
 }
