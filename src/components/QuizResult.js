@@ -1,4 +1,5 @@
 import 'css/QuizResult.css'
+import { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import Question from './Question'
 
@@ -9,23 +10,31 @@ const QuizResult = (props) => {
   let arrIndex = 0
   let keyIndex = 0
   const tagItem = JSON.parse(localStorage.selectedQuizTag)
+  const midTitle = document.getElementById('quiz-middle-title')
+  const subTitle = document.getElementById('quiz-sub-title')
+  const miniBox = document.getElementById('quiz-ex-box')
+
+  useEffect(() => {
+    midTitle.innerHTML = '면접문제 결과'
+    subTitle.innerHTML = '본인이 풀었던 문제를 확인해보세요!'
+    miniBox.innerHTML = '푼 문제를 <br/> 확인 해주세요!'
+    miniBox.style.bottom = '220px'
+    miniBox.style.paddingTop = '22px'
+  }, [])
 
   return (
     <div className="quiz-result-page">
-      <div className="set-quiz-result-img">
-        <img src={questionRegisterImg} alt="question-register-img" />
-        {/* {console.log(props.id, props.content, props.tag, index)} */}
-        <h1>퀴즈 결과 페이지</h1>
-        <h3>풀었던 문제를 확인해주세요!</h3>
-      </div>
       <div className="set-quiz-result-box">
         <div className="user-quiz-result">
           <div className="user-quiz-result-content">
             <h4>{localStorage.getItem('userName')}</h4>
             <hr className="hr" />
             <h6>문제당 평균 시간</h6>
+            <span>02:50</span>
             <h6>좋아요</h6>
+            <span>50</span>
             <h6>퀴즈로 푼 문제</h6>
+            <span>170</span>
           </div>
         </div>
         <div className="selected-quiz-tag">
@@ -43,8 +52,12 @@ const QuizResult = (props) => {
         </div>
         <div className="quiz-time-info">
           <div className="quiz-time-content">
-            <h4>총 소요시간</h4>
+            <h4>소요시간</h4>
             <hr className="hr3" />
+            <h6>총 소요시간</h6>
+            <span>00:00:00</span>
+            <h6>문제당 소요시간</h6>
+            <span>00:00:00</span>
           </div>
         </div>
       </div>

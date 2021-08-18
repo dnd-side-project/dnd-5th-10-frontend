@@ -27,10 +27,12 @@
 }
 
 .set-quiz-result-box {
+  position: relative;
   display: flex;
   width: 80%;
   margin: auto;
   height: 300px;
+  left: 80px;
 }
 
 .set-quiz-result-box > div {
@@ -56,6 +58,15 @@
   margin: auto;
 }
 
+.user-quiz-result-content > span {
+  color: #231d4c;
+  position: relative;
+  right: 20px;
+  bottom: 30px;
+  float: right;
+  font-size: 13px;
+}
+
 .selectd-quiz-tag-content {
   width: 300px;
   margin: auto;
@@ -64,6 +75,15 @@
 .quiz-time-content {
   width: 300px;
   margin: auto;
+}
+
+.quiz-time-content > span {
+  color: #231d4c;
+  position: relative;
+  right: 20px;
+  bottom: 30px;
+  float: right;
+  font-size: 13px;
 }
 
 .solved-quiz-content > span {
@@ -118,12 +138,13 @@ div > .each-questions {
 .tag-btn {
   font-size: 13pt;
   max-width: 130px;
-  background-color: #e3e2f0;
+  background-color: #efecff;
   border: 0 !important;
   border-radius: 30px !important;
   margin: 10px;
 }
 
 .tag-btn:hover {
-  background-color: #cfcde9;
+  color: white;
+  background-color: #635faa;
 }
