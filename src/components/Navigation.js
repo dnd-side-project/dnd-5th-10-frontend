@@ -95,7 +95,7 @@ const Navigation = (props) => {
         </Nav>
         {/* jwt_token이 존재하면 login 처리 */}
         {userProfile ? (
-          <ButtonDropdown className="dropdown-btn" isOpen={dropdownOpen} toggle={toggle}>
+          <ButtonDropdown className="dropdown-btn-par" isOpen={dropdownOpen} toggle={toggle}>
             <DropdownToggle className="dropdown-btn" caret>
               {userProfile?.username}님
               <img src="/img/nav_icon6.png" alt="nav_icon" />

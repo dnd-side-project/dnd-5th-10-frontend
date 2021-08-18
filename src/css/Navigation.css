@@ -40,13 +40,16 @@ nav {
   text-decoration: none !important;
 }
 
+.dropdown-btn-par {
+  width: 130px !important;
+  height: 40px !important;
+}
 .dropdown-btn {
+  /* width: 130px !important; */
+  background-color: #111036 !important;
   border-color: white !important;
   border-radius: 30px !important;
   margin-right: 30px !important;
-  width: 130px !important;
-  height: 40px !important;
-  background-color: #111036 !important;
 }
 
 .sign-in {
