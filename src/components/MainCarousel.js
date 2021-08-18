@@ -9,25 +9,28 @@ const MainCarousel = () => {
 
   return (
     <div id="carousel-slide">
-      <img id="deem" src="/img/navigation-deem.png" />
+      {/* <img id="deem" src="/img/navigation-deem.png" /> */}
 
       <div id="background">
-        <img className="space1" src="/img/main_img3.png" alt="" />
-        <div className="iterview-info">
-          <h1>IT'erview를 소개합니다.</h1>
-          <span>
-            IT'erview는 개발자들의 면접을 효율적으로 도와주는 서비스입니다.
-            <br />
-            체계적인 면접학습을 경험해보세요.
-          </span>
+        <img id="deem" src="/img/navigation-deem.png" />
+        <div id="background-info">
+          <img className="space1" src="/img/main_img3.png" alt="" />
+          <div className="iterview-info">
+            <h1>IT'erview를 소개합니다.</h1>
+            <span>
+              IT'erview는 개발자들의 면접을 효율적으로 도와주는 서비스입니다.
+              <br />
+              체계적인 면접학습을 경험해보세요.
+            </span>
+          </div>
+          <button
+            className="main-quiz-btn"
+            onClick={() => {
+              history.push('/SetQuizOptions')
+            }}>
+            퀴즈풀기
+          </button>
         </div>
-        <button
-          className="main-quiz-btn"
-          onClick={() => {
-            history.push('/SetQuizOptions')
-          }}>
-          퀴즈풀기
-        </button>
       </div>
     </div>
   )

@@ -10,9 +10,15 @@
 }
 #background {
   position: relative;
-  top: -1120px;
+  width: 100%;
+}
+#background-info {
+  position: absolute;
+  top: 0;
   width: 1400px;
-  margin: auto;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 1;
 }
 .space1 {
   bottom: 80px;
@@ -67,5 +73,5 @@
   position: relative;
   width: 100%;
   z-index: 2;
-  top: -80px;
+  top: -75px;
 }
