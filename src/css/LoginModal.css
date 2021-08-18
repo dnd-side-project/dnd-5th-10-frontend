@@ -10,7 +10,7 @@
 
 header > img {
   position: relative;
-  left: 185px;
+  left: 190px;
   top: 20px;
   width: 50px;
   height: 52px !important;
@@ -31,8 +31,6 @@ header > h1 {
 
 .modal > section {
   position: relative;
-  /* top: 50px; */
-  /* left: 400px; */
   margin: 0 auto;
   background-color: #fff;
 }

@@ -14,7 +14,7 @@ function LoginModal(props) {
       {open ? (
         <section>
           <header>
-            <img src="/img/LOGO2.png" alt="" />
+            <img src="/img/LOGO3.png" alt="" />
             <h1>통합 회원가입 및 로그인</h1>
             <button className="close" onClick={close}>
               &times;
