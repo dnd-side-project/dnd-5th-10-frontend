@@ -10,12 +10,14 @@
   margin-left: 390px;
   min-height: 800px;
   /* background-color: rgb(255, 230, 230); */
+  margin-bottom: 100px;
 }
 
 .mypage-register-bookmark-title {
   padding-top: 65px;
   padding-bottom: 38px;
   border-bottom: 1.5px solid #e7e7e7;
+  margin-bottom: 30px;
 }
 
 .mypage-register-bookmark-title > span > img {

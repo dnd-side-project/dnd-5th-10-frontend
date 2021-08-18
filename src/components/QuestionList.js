@@ -12,7 +12,7 @@ const QuestionList = (props) => {
   const [stopRequest, setStopRequest] = useState(false)
   const [allReRender, setAllReRender] = useState(false)
   const [notExist, setNotExist] = useState('')
-  const [sort, setSort] = useState('bookmarkCount')
+  const [sort, setSort] = useState(props.sortBy)
 
   const getQuestions = useCallback(async () => {
     if (!stopRequest) {
@@ -38,7 +38,7 @@ const QuestionList = (props) => {
             console.log(err)
           })
       } else if (props.type === 'bookmark') {
-        getUrl = `/api/v1/bookmark/mine?page=${page}&size=10`
+        getUrl = `/api/v1/bookmark/mine?page=${page}&size=10&sort=${props.sortBy}`
         await axios
           .get(getUrl)
           .then((res) => {

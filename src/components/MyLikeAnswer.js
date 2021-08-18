@@ -4,13 +4,13 @@ import { useState, useEffect } from 'react'
 import InfiniteAnswerList from 'components/InfiniteAnswerList'
 
 const MyLikeAnswer = () => {
-  const [sort, setSort] = useState('liked')
+  const [sort, setSort] = useState('answerManager_liked')
 
   useEffect(() => {
     const likeBtn = document.getElementById('sort-by-like')
     const latestBtn = document.getElementById('sort-by-latest')
 
-    if (sort === 'liked') {
+    if (sort === 'answerManager_liked') {
       likeBtn.style.color = '#4d4d4e'
       likeBtn.style.borderColor = '#707070'
       likeBtn.style.fontWeight = 'bold'
@@ -44,19 +44,19 @@ const MyLikeAnswer = () => {
           <button
             id="sort-by-latest"
             onClick={() => {
-              setSort('createdDate')
+              setSort('answerManager_CreatedDate')
             }}>
             최신순
           </button>
           <button
             id="sort-by-like"
             onClick={() => {
-              setSort('liked')
+              setSort('answerManager_liked')
             }}>
             인기순
           </button>
         </div>
-        {/* <InfiniteAnswerList question={-1} title="" sortBy={sort} type="mylike" /> */}
+        <InfiniteAnswerList question={-1} title="" sortBy={sort} type="mylike" />
       </div>
     </div>
   )

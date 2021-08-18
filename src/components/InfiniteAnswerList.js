@@ -8,11 +8,12 @@ const InfiniteAnswerList = (props) => {
   const [skip, setSkip] = useState(0)
   const [limit, setLimit] = useState(10)
   const [fetching, setFetching] = useState(false)
+  const [notExist, setNotExist] = useState('')
 
   const [questionId, setQuestionId] = useState(props.question)
   const [questionTitle, setQuestionTitle] = useState(props.title)
   const [page, setPage] = useState(0)
-  const [sort, setSort] = useState('liked')
+  const [sort, setSort] = useState(props.sortBy)
 
   useEffect(() => {
     setSort(props.sortBy)
@@ -36,7 +37,7 @@ const InfiniteAnswerList = (props) => {
     if (props.type === 'myanswer') {
       getUrl = `/api/v1/answer/mine?page=${page}&size=4&sort=${sort},desc`
     } else if (props.type === 'mylike') {
-      getUrl = `/api/v1/answer/like/mine?page=${page}&size=4`
+      getUrl = `/api/v1/answer/like/mine?page=${page}&size=4&sort=${sort},desc`
     } else {
       getUrl = `/api/v1/answer/question/${questionId}?page=${page}&size=10&sort=${sort},desc`
     }
@@ -44,6 +45,7 @@ const InfiniteAnswerList = (props) => {
     axios
       .get(getUrl, body)
       .then((res) => {
+        console.log(res.data)
         if (res.data.content.length > 0) {
           res.data.content.forEach((item) => {
             if (answer.length < 1) {
@@ -65,6 +67,12 @@ const InfiniteAnswerList = (props) => {
         }
       })
       .catch((err) => console.log(err))
+
+    if (listInfo.length === 0) {
+      setNotExist('There is no answer')
+    } else {
+      setNotExist('')
+    }
   }
 
   const fetchMoreData = () => {
@@ -105,6 +113,7 @@ const InfiniteAnswerList = (props) => {
           fetching={fetching}
         />
       )}
+      {notExist}
     </div>
   )
 }
