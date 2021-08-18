@@ -31,7 +31,7 @@ const QuestionRegister = ({ history }) => {
       window.alert('최소 20자 이상 입력해주세요')
     } else {
       const questionRegiTag = localStorage.getItem('questionRegiTag')
-      setQuestionRegiTagArr(JSON.parse(questionRegiTag))
+      const questionTag = JSON.parse(questionRegiTag)
 
       console.log(localStorage.getItem('userName'))
       axios({
@@ -40,7 +40,7 @@ const QuestionRegister = ({ history }) => {
         data: {
           content: textContents,
           bookmarkCount: 0,
-          tags: questionRegiTagArr,
+          tags: questionTag,
         },
         params: {
           name: localStorage.getItem('userName'),
@@ -56,6 +56,7 @@ const QuestionRegister = ({ history }) => {
           window.alert('문제가 등록되지 않았습니다.')
           window.location.reload()
         })
+      setQuestionRegiTagArr(questionTag)
     }
   }
 
