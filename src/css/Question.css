@@ -91,19 +91,18 @@
 }
 .question-tags {
   line-height: 35px;
-
-  font-size: 12pt;
+  font-size: 14pt;
   height: 35px;
 
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   position: relative;
   float: right;
 
   /* margin-top: 50px; */
-  margin-right: 4px;
-  margin-left: 4px;
+  margin-right: 6px;
+  margin-left: 6px;
 
   border-radius: 30px;
   background-color: #efecff;

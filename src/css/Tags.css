@@ -6,7 +6,8 @@
 }
 
 .classification-tag-btn > button {
-  font-size: 12pt;
+  line-height: 35px;
+  font-size: 14pt;
   height: 35px;
 
   margin-top: 4px;
@@ -14,8 +15,8 @@
   margin-right: 8px;
   margin-left: 8px;
 
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   border-radius: 50px;
   transition-duration: 0.3s;
