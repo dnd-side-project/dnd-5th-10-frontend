@@ -59,7 +59,7 @@ const MyPageNavigation = (props) => {
             props.history.push('/MyPage/MyRegisterQuestion')
             changeBorderColor(document.getElementById('text-question'))
           }}>
-          <img src="https://img.icons8.com/small/452/pink-cute-folder.png" alt="my-register-question" />
+          <img src="/img/mypage_icon1.png" alt="my-register-question" />
           <span id="text-question">내가 등록한 문제</span>
         </button>
         <button
@@ -68,7 +68,7 @@ const MyPageNavigation = (props) => {
             changeBorderColor(document.getElementById('text-answer'))
           }}
           className="here-title">
-          <img src="https://img.icons8.com/small/452/pink-cute-folder.png" alt="my-register-answer" />
+          <img src="/img/mypage_icon2.png" alt="my-register-answer" />
           <span id="text-answer">내가 등록한 답변</span>
         </button>
         <button
@@ -76,7 +76,7 @@ const MyPageNavigation = (props) => {
             props.history.push('/MyPage/MyLikeAnswer')
             changeBorderColor(document.getElementById('text-like'))
           }}>
-          <img src="https://img.icons8.com/small/452/pink-cute-folder.png" alt="my-like-answer" />
+          <img src="/img/mypage_icon3.png" alt="my-like-answer" />
           <span id="text-like">좋아요한 답변</span>
         </button>
         <button
@@ -84,7 +84,7 @@ const MyPageNavigation = (props) => {
             props.history.push('/MyPage/MyBookmarkQuestion')
             changeBorderColor(document.getElementById('text-bookmark'))
           }}>
-          <img src="https://img.icons8.com/small/452/pink-cute-folder.png" alt="my-bookmark-question" />
+          <img src="/img/mypage_icon4.png" alt="my-bookmark-question" />
           <span id="text-bookmark">북마크한 문제</span>
         </button>
         {/* <div className="line1" /> */}

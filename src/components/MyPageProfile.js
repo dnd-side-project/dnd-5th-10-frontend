@@ -9,7 +9,7 @@ const MyPageProfile = () => {
         alt="profile-img"
       />
       <div className="mypage-user-name-info">
-        <img src="https://img.icons8.com/cotton/2x/gender-neutral-user--v2.png" alt="profile-logo" />
+        <img src="/img/mypage_profile.png" alt="profile-logo" />
         <h1> {localStorage.getItem('userName')} </h1>
         <div className="mypage-line2" />
       </div>
