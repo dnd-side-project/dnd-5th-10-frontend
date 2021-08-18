@@ -11,6 +11,7 @@ import MyRegisterAnswer from 'components/MyRegisterAnswer'
 import MyLikeAnswer from 'components/MyLikeAnswer'
 import MyBookmarkQuestion from 'components/MyBookmarkQuestion'
 import MyPageNavigation from 'components/MyPageNavigation'
+import AnswerRegisterPage from 'pages/AnswerRegisterPage'
 import QuestionDetailPage from 'pages/QuestionDetailPage'
 
 const Routers = () => (
@@ -27,6 +28,7 @@ const Routers = () => (
     <Route exact path="/QuestionSearch" component={QuestionSearchPage} />
     <Route path="/QuestionDetail" component={QuestionDetailPage} />
     <Route exact path="/SetQuizOptions" component={SetQuizOptionsPage} />
+    <Route exact path="/AnswerRegister" component={AnswerRegisterPage} />
     <Route path="/MyPage" component={Footer} />
   </BrowserRouter>
 )
