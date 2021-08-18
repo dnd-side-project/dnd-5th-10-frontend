@@ -6,6 +6,7 @@ const QuestionSearchPage = () => {
   return (
     <>
       <Navigation />
+      <img id="deem" src="/img/navigation-deem.png" />
       <div className="question-search-img">
         <div className="question-search-info-background">
           <img src={questionRegisterImg} alt="question-register-img" />

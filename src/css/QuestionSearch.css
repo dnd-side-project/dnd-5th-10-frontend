@@ -3,7 +3,7 @@
   /* background-color: #a3a3a3; */
   width: 100%;
   min-width: 1000px;
-  margin-top: -50px;
+  margin-top: 50px;
 }
 
 .question-search-info-background {
@@ -17,6 +17,12 @@
   width: 1400px;
   top: -70px;
 }
+.question-search-img {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: 70px;
+}
 
 .question-search-img > h1 {
   position: relative;
@@ -25,6 +31,8 @@
   margin-bottom: 0;
   color: white;
   font-weight: bold;
+  margin: auto;
+  min-width: 1400px;
 }
 
 .question-search-img > h3 {
@@ -34,6 +42,8 @@
   margin-bottom: 0;
   color: white;
   line-height: 28px;
+  margin: auto;
+  min-width: 1400px;
 }
 
 .question-search-tag {
@@ -188,4 +198,12 @@ textarea#question-search-input.form-control::placeholder {
   border-radius: 70px;
   margin-top: -140px;
   margin-right: 130px;
+  position: relative;
+  z-index: 1;
+}
+#deem {
+  position: relative;
+  overflow-y: hidden;
+  z-index: 2;
+  max-height: 330px;
 }
