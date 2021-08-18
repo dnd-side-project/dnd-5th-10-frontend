@@ -138,12 +138,13 @@ div > .each-questions {
 .tag-btn {
   font-size: 13pt;
   max-width: 130px;
-  background-color: #e3e2f0;
+  background-color: #efecff;
   border: 0 !important;
   border-radius: 30px !important;
   margin: 10px;
 }
 
 .tag-btn:hover {
-  background-color: #cfcde9;
+  color: white;
+  background-color: #635faa;
 }
