@@ -146,7 +146,7 @@ const Navigation = (props) => {
                 LOGIN
                 <img src="/img/nav_icon6.png" alt="nav_icon" />
               </Button>
-              <LoginModal open={modalOpen} close={closeModal} header="Login to ITerview"></LoginModal>
+              <LoginModal open={modalOpen} close={closeModal}></LoginModal>
             </NavItem>
           </Nav>
         )}

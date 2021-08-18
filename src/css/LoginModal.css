@@ -3,21 +3,45 @@
   position: fixed;
   background-color: rgba(0, 0, 0, 0.6);
 }
+.modal > div > img {
+  position: relative;
+  margin: auto;
+}
+
+header > img {
+  position: relative;
+  left: 185px;
+  top: 20px;
+  width: 50px;
+  height: 52px !important;
+}
+
+header > h1 {
+  font-weight: bold;
+  font-size: 20pt;
+  position: relative;
+  right: 30px;
+  top: 90px;
+}
+
 .modal button {
   cursor: pointer;
   border: 0px;
 }
+
 .modal > section {
+  position: relative;
+  /* top: 50px; */
+  /* left: 400px; */
   margin: 0 auto;
-  border-radius: 8px;
   background-color: #fff;
 }
+
 .modal > section > header {
   position: relative;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  height: 150px;
   padding: 16px 16px 16px 16px;
-  background-color: #e7e7e7;
+  background-color: #ffffff;
   font-size: 20pt;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.65);
@@ -35,17 +59,38 @@
 }
 .modal > section > main {
   padding: 15px;
-  border-top: 1px solid #e6dede;
-  background-color: #f1f1f1;
+  border-top: 1px solid #ffffff;
+  background-color: #ffffff;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
 
-.modal > section > main button {
+.modal > section > main .google-btn {
+  background-color: #fff;
   font-size: 20px;
   color: rgb(70, 70, 70);
   border: 1px solid rgb(212, 212, 212);
-  border-radius: 2px;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  width: 400px;
+  text-align: center;
+}
+
+#google-logo {
+  margin-left: 20px;
+}
+
+#github-logo {
+  margin-left: 20px;
+}
+
+.modal > section > main .github-btn {
+  background-color: rgb(2, 2, 2);
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 8px;
   margin: 10px;
   padding: 10px;
   width: 400px;
