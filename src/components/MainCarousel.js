@@ -10,7 +10,7 @@ const MainCarousel = () => {
   return (
     <div id="carousel-slide">
       <div id="background">
-        <img className="space1" src="/img/main_img2.png" alt="" />
+        <img className="space1" src="/img/main_img3.png" alt="" />
         <div className="iterview-info">
           <h1>IT'erview를 소개합니다.</h1>
           <span>
