@@ -69,7 +69,7 @@ const InfiniteAnswerList = (props) => {
       .catch((err) => console.log(err))
 
     if (listInfo.length === 0) {
-      setNotExist('There is no answer')
+      setNotExist('등록된 답변이 없습니다.')
     } else {
       setNotExist('')
     }

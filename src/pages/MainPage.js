@@ -16,15 +16,15 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_TOKEN}`
 function MainPage() {
   const history = useHistory()
 
-  let searchEx
-  let registerEx
-  let mypageEx
-  let quizEx
+  const searchEx = document.getElementById('search-ex')
+  const registerEx = document.getElementById('register-ex')
+  const mypageEx = document.getElementById('mypage-ex')
+  const quizEx = document.getElementById('quiz-ex')
 
-  let searchExBtn
-  let registerExBtn
-  let mypageExBtn
-  let quizExBtn
+  const searchExBtn = document.getElementById('search-ex-btn')
+  const registerExBtn = document.getElementById('register-ex-btn')
+  const mypageExBtn = document.getElementById('mypage-ex-btn')
+  const quizExBtn = document.getElementById('quiz-ex-btn')
 
   const [allQuestions, setAllQuestions] = useState(null)
   const [allMostLikedAnswer, setAllMostLikedAnswer] = useState([])
@@ -34,16 +34,6 @@ function MainPage() {
   const [allHitAnswer, setAllHitAnswer] = useState([])
 
   useEffect(() => {
-    searchEx = document.getElementById('search-ex')
-    registerEx = document.getElementById('register-ex')
-    mypageEx = document.getElementById('mypage-ex')
-    quizEx = document.getElementById('quiz-ex')
-
-    searchExBtn = document.getElementById('search-ex-btn')
-    registerExBtn = document.getElementById('register-ex-btn')
-    mypageExBtn = document.getElementById('mypage-ex-btn')
-    quizExBtn = document.getElementById('quiz-ex-btn')
-
     searchExBtn.style.borderBottom = '0.01px solid #2f00ff'
   }, [])
 

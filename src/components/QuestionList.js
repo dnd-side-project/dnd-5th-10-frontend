@@ -75,7 +75,7 @@ const QuestionList = (props) => {
     }
     setLoading(false)
     if (allQuestions.length === 0) {
-      setNotExist('There is no question')
+      setNotExist('등록된 문제가 없습니다.')
     } else {
       setNotExist('')
     }
