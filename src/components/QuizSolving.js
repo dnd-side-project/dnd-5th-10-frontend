@@ -22,7 +22,7 @@ const QuizSolving = ({ quiz }) => {
   useEffect(() => {
     setAnswerContentsLength(answerTextContents.length)
     const answerArea = document.getElementById('answer-text-length')
-    if (answerContentsLength >= 1 && answerContentsLength < 20) {
+    if (answerContentsLength >= 0 && answerContentsLength < 20) {
       answerArea.style.setProperty('color', 'red')
     } else if (answerContentsLength >= 1000) {
       answerArea.style.setProperty('color', 'red')
@@ -58,7 +58,9 @@ const QuizSolving = ({ quiz }) => {
       <button
         className="quiz-btn"
         onClick={() => {
-          if (answerTextContents.length >= 1 && answerTextContents.length < 20) {
+          if (answerTextContents.length === 0) {
+            window.alert('퀴즈에 대한 답변을 입력해주세요!')
+          } else if (answerTextContents.length >= 1 && answerTextContents.length < 20) {
             window.alert('최소 20자 이상 입력해주세요')
           } else {
             if (answerTextContents.length === 0) {
