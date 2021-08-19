@@ -27,6 +27,7 @@ const Answer = (props) => {
       .then((res) => {
         console.log(res)
         window.location.reload()
+        window.alert('좋아요 되었습니다.')
       })
       .catch((err) => {
         console.log(err)

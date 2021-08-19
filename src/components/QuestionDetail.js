@@ -70,7 +70,13 @@ const QuestionDetail = () => {
       </div>
       <div className="question-detail-answer">
         <span>나의 답변</span>
-        <Answer number={1} answer={answerContent.content} title={questionContent} like={answerContent.liked} />
+        <Answer
+          id={answerContent.id}
+          number={1}
+          answer={answerContent.content}
+          title={questionContent}
+          like={answerContent.liked}
+        />
       </div>
       <div className="question-detail-others">
         <h2>다른 사람의 답변</h2>
