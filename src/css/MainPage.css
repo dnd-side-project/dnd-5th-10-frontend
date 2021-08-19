@@ -289,7 +289,7 @@
 .hit-answer-btn {
   color: #4d4d4e;
   width: 100px;
-  left: 360px;
+  left: 375px;
 
   top: 120px;
   background-color: white;
@@ -313,8 +313,20 @@
   margin-bottom: 150px;
 }
 
-.hit > div > button {
+.hit-section > div > div > button {
   width: 1150px;
-  /* margin: auto; */
-  /* margin-right: 20px; */
+}
+.hit-answer > div > button > div {
+  color: #a3a3a3;
+  font-weight: normal !important;
+  font-size: 14pt;
+}
+
+.hit-answer > div > button > .question-number {
+  font-size: 25pt;
+}
+.hit-answer > div > button > div > span {
+  font-weight: bold !important;
+  color: black;
+  font-size: 16pt;
 }
