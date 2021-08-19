@@ -32,7 +32,7 @@ function MainPage() {
   const [allHitQuestionContent, setAllHitQuestionContent] = useState([])
   const [allHitQuestionTagList, setAllHitQuestionTagList] = useState([])
   const [allMostLikedAnswer, setAllMostLikedAnswer] = useState([])
-  const [loginText, setLoginText] = useState('로그인 후 확인하세요')
+  const [loginText, setLoginText] = useState('')
 
   let hitQuestionId = allHitQuestionId
   let hitQuestionContent = allHitQuestionContent
@@ -51,11 +51,7 @@ function MainPage() {
     quizExBtn = document.getElementById('quiz-ex-btn')
 
     searchExBtn.style.borderBottom = '0.01px solid #2f00ff'
-
-    if (localStorage.getItem('userName')) {
-      setLoginText('')
-    }
-  }, [])
+  })
 
   useEffect(() => {
     axios
@@ -78,9 +74,11 @@ function MainPage() {
         console.log(hitQuestionId)
         console.log(hitQuestionContent)
         console.log(hitQuestionTagList)
+        setLoginText('')
       })
       .catch((err) => {
         console.log(err)
+        setLoginText('로그인 후 확인하세요')
       })
 
     axios
