@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import Navigation from 'components/Navigation'
 import Footer from 'components/Footer'
 import Question from 'components/Question'
-import SetQuizOptions from 'components/SetQuizOptions'
+import { getCookie } from 'components/Cookies.js'
 
 // header 설정
 axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_TOKEN}`
@@ -65,8 +65,11 @@ function MainPage() {
       })
       .catch((err) => {
         console.log(err)
-        setLoginText('로그인 후 확인하세요')
       })
+
+    if (!getCookie('Authorization')) {
+      setLoginText('로그인 후 인기 문제를 볼 수 있습니다.')
+    }
 
     axios
       .get('/api/v1/answer/hits')
