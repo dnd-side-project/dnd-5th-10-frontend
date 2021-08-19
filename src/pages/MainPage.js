@@ -26,18 +26,9 @@ function MainPage() {
   let mypageExBtn
   let quizExBtn
 
-  let cnt = 1
-  // let cnt
-  const [allHitQuestionId, setAllHitQuestionId] = useState([])
-  const [allHitQuestionContent, setAllHitQuestionContent] = useState([])
-  const [allHitQuestionTagList, setAllHitQuestionTagList] = useState([])
+  const [allQuestions, setAllQuestions] = useState(null)
   const [allMostLikedAnswer, setAllMostLikedAnswer] = useState([])
   const [loginText, setLoginText] = useState('')
-
-  let hitQuestionId = allHitQuestionId
-  let hitQuestionContent = allHitQuestionContent
-  let hitQuestionTagList = allHitQuestionTagList
-  let mostLikedAnswer = allMostLikedAnswer
 
   useEffect(() => {
     searchEx = document.getElementById('search-ex')
@@ -51,29 +42,25 @@ function MainPage() {
     quizExBtn = document.getElementById('quiz-ex-btn')
 
     searchExBtn.style.borderBottom = '0.01px solid #2f00ff'
-  })
+  }, [])
+
+  const tempQuestion = []
+  const tempLikedAnswer = []
 
   useEffect(() => {
     axios
       .get('/api/v1/question/all?page=0&size=3')
       .then((res) => {
-        res.data.map((item, i) => {
-          hitQuestionId.push(item.id)
-          hitQuestionContent.push(item.content)
-          hitQuestionTagList.push(item.tagList)
-          if (item.mostLikedAnswer) {
-            mostLikedAnswer.push(item.mostLikedAnswer.content)
-          } else {
-            mostLikedAnswer.push('(등록된 답변이 없습니다)')
+        res.data.map((item, idx) => {
+          // console.log(item)
+          tempQuestion.push(item)
+          if (item.mostLikedAnswer) tempLikedAnswer.push(item.mostLikedAnswer.content)
+          else {
+            tempLikedAnswer.push('(등록된 답변이 없습니다)')
           }
         })
-        setAllHitQuestionId(hitQuestionId)
-        setAllHitQuestionContent(hitQuestionContent)
-        setAllHitQuestionTagList(hitQuestionTagList)
-        setAllMostLikedAnswer(mostLikedAnswer)
-        console.log(hitQuestionId)
-        console.log(hitQuestionContent)
-        console.log(hitQuestionTagList)
+        setAllQuestions(tempQuestion)
+        setAllMostLikedAnswer(tempLikedAnswer)
         setLoginText('')
       })
       .catch((err) => {
@@ -233,19 +220,20 @@ function MainPage() {
           <hr className="hit-question-hr" />
           <br />
           <br />
-          {/* <div className="each-questions"> */}
-          {allHitQuestionId.map((item, i) => {
-            return (
-              <Question
-                key={i}
-                id={item[i]}
-                number={cnt++}
-                content={hitQuestionContent[i]}
-                tagList={hitQuestionTagList[i]}
-                answer={mostLikedAnswer[i]}
-              />
-            )
-          })}
+          {allQuestions &&
+            allQuestions.map((item, idx) => {
+              return (
+                <Question
+                  key={item.id}
+                  id={item.id}
+                  number={idx + 1}
+                  content={item.content}
+                  tagList={item.tagList}
+                  answer={allMostLikedAnswer[idx]}
+                />
+              )
+            })}
+
           {loginText}
           {/* </div> */}
           {/* <h1 className="hit-question-title">
