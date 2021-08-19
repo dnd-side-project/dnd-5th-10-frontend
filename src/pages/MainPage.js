@@ -34,7 +34,7 @@ function MainPage() {
   const [allHitAnswer, setAllHitAnswer] = useState([])
 
   useEffect(() => {
-    searchExBtn.style.borderBottom = '0.01px solid #2f00ff'
+    if (searchExBtn) searchExBtn.style.borderBottom = '0.01px solid #2f00ff'
   }, [])
 
   const tempQuestion = []
