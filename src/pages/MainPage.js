@@ -61,15 +61,15 @@ function MainPage() {
     axios
       .get('/api/v1/question/all?page=0&size=3')
       .then((res) => {
-        console.log(res.data)
-        console.log(res.data[0].mostLikedAnswer.content)
         res.data.map((item, i) => {
-          console.log(item.id)
-          console.log(item.mostLikedAnswer.content)
           hitQuestionId.push(item.id)
           hitQuestionContent.push(item.content)
           hitQuestionTagList.push(item.tagList)
-          mostLikedAnswer.push(item.mostLikedAnswer.content)
+          if (item.mostLikedAnswer) {
+            mostLikedAnswer.push(item.mostLikedAnswer.content)
+          } else {
+            mostLikedAnswer.push('(등록된 답변이 없습니다)')
+          }
         })
         setAllHitQuestionId(hitQuestionId)
         setAllHitQuestionContent(hitQuestionContent)
