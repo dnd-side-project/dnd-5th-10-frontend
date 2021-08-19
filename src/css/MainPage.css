@@ -205,14 +205,14 @@
   right: 100px;
 }
 
-.hit-section > .hit-question-title {
+.hit-section > div > .hit-question-title {
   position: relative;
   left: 100px;
   float: left;
   font-size: 25pt;
 }
 
-.hit-section > .hit-question-btn {
+.hit-section > div > .hit-question-btn {
   color: #4d4d4e;
   width: 100px;
   left: 400px;
@@ -223,14 +223,56 @@
   position: relative;
 }
 
-.hit-section > .hit-question-title > img {
+.hit-section > div > .hit-question-title > img {
   margin-right: 10px;
-  width: 30px;
+  width: 35px;
 }
 
-.hit-section > .hit-question-hr {
+.hit-section > div > .hit-question-hr {
   position: relative;
   width: 1210px;
   left: 100px;
   top: 20px;
+}
+
+.hit-section > div > .hit-answer-title {
+  position: relative;
+  left: 100px;
+  top: 100px;
+  float: left;
+  font-size: 25pt;
+}
+
+.hit-section > div > .hit-answer-title > img {
+  margin-right: 10px;
+  width: 35px;
+}
+
+.hit-section > div > .hit-answer-hr {
+  position: relative;
+  width: 1210px;
+  left: 100px;
+  top: 120px;
+}
+
+.hit-section > div > .hit-answer-btn {
+  color: #4d4d4e;
+  width: 100px;
+  left: 415px;
+  top: 120px;
+  background-color: white;
+  border: 0.7px solid #919191;
+  border-radius: 20px;
+  position: relative;
+}
+
+#question-login-text {
+  position: relative;
+  left: 10px;
+}
+
+#answer-login-text {
+  position: relative;
+  top: 15px;
+  left: 15px;
 }

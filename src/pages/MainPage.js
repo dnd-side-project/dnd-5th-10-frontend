@@ -30,6 +30,9 @@ function MainPage() {
   const [allMostLikedAnswer, setAllMostLikedAnswer] = useState([])
   const [loginText, setLoginText] = useState('')
 
+  const [allHitQuestion, setAllHitQuestion] = useState(null)
+  const [allHitAnswer, setAllHitAnswer] = useState([])
+
   useEffect(() => {
     searchEx = document.getElementById('search-ex')
     registerEx = document.getElementById('register-ex')
@@ -46,6 +49,8 @@ function MainPage() {
 
   const tempQuestion = []
   const tempLikedAnswer = []
+  const tempHitQuestion = []
+  const tempHitAnswer = []
 
   useEffect(() => {
     axios
@@ -61,6 +66,7 @@ function MainPage() {
         })
         setAllQuestions(tempQuestion)
         setAllMostLikedAnswer(tempLikedAnswer)
+        console.log(allQuestions, allMostLikedAnswer)
         setLoginText('')
       })
       .catch((err) => {
@@ -68,13 +74,23 @@ function MainPage() {
       })
 
     if (!getCookie('Authorization')) {
-      setLoginText('로그인 후 인기 문제를 볼 수 있습니다.')
+      setLoginText('로그인 후 볼 수 있습니다.')
     }
 
     axios
       .get('/api/v1/answer/hits')
       .then((res) => {
-        console.log(res.data)
+        res.data.map((item, idx) => {
+          console.log(item)
+          tempHitQuestion.push(item)
+          if (item.content) tempHitAnswer.push(item.content)
+          else {
+            tempHitAnswer.push('(등록된 답변이 없습니다)')
+          }
+        })
+        setAllHitQuestion(tempHitQuestion)
+        setAllHitAnswer(tempHitAnswer)
+        console.log(allHitQuestion, allHitAnswer)
       })
       .catch((err) => {
         console.log(err)
@@ -215,38 +231,59 @@ function MainPage() {
         <br />
         <br />
         <div className="hit-section">
-          <h1 className="hit-question-title">
-            <img src="/img/figure3.png" alt="figur3_icon" />
-            인기있는 면접 문제
-          </h1>
-          <button className="hit-question-btn">더보기</button>
-          <hr className="hit-question-hr" />
-          <br />
-          <br />
-          {allQuestions &&
-            allQuestions.map((item, idx) => {
-              return (
-                <Question
-                  key={item.id}
-                  id={item.id}
-                  number={idx + 1}
-                  content={item.content}
-                  tagList={item.tagList}
-                  answer={allMostLikedAnswer[idx]}
-                />
-              )
-            })}
-
-          {loginText}
-          {/* </div> */}
-          {/* <h1 className="hit-question-title">
-            <img src="/img/figure4.png" alt="figur3_icon" />
-            베스트 면접 답변
-          </h1>
-          <button className="hit-question-btn">더보기</button>
-          <hr className="hit-question-hr" /> */}
+          <div>
+            <h1 className="hit-question-title">
+              <img src="/img/figure3.png" alt="figur3_icon" />
+              인기있는 면접 문제
+            </h1>
+            <button className="hit-question-btn">더보기</button>
+            <hr className="hit-question-hr" />
+            <br />
+            <br />
+            {allQuestions &&
+              allQuestions.map((item, idx) => {
+                return (
+                  <Question
+                    key={item.id}
+                    id={item.id}
+                    number={idx + 1}
+                    content={item.content}
+                    tagList={item.tagList}
+                    answer={allMostLikedAnswer[idx]}
+                  />
+                )
+              })}
+            <span id="question-login-text">{loginText}</span>
+          </div>
+          <div>
+            <h1 className="hit-answer-title">
+              <img src="/img/figure4.png" alt="figur3_icon" />
+              베스트 면접 답변
+            </h1>
+            <button className="hit-answer-btn">더보기</button>
+            <hr className="hit-answer-hr" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            {allHitQuestion &&
+              allHitQuestion.map((item, idx) => {
+                return (
+                  <Question
+                    key={item.id}
+                    id={item.id}
+                    number={idx + 1}
+                    content={item.questionContent}
+                    tagList={item.tags}
+                    answer={allHitAnswer[idx]}
+                  />
+                )
+              })}
+            <span id="answer-login-text">{loginText}</span>
+          </div>
         </div>
-
         <br />
         <br />
         <br />
