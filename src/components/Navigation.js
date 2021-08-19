@@ -105,13 +105,13 @@ const Navigation = (props) => {
                 onClick={() => {
                   history.push('/MyPage/MyRegisterQuestion')
                 }}>
-                등록한 문제
+                내가 등록한 문제
               </DropdownItem>
               <DropdownItem
                 onClick={() => {
                   history.push('/MyPage/MyRegisterAnswer')
                 }}>
-                등록한 답변
+                내가 등록한 답변
               </DropdownItem>
               <DropdownItem
                 onClick={() => {
