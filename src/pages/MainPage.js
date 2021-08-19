@@ -16,6 +16,13 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_TOKEN}`
 function MainPage() {
   const history = useHistory()
 
+  const [allQuestions, setAllQuestions] = useState(null)
+  const [allMostLikedAnswer, setAllMostLikedAnswer] = useState([])
+  const [loginText, setLoginText] = useState('')
+
+  const [allHitQuestion, setAllHitQuestion] = useState(null)
+  const [allHitAnswer, setAllHitAnswer] = useState([])
+
   let searchEx = document.getElementById('search-ex')
   let registerEx = document.getElementById('register-ex')
   let mypageEx = document.getElementById('mypage-ex')
@@ -25,13 +32,6 @@ function MainPage() {
   let registerExBtn = document.getElementById('register-ex-btn')
   let mypageExBtn = document.getElementById('mypage-ex-btn')
   let quizExBtn = document.getElementById('quiz-ex-btn')
-
-  const [allQuestions, setAllQuestions] = useState(null)
-  const [allMostLikedAnswer, setAllMostLikedAnswer] = useState([])
-  const [loginText, setLoginText] = useState('')
-
-  const [allHitQuestion, setAllHitQuestion] = useState(null)
-  const [allHitAnswer, setAllHitAnswer] = useState([])
 
   useEffect(() => {
     searchEx = document.getElementById('search-ex')
