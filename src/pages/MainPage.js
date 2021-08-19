@@ -7,6 +7,8 @@ import axios from 'axios'
 import { useEffect } from 'react'
 import Navigation from 'components/Navigation'
 import Footer from 'components/Footer'
+import Question from 'components/Question'
+
 // header 설정
 axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_TOKEN}`
 
@@ -23,6 +25,11 @@ function MainPage() {
   let mypageExBtn
   let quizExBtn
 
+  let cnt
+  let hitQuestionId = []
+  let hitQuestionContent = []
+  let hitQuestionTagList = []
+
   useEffect(() => {
     searchEx = document.getElementById('search-ex')
     registerEx = document.getElementById('register-ex')
@@ -35,6 +42,33 @@ function MainPage() {
     quizExBtn = document.getElementById('quiz-ex-btn')
 
     searchExBtn.style.borderBottom = '0.01px solid #2f00ff'
+
+    axios
+      .get('/api/v1/question/all?page=0&size=3')
+      .then((res) => {
+        console.log(res.data)
+        console.log(res.data[0].id)
+        res.data.map((item, i) => {
+          hitQuestionId[i] = item.id
+          hitQuestionContent[i] = item.content
+          hitQuestionTagList[i] = item.tagList
+        })
+        console.log(hitQuestionId)
+        console.log(hitQuestionContent)
+        console.log(hitQuestionTagList)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+    axios
+      .get('/api/v1/answer/hits')
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }, [])
 
   const removeLocalStorage = () => {
@@ -167,7 +201,53 @@ function MainPage() {
             </button>
           </div>
         </div>
+        <br />
+        <br />
+        <br />
+        <div className="hit-section">
+          <h1 className="hit-question-title">
+            <img src="/img/figure3.png" alt="figur3_icon" />
+            인기있는 면접 문제
+          </h1>
+          <button className="hit-question-btn">더보기</button>
+          <hr className="hit-question-hr" />
+          {/* <div className="each-questions"> */}
+          {hitQuestionId.map((item, i) => {
+            return (
+              <Question
+                key={i}
+                id={item[i]}
+                number={i}
+                content={hitQuestionContent[i]}
+                tagList={hitQuestionTagList[i]}
+              />
+            )
+          })}
+          {/* <Question
+              key={1}
+              id={hitQuestionId[1]}
+              number={1}
+              content={hitQuestionContent[1]}
+              tagList={hitQuestionTagList[1]}
+            /> */}
+          {/* </div> */}
+          {/* <h1 className="hit-question-title">
+            <img src="/img/figure4.png" alt="figur3_icon" />
+            베스트 면접 답변
+          </h1>
+          <button className="hit-question-btn">더보기</button>
+          <hr className="hit-question-hr" /> */}
+        </div>
 
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <br />
         <br />
         <br />

@@ -204,3 +204,33 @@
   top: 250px;
   right: 100px;
 }
+
+.hit-section > .hit-question-title {
+  position: relative;
+  left: 100px;
+  float: left;
+  font-size: 25pt;
+}
+
+.hit-section > .hit-question-btn {
+  color: #4d4d4e;
+  width: 100px;
+  left: 400px;
+  top: 20px;
+  background-color: white;
+  border: 1px solid #919191;
+  border-radius: 20px;
+  position: relative;
+}
+
+.hit-section > .hit-question-title > img {
+  margin-right: 10px;
+  width: 30px;
+}
+
+.hit-section > .hit-question-hr {
+  position: relative;
+  width: 1210px;
+  left: 100px;
+  top: 20px;
+}
