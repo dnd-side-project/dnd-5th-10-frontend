@@ -58,10 +58,12 @@
   margin-left: 10px;
   margin-top: 40px;
   font-size: 18pt;
+  font-weight: bold;
 }
 
 .quiz-cnt {
   font-size: 40pt !important;
+  font-weight: bold;
 }
 
 .quiz-setting-result-box > div > span {
@@ -119,6 +121,10 @@
   margin: auto;
 }
 
+.user-info-content > h4 {
+  font-weight: bold;
+}
+
 .user-info-content > span {
   color: #231d4c;
   position: relative;
@@ -132,7 +138,9 @@
   width: 300px;
   margin: auto;
 }
-
+.select-tag-content > h4 {
+  font-weight: bold;
+}
 .comments {
   padding-left: 20px;
   margin: auto;
@@ -143,6 +151,10 @@
 .select-quiz-count-content {
   width: 300px;
   margin: auto;
+}
+
+.select-quiz-count-content > h4 {
+  font-weight: bold;
 }
 
 #quiz-info-detail {
