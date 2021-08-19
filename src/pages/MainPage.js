@@ -4,10 +4,11 @@ import Tags from 'components/Tags'
 import { Link, useHistory } from 'react-router-dom'
 import { JWT_TOKEN } from 'constants/Oauth'
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Navigation from 'components/Navigation'
 import Footer from 'components/Footer'
 import Question from 'components/Question'
+import SetQuizOptions from 'components/SetQuizOptions'
 
 // header 설정
 axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_TOKEN}`
@@ -25,10 +26,17 @@ function MainPage() {
   let mypageExBtn
   let quizExBtn
 
-  let cnt
-  let hitQuestionId = []
-  let hitQuestionContent = []
-  let hitQuestionTagList = []
+  let cnt = 1
+  // let cnt
+  const [allHitQuestionId, setAllHitQuestionId] = useState([])
+  const [allHitQuestionContent, setAllHitQuestionContent] = useState([])
+  const [allHitQuestionTagList, setAllHitQuestionTagList] = useState([])
+  const [allMostLikedAnswer, setAllMostLikedAnswer] = useState([])
+
+  let hitQuestionId = allHitQuestionId
+  let hitQuestionContent = allHitQuestionContent
+  let hitQuestionTagList = allHitQuestionTagList
+  let mostLikedAnswer = allMostLikedAnswer
 
   useEffect(() => {
     searchEx = document.getElementById('search-ex')
@@ -42,17 +50,26 @@ function MainPage() {
     quizExBtn = document.getElementById('quiz-ex-btn')
 
     searchExBtn.style.borderBottom = '0.01px solid #2f00ff'
+  }, [])
 
+  useEffect(() => {
     axios
       .get('/api/v1/question/all?page=0&size=3')
       .then((res) => {
         console.log(res.data)
-        console.log(res.data[0].id)
+        console.log(res.data[0].mostLikedAnswer.content)
         res.data.map((item, i) => {
-          hitQuestionId[i] = item.id
-          hitQuestionContent[i] = item.content
-          hitQuestionTagList[i] = item.tagList
+          console.log(item.id)
+          console.log(item.mostLikedAnswer.content)
+          hitQuestionId.push(item.id)
+          hitQuestionContent.push(item.content)
+          hitQuestionTagList.push(item.tagList)
+          mostLikedAnswer.push(item.mostLikedAnswer.content)
         })
+        setAllHitQuestionId(hitQuestionId)
+        setAllHitQuestionContent(hitQuestionContent)
+        setAllHitQuestionTagList(hitQuestionTagList)
+        setAllMostLikedAnswer(mostLikedAnswer)
         console.log(hitQuestionId)
         console.log(hitQuestionContent)
         console.log(hitQuestionTagList)
@@ -211,25 +228,22 @@ function MainPage() {
           </h1>
           <button className="hit-question-btn">더보기</button>
           <hr className="hit-question-hr" />
+          <br />
+          <br />
           {/* <div className="each-questions"> */}
-          {hitQuestionId.map((item, i) => {
+          {allHitQuestionId.map((item, i) => {
             return (
               <Question
                 key={i}
                 id={item[i]}
-                number={i}
+                number={cnt++}
                 content={hitQuestionContent[i]}
                 tagList={hitQuestionTagList[i]}
+                answer={mostLikedAnswer[i]}
               />
             )
           })}
-          {/* <Question
-              key={1}
-              id={hitQuestionId[1]}
-              number={1}
-              content={hitQuestionContent[1]}
-              tagList={hitQuestionTagList[1]}
-            /> */}
+
           {/* </div> */}
           {/* <h1 className="hit-question-title">
             <img src="/img/figure4.png" alt="figur3_icon" />
