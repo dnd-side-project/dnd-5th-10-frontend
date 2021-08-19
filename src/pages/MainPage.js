@@ -228,7 +228,7 @@ function MainPage() {
           </div>
         </div>
         <div className="hit-section">
-          <div className="hit">
+          <div className="hit-question">
             <h1 className="hit-question-title">
               <img src="/img/figure3.png" alt="figur3_icon" />
               인기있는 면접 문제
@@ -250,7 +250,7 @@ function MainPage() {
               })}
             <span id="question-login-text">{loginText}</span>
           </div>
-          <div className="hit">
+          <div className="hit-answer">
             <h1 className="hit-answer-title">
               <img src="/img/figure4.png" alt="figur3_icon" />
               베스트 면접 답변
