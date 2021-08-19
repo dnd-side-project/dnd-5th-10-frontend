@@ -38,6 +38,7 @@
   bottom: 75px;
   position: relative;
   font-size: 20pt;
+  font-weight: bold;
 }
 
 .main-mypage-box > span {
@@ -111,11 +112,15 @@
 }
 
 .main-question-section {
+  padding-left: 30px;
+  padding-right: 30px;
+
   background-color: #111036;
   border-radius: 40px;
   width: 1400px;
   height: 800px;
   box-shadow: 0px 10px 15px -2px rgb(161, 161, 161);
+  margin-bottom: 90px;
 }
 
 .main-question-section > div > .search-title {
@@ -125,6 +130,7 @@
   font-size: 25pt;
   color: white;
   float: left;
+  font-weight: bold;
 }
 
 .main-question-section > div > h1 > img {
@@ -145,6 +151,8 @@
   right: 100px;
   top: 120px;
   color: white;
+  font-size: 16pt;
+  margin-top: 10px;
 }
 
 .main-question-section > .main-question-tags {
@@ -173,14 +181,16 @@
   font-size: 25pt;
   color: white;
   float: left;
+  font-weight: bold;
 }
 
 .register-hr {
   position: relative;
-  width: 1210px;
+  width: 1150px;
   top: 150px;
   left: 95px;
   border: 0.01px solid #afafaf;
+  margin-bottom: 20px;
 }
 
 .main-question-section > div > .register-subtext {
@@ -190,6 +200,8 @@
   left: 90px;
   top: 150px;
   color: white;
+  font-size: 16pt;
+  margin-top: 10px;
 }
 
 .main-register-btn {
@@ -205,18 +217,22 @@
   top: 250px;
   right: 100px;
 }
-
-.hit-section > div > .hit-question-title {
+.hit-section {
+  width: 95%;
+  margin: auto;
+}
+.hit-question-title {
   position: relative;
   left: 100px;
   float: left;
   font-size: 25pt;
+  font-weight: bold;
 }
 
-.hit-section > div > .hit-question-btn {
+.hit-question-btn {
   color: #4d4d4e;
   width: 100px;
-  left: 400px;
+  left: 360px;
   top: 20px;
   background-color: white;
   border: 1px solid #919191;
@@ -224,42 +240,52 @@
   position: relative;
 }
 
-.hit-section > div > .hit-question-title > img {
+.hit-question-title > img {
   margin-right: 10px;
   width: 35px;
 }
 
-.hit-section > div > .hit-question-hr {
+.hit-question-hr {
   position: relative;
-  width: 1210px;
-  left: 100px;
+  width: 1160px;
+
+  left: 90px;
   top: 20px;
+  color: #d2d2d2;
+  border: 0.01px solid #afafaf;
+  margin-bottom: 60px;
 }
 
-.hit-section > div > .hit-answer-title {
+.hit-answer-title {
   position: relative;
   left: 100px;
   top: 100px;
   float: left;
   font-size: 25pt;
+  font-weight: bold;
 }
 
-.hit-section > div > .hit-answer-title > img {
+.hit-answer-title > img {
   margin-right: 10px;
   width: 35px;
 }
 
-.hit-section > div > .hit-answer-hr {
+.hit-answer-hr {
   position: relative;
-  width: 1210px;
-  left: 100px;
+  width: 1160px;
+
+  left: 90px;
   top: 120px;
+  color: #d2d2d2;
+  border: 0.01px solid #afafaf;
+  margin-bottom: 160px;
 }
 
-.hit-section > div > .hit-answer-btn {
+.hit-answer-btn {
   color: #4d4d4e;
   width: 100px;
-  left: 415px;
+  left: 360px;
+
   top: 120px;
   background-color: white;
   border: 0.7px solid #919191;
@@ -276,4 +302,14 @@
   position: relative;
   top: 15px;
   left: 15px;
+}
+
+.Main > .body {
+  margin-bottom: 150px;
+}
+
+.hit > div > button {
+  width: 1150px;
+  /* margin: auto; */
+  /* margin-right: 20px; */
 }

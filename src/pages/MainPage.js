@@ -227,19 +227,14 @@ function MainPage() {
             </button>
           </div>
         </div>
-        <br />
-        <br />
-        <br />
         <div className="hit-section">
-          <div>
+          <div className="hit">
             <h1 className="hit-question-title">
               <img src="/img/figure3.png" alt="figur3_icon" />
               인기있는 면접 문제
             </h1>
             <button className="hit-question-btn">더보기</button>
             <hr className="hit-question-hr" />
-            <br />
-            <br />
             {allQuestions &&
               allQuestions.map((item, idx) => {
                 return (
@@ -255,19 +250,13 @@ function MainPage() {
               })}
             <span id="question-login-text">{loginText}</span>
           </div>
-          <div>
+          <div className="hit">
             <h1 className="hit-answer-title">
               <img src="/img/figure4.png" alt="figur3_icon" />
               베스트 면접 답변
             </h1>
             <button className="hit-answer-btn">더보기</button>
             <hr className="hit-answer-hr" />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
             {allHitQuestion &&
               allHitQuestion.map((item, idx) => {
                 return (
@@ -284,18 +273,6 @@ function MainPage() {
             <span id="answer-login-text">{loginText}</span>
           </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </div>
       <Footer />
     </div>
