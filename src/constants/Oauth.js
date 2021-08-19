@@ -1,6 +1,6 @@
 import { getCookie } from 'components/Cookies.js'
 
-export const API_BASE_URL = 'http://localhost:8080'
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
 
 export const OAUTH2_REDIRECT_URI = 'http://localhost:3000'
 
