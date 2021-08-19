@@ -15,13 +15,17 @@ import AnswerRegisterPage from 'pages/AnswerRegisterPage'
 import QuestionDetailPage from 'pages/QuestionDetailPage'
 import PublicRoute from 'Routes/PublicRoute'
 import PrivateRoute from 'Routes/PrivateRoute'
+import LoginPage from 'components/LoginPage'
 
 const Routers = () => (
   <BrowserRouter>
     <PublicRoute exact path="/" component={MainPage} />
+    <PublicRoute exact path="/LoginPage" component={MainPage} />
+    <PublicRoute exact path="/LoginPage" component={LoginPage} />
+
     <PrivateRoute exact path="/login" component={MainPage} />
-    <PrivateRoute path="/MyPage" component={Navigation} />
-    <PrivateRoute path="/MyPage" component={MyPageNavigation} />
+    <Route path="/MyPage" component={Navigation} />
+    <Route path="/MyPage" component={MyPageNavigation} />
     <PrivateRoute exact path="/MyPage/MyRegisterQuestion" component={MyRegisterQuestion} />
     <PrivateRoute exact path="/MyPage/MyRegisterAnswer" component={MyRegisterAnswer} />
     <PrivateRoute exact path="/MyPage/MyLikeAnswer" component={MyLikeAnswer} />
