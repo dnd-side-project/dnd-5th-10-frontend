@@ -186,6 +186,8 @@ function MainPage() {
             <span id="mypage-ex">마이페이지 기능을 통해 나의 IT'erview 기록들을 확인해보세요!</span>
             <span id="quiz-ex">퀴즈 기능을 통해 모의 면접을 경험해보세요!</span>
           </div>
+          <br />
+          <br />
         </div>
         <div className="main-question-section">
           <div>
