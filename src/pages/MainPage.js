@@ -32,6 +32,7 @@ function MainPage() {
   const [allHitQuestionContent, setAllHitQuestionContent] = useState([])
   const [allHitQuestionTagList, setAllHitQuestionTagList] = useState([])
   const [allMostLikedAnswer, setAllMostLikedAnswer] = useState([])
+  const [loginText, setLoginText] = useState('로그인 후 확인하세요')
 
   let hitQuestionId = allHitQuestionId
   let hitQuestionContent = allHitQuestionContent
@@ -50,6 +51,10 @@ function MainPage() {
     quizExBtn = document.getElementById('quiz-ex-btn')
 
     searchExBtn.style.borderBottom = '0.01px solid #2f00ff'
+
+    if (localStorage.getItem('userName')) {
+      setLoginText('')
+    }
   }, [])
 
   useEffect(() => {
@@ -243,7 +248,7 @@ function MainPage() {
               />
             )
           })}
-
+          {loginText}
           {/* </div> */}
           {/* <h1 className="hit-question-title">
             <img src="/img/figure4.png" alt="figur3_icon" />
