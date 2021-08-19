@@ -1,77 +1,3 @@
-#quiz-background {
-  width: 1400px;
-  height: 450px;
-  margin: auto;
-}
-
-#quiz-carousel-slide {
-  position: relative;
-  background-color: #111036;
-  width: 100%;
-  height: 410px;
-  object-fit: cover;
-  text-align: center;
-  min-width: 1000px;
-  margin: 0;
-}
-
-.quiz-ex > h1 {
-  position: relative;
-  color: rgb(255, 255, 255);
-  bottom: 300px;
-}
-
-.quiz-ex > h3 {
-  position: relative;
-  color: rgb(255, 255, 255);
-  bottom: 270px;
-}
-
-.quiz-img {
-  position: relative;
-  width: 1400px;
-  bottom: 100px;
-}
-
-.set-quiz-options-img {
-  background-color: #111036;
-  height: 300px;
-}
-
-.set-quiz-options-img > img {
-  position: relative;
-  width: 1400px;
-  bottom: 104px;
-}
-
-.set-quiz-options-img > h1 {
-  position: relative;
-  color: white;
-  top: -300px;
-  font-size: 30pt;
-}
-
-.set-quiz-options-img > h3 {
-  color: white;
-  position: relative;
-  top: -280px;
-  font-size: 20pt;
-}
-
-#quiz-ex-box {
-  float: right;
-  font-size: 13pt;
-  position: relative;
-  border: 0;
-  border-radius: 50px;
-  padding-top: 13px;
-  bottom: 260px;
-  right: 200px;
-  background-color: #e3e2f0;
-  width: 150px;
-  height: 100px;
-}
-
 .set-quiz-options-box {
   display: flex;
   width: 80%;
@@ -217,4 +143,48 @@
 .select-quiz-count-content {
   width: 300px;
   margin: auto;
+}
+
+#quiz-info-detail {
+  float: right;
+  width: 190px;
+  height: 130px;
+  background-color: #e3e2f0;
+  padding-top: 23px;
+  font-weight: bold;
+  font-size: 14pt;
+  border-radius: 70px;
+  margin-top: -140px;
+  margin-right: 130px;
+  position: relative;
+  z-index: 1;
+}
+
+.quiz-img {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: 70px;
+}
+
+.quiz-img > #quiz-option-title {
+  position: relative;
+  top: -240px;
+  font-size: 30pt;
+  margin-bottom: 0;
+  color: white;
+  font-weight: bold;
+  margin: auto;
+  min-width: 1400px;
+}
+
+.quiz-img > #quiz-option-sub-title {
+  position: relative;
+  top: -220px;
+  font-size: 16pt;
+  margin-bottom: 0;
+  color: white;
+  line-height: 28px;
+  margin: auto;
+  min-width: 1400px;
 }
