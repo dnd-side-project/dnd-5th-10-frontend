@@ -2,7 +2,7 @@ import 'css/QuestionSearch.css'
 import Tags from 'components/Tags.js'
 import { useEffect, useState } from 'react'
 import { Input } from 'reactstrap'
-import QuestionList from 'components/QuestionList'
+import InfiniteQuestionList from 'components/InfiniteQuestionList'
 
 // xd 복붙 시작 -->
 const searchIcon = () => {
@@ -130,7 +130,9 @@ const QuestionSearch = () => {
           </div>
         </div>
         <div className="question-section">
-          <QuestionList tagList={questionSearchTag} sortBy={sort} word={questionSearchWord} type={''} />
+          <InfiniteQuestionList tagList={questionSearchTag} sortBy={sort} word={questionSearchWord} type="" />
+
+          {/* <QuestionList tagList={questionSearchTag} sortBy={sort} word={questionSearchWord} type={''} /> */}
         </div>
       </div>
     </div>

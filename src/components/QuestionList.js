@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import 'css/Navigation.css'
 import axios from 'axios'
 import { useInView } from 'react-intersection-observer'
 import Question from 'components/Question'
