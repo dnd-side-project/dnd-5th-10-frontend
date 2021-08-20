@@ -260,10 +260,11 @@ function MainPage() {
             <hr className="hit-answer-hr" />
             {allHitQuestion &&
               allHitQuestion.map((item, idx) => {
+                console.log(item)
                 return (
                   <Question
                     key={item.id}
-                    id={item.id}
+                    id={item.questionId}
                     number={idx + 1}
                     content={item.questionContent}
                     tagList={item.tags}
