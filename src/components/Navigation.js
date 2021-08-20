@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import {
-  Navbar,
-  Nav,
-  NavItem,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
-  ButtonDropdown,
   Button,
+  ButtonDropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Nav,
+  Navbar,
+  NavbarText,
+  NavItem,
 } from 'reactstrap'
 import 'css/Navigation.css'
 import LoginModal from 'components/LoginModal'
 import axios from 'axios'
-import { JWT_TOKEN } from 'constants/Oauth'
-import { removeCookie } from 'components/Cookies'
-import { withRouter, useHistory, Link } from 'react-router-dom'
+import {JWT_TOKEN} from 'constants/Oauth'
+import {removeCookie} from 'components/Cookies'
+import {Link, useHistory, withRouter} from 'react-router-dom'
 
 const Navigation = (props) => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -32,6 +32,11 @@ const Navigation = (props) => {
   }
 
   useEffect(() => {
+    var param = new URLSearchParams(location.search).get('error');
+    if (param === 'login') {
+      alert('로그인 에러가 발생했습니다. 다른 소셜계정으로 로그인 해주세요.')
+      return
+    }
     if (JWT_TOKEN) {
       axios
         .get(`/api/v1/user/profile/`)
@@ -43,7 +48,7 @@ const Navigation = (props) => {
         })
         .catch((err) => {
           console.log(err)
-          if (err.response.status == 401) {
+          if (err.response.status === 401) {
             window.alert('로그인 에러입니다.')
           }
           setUserProfile(null)
@@ -53,6 +58,7 @@ const Navigation = (props) => {
           localStorage.removeItem('questionRegiTag')
         })
     }
+
   }, [])
 
   return (
