@@ -42,8 +42,9 @@ const Navigation = (props) => {
           localStorage.setItem('userEmail', res.data.email)
         })
         .catch((err) => {
+          console.log(err)
           if (err.response.status == 401) {
-            window.alert(err.response.message)
+            window.alert('로그인 에러입니다.')
           }
           setUserProfile(null)
           removeCookie('Authorization', { path: '/' })
