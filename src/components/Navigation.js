@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Button,
   ButtonDropdown,
@@ -13,9 +13,9 @@ import {
 import 'css/Navigation.css'
 import LoginModal from 'components/LoginModal'
 import axios from 'axios'
-import {JWT_TOKEN} from 'constants/Oauth'
-import {removeCookie} from 'components/Cookies'
-import {Link, useHistory, withRouter} from 'react-router-dom'
+import { JWT_TOKEN } from 'constants/Oauth'
+import { removeCookie } from 'components/Cookies'
+import { Link, useHistory, withRouter } from 'react-router-dom'
 
 const Navigation = (props) => {
   const [modalOpen, setModalOpen] = useState(false)
