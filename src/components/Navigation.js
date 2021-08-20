@@ -32,10 +32,9 @@ const Navigation = (props) => {
   }
 
   useEffect(() => {
-    var param = new URLSearchParams(location.search).get('error');
+    var param = new URLSearchParams(window.location.search).get('error')
     if (param === 'login') {
       alert('로그인 에러가 발생했습니다. 다른 소셜계정으로 로그인 해주세요.')
-      return
     }
     if (JWT_TOKEN) {
       axios
@@ -58,7 +57,6 @@ const Navigation = (props) => {
           localStorage.removeItem('questionRegiTag')
         })
     }
-
   }, [])
 
   return (
