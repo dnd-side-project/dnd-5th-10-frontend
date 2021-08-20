@@ -80,7 +80,7 @@ function MainPage() {
       .get('/api/v1/answer/hits')
       .then((res) => {
         res.data.map((item, idx) => {
-          console.log(item)
+          // console.log(item)
           tempHitQuestion.push(item)
           if (item.content) tempHitAnswer.push(item.content)
           else {
@@ -260,7 +260,7 @@ function MainPage() {
             <hr className="hit-answer-hr" />
             {allHitQuestion &&
               allHitQuestion.map((item, idx) => {
-                console.log(item)
+                // console.log(item)
                 return (
                   <Question
                     key={item.id}
