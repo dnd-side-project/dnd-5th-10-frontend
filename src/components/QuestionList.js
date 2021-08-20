@@ -18,9 +18,9 @@ const QuestionList = (props) => {
     // if (!stopRequest) {
     //   setLoading(true)
     const questions = []
-    let getUrl = `/api/v1/question/search?keyword=${props.word}&page=0&size=20&tags=${props.tagList}&sort=${props.sortBy},desc`
+    let getUrl = `/api/v1/question/search?keyword=${props.word}&page=0&size=30&tags=${props.tagList}&sort=${props.sortBy},desc`
     if (props.type === 'question') {
-      getUrl = `/api/v1/question/mine?page=0&size=20&sort=${props.sortBy},desc`
+      getUrl = `/api/v1/question/mine?page=0&size=30&sort=${props.sortBy},desc`
       await axios
         .get(getUrl)
         .then((res) => {
@@ -34,7 +34,7 @@ const QuestionList = (props) => {
           console.log(err)
         })
     } else if (props.type === 'bookmark') {
-      getUrl = `/api/v1/bookmark/mine?page=0&size=20&sort=${props.sortBy}`
+      getUrl = `/api/v1/bookmark/mine?page=0&size=30&sort=${props.sortBy}`
       await axios
         .get(getUrl)
         .then((res) => {
@@ -69,7 +69,7 @@ const QuestionList = (props) => {
     } else {
       setNotExist('')
     }
-  }, [])
+  }, [props.sortBy, props.tagList])
 
   // useEffect(() => {
   //   if (inView && !loading && !stopRequest) {
@@ -79,7 +79,7 @@ const QuestionList = (props) => {
 
   useEffect(() => {
     getQuestions()
-  }, [getQuestions, sort])
+  }, [getQuestions])
 
   // useEffect(() => {
   //   if (props.tagList.length !== 0) {
