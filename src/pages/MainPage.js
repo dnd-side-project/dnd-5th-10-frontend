@@ -4,24 +4,34 @@ import Tags from 'components/Tags'
 import { Link, useHistory } from 'react-router-dom'
 import { JWT_TOKEN } from 'constants/Oauth'
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Navigation from 'components/Navigation'
 import Footer from 'components/Footer'
+import Question from 'components/Question'
+import { getCookie } from 'components/Cookies.js'
+
 // header 설정
 axios.defaults.headers.common['Authorization'] = `Bearer ${JWT_TOKEN}`
 
 function MainPage() {
   const history = useHistory()
 
-  let searchEx
-  let registerEx
-  let mypageEx
-  let quizEx
+  const [allQuestions, setAllQuestions] = useState(null)
+  const [allMostLikedAnswer, setAllMostLikedAnswer] = useState([])
+  const [loginText, setLoginText] = useState('')
 
-  let searchExBtn
-  let registerExBtn
-  let mypageExBtn
-  let quizExBtn
+  const [allHitQuestion, setAllHitQuestion] = useState(null)
+  const [allHitAnswer, setAllHitAnswer] = useState([])
+
+  let searchEx = document.getElementById('search-ex')
+  let registerEx = document.getElementById('register-ex')
+  let mypageEx = document.getElementById('mypage-ex')
+  let quizEx = document.getElementById('quiz-ex')
+
+  let searchExBtn = document.getElementById('search-ex-btn')
+  let registerExBtn = document.getElementById('register-ex-btn')
+  let mypageExBtn = document.getElementById('mypage-ex-btn')
+  let quizExBtn = document.getElementById('quiz-ex-btn')
 
   useEffect(() => {
     searchEx = document.getElementById('search-ex')
@@ -33,8 +43,57 @@ function MainPage() {
     registerExBtn = document.getElementById('register-ex-btn')
     mypageExBtn = document.getElementById('mypage-ex-btn')
     quizExBtn = document.getElementById('quiz-ex-btn')
-
     searchExBtn.style.borderBottom = '0.01px solid #2f00ff'
+  }, [])
+
+  const tempQuestion = []
+  const tempLikedAnswer = []
+  const tempHitQuestion = []
+  const tempHitAnswer = []
+
+  useEffect(() => {
+    axios
+      .get('/api/v1/question/all?page=0&size=3')
+      .then((res) => {
+        res.data.map((item, idx) => {
+          // console.log(item)
+          tempQuestion.push(item)
+          if (item.mostLikedAnswer) tempLikedAnswer.push(item.mostLikedAnswer.content)
+          else {
+            tempLikedAnswer.push('(등록된 답변이 없습니다)')
+          }
+        })
+        setAllQuestions(tempQuestion)
+        setAllMostLikedAnswer(tempLikedAnswer)
+        console.log(allQuestions, allMostLikedAnswer)
+        setLoginText('')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+    if (!getCookie('Authorization')) {
+      setLoginText('로그인 후 볼 수 있습니다.')
+    }
+
+    axios
+      .get('/api/v1/answer/hits')
+      .then((res) => {
+        res.data.map((item, idx) => {
+          // console.log(item)
+          tempHitQuestion.push(item)
+          if (item.content) tempHitAnswer.push(item.content)
+          else {
+            tempHitAnswer.push('(등록된 답변이 없습니다)')
+          }
+        })
+        setAllHitQuestion(tempHitQuestion)
+        setAllHitAnswer(tempHitAnswer)
+        console.log(allHitQuestion, allHitAnswer)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }, [])
 
   const removeLocalStorage = () => {
@@ -126,6 +185,8 @@ function MainPage() {
             <span id="mypage-ex">마이페이지 기능을 통해 나의 IT'erview 기록들을 확인해보세요!</span>
             <span id="quiz-ex">퀴즈 기능을 통해 모의 면접을 경험해보세요!</span>
           </div>
+          <br />
+          <br />
         </div>
         <div className="main-question-section">
           <div>
@@ -167,10 +228,53 @@ function MainPage() {
             </button>
           </div>
         </div>
-
-        <br />
-        <br />
-        <br />
+        <div className="hit-section">
+          <div className="hit-question">
+            <h1 className="hit-question-title">
+              <img src="/img/figure3.png" alt="figur3_icon" />
+              인기있는 면접 문제
+            </h1>
+            <button className="hit-question-btn">더보기</button>
+            <hr className="hit-question-hr" />
+            {allQuestions &&
+              allQuestions.map((item, idx) => {
+                return (
+                  <Question
+                    key={item.id}
+                    id={item.id}
+                    number={idx + 1}
+                    content={item.content}
+                    tagList={item.tagList}
+                    answer={allMostLikedAnswer[idx]}
+                  />
+                )
+              })}
+            <span id="question-login-text">{loginText}</span>
+          </div>
+          <div className="hit-answer">
+            <h1 className="hit-answer-title">
+              <img src="/img/figure4.png" alt="figur3_icon" />
+              베스트 면접 답변
+            </h1>
+            <button className="hit-answer-btn">더보기</button>
+            <hr className="hit-answer-hr" />
+            {allHitQuestion &&
+              allHitQuestion.map((item, idx) => {
+                // console.log(item)
+                return (
+                  <Question
+                    key={item.id}
+                    id={item.questionId}
+                    number={idx + 1}
+                    content={item.questionContent}
+                    tagList={item.tags}
+                    answer={allHitAnswer[idx]}
+                  />
+                )
+              })}
+            <span id="answer-login-text">{loginText}</span>
+          </div>
+        </div>
       </div>
       <Footer />
     </div>
