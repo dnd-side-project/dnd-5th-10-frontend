@@ -32,7 +32,7 @@ const InfiniteAnswerList = (props) => {
   })
 
   const getData = (body) => {
-    let answer = listInfo
+    const answer = listInfo
     let getUrl = `/api/v1/answer/question/${questionId}?page=${page}&size=10&sort=${sort},desc`
     if (props.type === 'myanswer') {
       getUrl = `/api/v1/answer/mine?page=${page}&size=4&sort=${sort},desc`

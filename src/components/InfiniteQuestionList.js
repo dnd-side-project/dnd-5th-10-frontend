@@ -1,7 +1,6 @@
 import axios from 'axios'
 import InfiniteQuestion from 'components/InfiniteQuestion'
 import { useEffect, useState } from 'react'
-import Question from 'components/Question'
 
 const InfiniteQuestionList = (props) => {
   const [listInfo, setListInfo] = useState([])
@@ -22,8 +21,19 @@ const InfiniteQuestionList = (props) => {
   }, [props.sortBy])
 
   useEffect(() => {
-    setWord(props.word)
     setTagList(props.tagList)
+    setPage(0)
+    setListInfo([])
+  }, [props.tagList])
+
+  useEffect(() => {
+    setWord(props.word)
+    setPage(0)
+    setListInfo([])
+  }, [props.word])
+
+  useEffect(() => {
+    // console.log('reload')
     const body = {
       skip: skip,
       limit: limit,
@@ -32,13 +42,18 @@ const InfiniteQuestionList = (props) => {
   })
 
   const getData = (body) => {
-    const questions = listInfo.slice()
+    const questions = listInfo
+    // const questions = listInfo
+    // console.log(tagList.length)
+    // console.log(word.length)
+    let getUrl = `/api/v1/question/search?keyword=${word}&page=${page}&size=10&sort=${sort},desc`
+    // if (tagList.length > 0) getUrl += `&tags=${tagList}`
+    // else if (word.length <= 0) {
+    //   getUrl = `/api/v1/question/all`
+    // }
 
-    // questions.push(listInfo)
-    // console.log(questions)
-    let getUrl = `/api/v1/question/search?keyword=${word}&page=${page}&size=3&tags=${tagList}&sort=${sort},desc`
     if (props.type === 'question') {
-      getUrl = `/api/v1/question/mine?page=${page}&size=3&sort=${sort},desc`
+      getUrl = `/api/v1/question/mine?page=${page}&size=10&sort=${sort},desc`
       axios
         .get(getUrl, body)
         .then((res) => {
@@ -58,7 +73,7 @@ const InfiniteQuestionList = (props) => {
                   questions.push(item)
                 }
               }
-              console.log(item)
+              // console.log(item)
             })
             setListInfo(questions)
             setPage((p) => p + 1)
@@ -68,11 +83,11 @@ const InfiniteQuestionList = (props) => {
           console.log(err)
         })
     } else if (props.type === 'bookmark') {
-      getUrl = `/api/v1/bookmark/mine?page=${page}&size=10&sort=${sort}`
+      getUrl = `/api/v1/bookmark/mine?page=${page}&size=10&sort=${sort},desc`
       axios
         .get(getUrl, body)
         .then((res) => {
-          console.log(res.data)
+          // console.log(res.data)
           res.data.forEach((item) => {
             if (item.mostLikedAnswer === null) item.mostLikedAnswer = { content: '(등록된 답변이 없습니다)' }
             questions.push(item.question)
@@ -84,6 +99,12 @@ const InfiniteQuestionList = (props) => {
           console.log(err)
         })
     } else {
+      getUrl = `/api/v1/question/search?keyword=${word}&page=${page}&size=10&sort=${sort},desc`
+      if (tagList.length > 0) getUrl += `&tags=${tagList}`
+      else if (word.length <= 0) {
+        getUrl = `/api/v1/question/all?page=${page}&size=10&sort=${sort},desc`
+      }
+      console.log(getUrl)
       axios
         .get(getUrl, body)
         .then((res) => {
@@ -103,29 +124,15 @@ const InfiniteQuestionList = (props) => {
                   questions.push(item)
                 }
               }
-              console.log(item)
             })
             setListInfo(questions)
+            console.log(listInfo)
             setPage((p) => p + 1)
           }
         })
         .catch((err) => {
           console.log(err)
         })
-      // axios
-      //   .get(getUrl, body)
-      //   .then((res) => {
-      //     res.data.forEach((item) => {
-      //       if (item.mostLikedAnswer === null) item.mostLikedAnswer = { content: '(등록된 답변이 없습니다)' }
-      //       questions.push(item)
-      //       console.log(item)
-      //     })
-      //     setListInfo(questions)
-      //     setPage((p) => p + 1)
-      //   })
-      //   .catch((err) => {
-      //     console.log(err)
-      //   })
     }
 
     if (listInfo.length === 0) {
